@@ -1,0 +1,176 @@
+{
+  "date_kst": "2026-09-29",
+  "scope": "QuantSplit session01 targeted novelty verification",
+  "query_batches": [
+    {
+      "engine": "system1",
+      "queries": [
+        "\"quantized reasoning\" \"sampling\" support",
+        "\"quantization\" \"probability\" \"candidate\" \"reasoning\" top-p",
+        "\"Quantized Reasoning Models Think They Need to Think Longer\""
+      ],
+      "note": "여러 질의가 일반 단어/무관 결과로 확장됨. 검색 부재 증거로 사용하지 않음."
+    },
+    {
+      "engine": "system2",
+      "queries": [
+        "quantization reasoning nucleus sampling support swap distribution mask",
+        "quantized reasoning temperature top-p ReSET 2606.13233",
+        "quantization reasoning length greedy 2606.25519",
+        "quantization support distribution decomposition counterfactual decoding"
+      ],
+      "note": "정확 ID 질의로 S2/S3를 회수. 광범위 질의는 관련성 낮은 결과도 존재."
+    },
+    {
+      "engine": "system1",
+      "queries": [
+        "quantization reasoning \"candidate set\" decoding",
+        "quantized model \"nucleus\" sampling distribution",
+        "\"quantization\" \"contrastive decoding\"",
+        "\"sampling\" \"support\" \"quantized\" reasoning"
+      ],
+      "note": "최근 365일 필터. 다수 무관 결과 제외. CD 및 모니터링 인접 자료 탐색 단서 확보."
+    },
+    {
+      "engine": "system2",
+      "queries": [
+        "quantized \"contrastive decoding\"",
+        "quantization \"nucleus sampling\" reasoning",
+        "\"quantized\" \"support\" \"decoding\" probability",
+        "\"quantization\" \"candidate set\""
+      ],
+      "note": "DCD arXiv 및 공식 저장소 회수. CD/DCD 원문 후속 열람."
+    },
+    {
+      "engine": "system2",
+      "queries": [
+        "\"quantization\" \"support swapping\"",
+        "\"quantized\" \"probability\" \"mask\" decoding reasoning",
+        "\"Calibrated e-CUSUM\""
+      ],
+      "note": "support swapping/확률 mask는 유효 신규성 부재 근거로 삼지 않음. e-CUSUM은 초록까지만 확인."
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "url": "https://arxiv.org/html/2606.00206v1",
+      "version": "v1",
+      "read": "sections 3-7 and appendices A/B; abstract submission history",
+      "result": "full relevant text accessed; no independent reproduction"
+    },
+    {
+      "id": "S2",
+      "url": "https://arxiv.org/html/2606.13233v1",
+      "version": "v1 HTML; separately accessed unversioned current PDF",
+      "pdf": "https://arxiv.org/pdf/2606.13233",
+      "read": "sections 3/4/6 and truncation comparison",
+      "note": "Same truncation values appear at HTML Table 2 and PDF Table 5; table title used to disambiguate"
+    },
+    {
+      "id": "S3",
+      "url": "https://arxiv.org/pdf/2606.25519",
+      "version": "v1 in accessed PDF",
+      "read": "sections 3/6/7 and appendix D",
+      "failed": [
+        "https://arxiv.org/abs/2606.25519",
+        "https://arxiv.org/html/2606.25519v1"
+      ]
+    },
+    {
+      "id": "S4",
+      "url": "https://arxiv.org/html/2504.04823v2",
+      "version": "v2",
+      "read": "quantization/evaluation text; official README fake quantization section",
+      "code_commit": "bf947e29f52e3f666e3263efac149dae0ac18d00",
+      "code_url": "https://github.com/ruikangliu/Quantized-Reasoning-Models",
+      "note": "read-only reference, no installation or execution"
+    },
+    {
+      "id": "S5",
+      "url": "https://arxiv.org/html/2604.11012v1",
+      "version": "v1",
+      "read": "sections 1-3/5",
+      "failed": [
+        "https://huggingface.co/papers/2604.11012.md"
+      ]
+    },
+    {
+      "id": "S6",
+      "url": "https://aclanthology.org/2023.acl-long.687.pdf",
+      "version": "ACL 2023 proceedings",
+      "read": "abstract and section 3, expert plausibility constraint"
+    },
+    {
+      "id": "S7",
+      "url": "https://arxiv.org/html/2402.14874v2",
+      "version": "v2",
+      "read": "sections 3 and 7.2",
+      "failed": [
+        "https://huggingface.co/papers/2402.14874.md"
+      ]
+    },
+    {
+      "id": "S8",
+      "url": "https://github.com/eapache/quant-experiments",
+      "version": "a5b590f6a00ffcbd7163fde2e783b61f72d9a54e",
+      "read": [
+        "README.md",
+        "analyze_sampler_grid.py",
+        "results/bf16_mass_q2/MASS_CALIBRATION.md"
+      ],
+      "status": "non-peer-reviewed public experiments; not whole-repository audit"
+    },
+    {
+      "id": "S9",
+      "url": "https://arxiv.org/pdf/2602.18292",
+      "version": "v2 in accessed PDF",
+      "read": "abstract/introduction only",
+      "role": "adjacent decoding optimization framework; not exhaustive collision check"
+    },
+    {
+      "id": "LEAD1",
+      "url": "https://arxiv.org/abs/2607.11317",
+      "version": "not independently verified",
+      "read": "arXiv-indexed abstract via search only",
+      "failed": [
+        "abs",
+        "html/v1",
+        "pdf",
+        "HF paper page"
+      ],
+      "role": "adjacent monitoring; not a full-text-excluded collision"
+    },
+    {
+      "id": "LEAD2",
+      "url": "https://arxiv.org/abs/2607.20129",
+      "version": "not independently verified",
+      "read": "arXiv-indexed abstract via search only",
+      "failed": [
+        "pdf"
+      ],
+      "role": "adjacent constrained re-decoding; not a full-text-excluded collision"
+    },
+    {
+      "id": "MODEL",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
+      "version": "live card checked; execution revision not frozen",
+      "read": "usage recommendations"
+    },
+    {
+      "id": "DATA",
+      "url": "https://huggingface.co/datasets/openai/gsm8k",
+      "version": "live card checked; execution revision not frozen",
+      "read": "main configuration and splits, public example question",
+      "note": "card prose calls split validation; execution must verify actual test split key and row manifest"
+    }
+  ],
+  "novelty_claim": "No identical four-policy free-rollout quantization length/accuracy intervention found in inspected relevant sources; not proof of absence or world-first claim.",
+  "unresolved": [
+    "full text access to LEAD1/LEAD2",
+    "unindexed or unpublished work",
+    "live artifact versions may change"
+  ],
+  "models_run": false,
+  "external_paper_full_text_committed": false
+}

@@ -1,0 +1,205 @@
+{
+  "protocol_version": "0.2-proposal-final",
+  "date_kst": "2026-09-29",
+  "status": "PROPOSAL_READY_APPROVAL_PENDING_NOT_RUN",
+  "work_name": "quant-sampling-decomposition",
+  "source_of_values": "Proposed design choices, not experimental observations",
+  "model": {
+    "id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
+    "revision": null,
+    "reference_dtype": "bfloat16",
+    "treatment": "GPTQ_W3_G128_weight_only_simulated_in_BF16",
+    "quantization_code_revision": null,
+    "activation_dtype": "bfloat16",
+    "kv_cache_dtype": "bfloat16",
+    "quantization_symmetry": "asymmetric",
+    "quantization_details_pending": [
+      "damp",
+      "act_order",
+      "target_layers",
+      "implementation_revision",
+      "calibration_manifest"
+    ]
+  },
+  "generation": {
+    "temperature": 0.6,
+    "top_p": 0.95,
+    "top_k_enabled": false,
+    "min_p": 0,
+    "repetition_penalty": 1,
+    "max_new_tokens": 32768,
+    "seeds_proposed": [
+      42,
+      43
+    ],
+    "seeds_frozen": false,
+    "sampling_arithmetic": "float32",
+    "candidate_tie_break": "token_id",
+    "apply_second_top_p_to_hybrid": false,
+    "template_hash": null,
+    "eos_and_think_end_token_ids": null,
+    "plan_seed_count": 2,
+    "seed_reduction_requires_pretest_new_version": true,
+    "prng_plan": "common uniform keyed by question_id, seed, generation_step; inverse CDF in token-ID order; exact PRNG pending",
+    "top_p_boundary": "descending probability, ascending token_id ties, include threshold crossing token; top_p=1 uses all allowed vocabulary",
+    "prompt_policy": "user-only problem plus step-by-step and boxed-answer instruction; reasoning-start prefix once, after template verification"
+  },
+  "arms": {
+    "FF": {
+      "probability_supplier": "F",
+      "support_supplier": "F"
+    },
+    "QQ": {
+      "probability_supplier": "Q",
+      "support_supplier": "Q"
+    },
+    "QF": {
+      "probability_supplier": "Q",
+      "support_supplier": "F"
+    },
+    "FQ": {
+      "probability_supplier": "F",
+      "support_supplier": "Q"
+    }
+  },
+  "data": {
+    "primary": "openai/gsm8k main test",
+    "primary_n": 1319,
+    "replication": "HuggingFaceH4/MATH-500",
+    "calibration_source": "128 disjoint GSM8K train problems with generated reference traces",
+    "development_n": 128,
+    "pilot_n": 128,
+    "test_excluded_from_tuning": true,
+    "split_manifest_sha256": null,
+    "dataset_revision": null,
+    "parser_revision": null,
+    "split_selection": "SHA256 of normalized question, ascending; tie row_index; consecutive disjoint 128 calibration / 128 development / 128 pilot; replace duplicate train candidates with audit",
+    "duplicate_policy": "exclude exact/near test duplicates from train candidates before outputs; keep official test; near-match method pending development freeze",
+    "calibration_max_sequence_tokens": 2048,
+    "calibration_input": "prompt plus F-generated text; no gold answer in input; only after approval",
+    "primary_accuracy": "final boxed numeric answer after completed reasoning; parse failure/missing final answer incorrect; cap with valid final answer scored, cap flag separate"
+  },
+  "estimand": {
+    "L": "mean consumed generation tokens including reasoning and final answer under fixed cap",
+    "delta": "L_QQ-L_FF",
+    "R": "(L_QQ-L_QF)/(L_QQ-L_FF)",
+    "accuracy_contrast": "A_QF-A_QQ",
+    "interaction": "L_QQ-L_QF-L_FQ+L_FF",
+    "interpretation": "Controlled-policy recovery ratio, not a unique natural mediation fraction",
+    "threshold_contrast": "C_r = (L_QQ-L_QF) - r*(L_QQ-L_FF)",
+    "probability_preservation": "Q logits and relative weights within permitted support are retained; normalization changes absolute probabilities"
+  },
+  "inference": {
+    "cluster_unit": "question",
+    "seed_aggregation": "within-question mean",
+    "bootstrap_resamples": 10000,
+    "primary_support_rule": "ratio eligibility AND one-sided 95% lower C_0.50 > 0 AND one-sided 95% lower accuracy_contrast > -0.03",
+    "bounded_negative_rule": "eligible AND one-sided 95% upper C_0.20 < 0",
+    "equivalence_rule_optional": "eligible AND lower95(D+0.20*Delta)>0 AND upper95(D-0.20*Delta)<0",
+    "unstable_denominator_rule": "If ratio eligibility fails, no ratio inference; report Delta and D with CIs; not H1 refutation",
+    "secondary_families": "Freeze before confirmation; Holm correction for confirmatory secondary claims",
+    "bootstrap_seed": 20260929,
+    "bootstrap_method": "paired question-cluster percentile; numpy-style linear quantile interpolation",
+    "ratio_eligibility": {
+      "two_sided_95_delta_lower_gt": 0,
+      "bootstrap_nonpositive_delta_fraction_lt": 0.025,
+      "point_mean_length_ratio_min": 1.2
+    },
+    "primary_test_logic": "intersection-union; each support component one-sided alpha .05; C_r decision is authoritative, ratio CI descriptive",
+    "large_recovery_refutation": "eligible AND one-sided 95% upper C_0.50 < 0",
+    "accuracy_margin_refutation": "one-sided 95% upper accuracy_contrast < -0.03",
+    "global_refutation_multiplicity": "Bonferroni across two component-refutation tests: eligible AND upper97.5(C_0.50)<0, OR upper97.5(accuracy_contrast)<-0.03; individual endpoint summaries use one-sided95 bounds",
+    "interim_testing": false,
+    "missing_run_policy": "replay exact failed task; do not drop questions or encode infrastructure errors as short outputs; incomplete plan cannot receive final H1 classification"
+  },
+  "pilot_gates_proposed": {
+    "reference_accuracy_min": 0.5,
+    "quantized_accuracy_min": 0.25,
+    "mean_length_ratio_min": 1.2,
+    "one_sided_95_delta_lower_gt": 0,
+    "cap_rate_each_baseline_lt": 0.2,
+    "identity_and_boundary_controls_passed": false,
+    "throughput_measured": false,
+    "precision_assessed": false,
+    "must_fit_actual_available_gpu_hours": true,
+    "reference_support_scenario": {
+      "R": 0.8,
+      "accuracy_difference": 0
+    },
+    "reference_upper_bound_scenario": {
+      "R": 0,
+      "accuracy_difference": 0
+    },
+    "planning_power_min_each_scenario": 0.8,
+    "sensitivity_variance_multiplier": 1.5,
+    "sensitivity_delta_multiplier": 0.5,
+    "time_budget_buffer_fraction": 0.3,
+    "finish_target_kst": "2026-10-10"
+  },
+  "claims_not_authorized_by_this_design": [
+    "Guaranteed publication",
+    "Universal mechanism across quantization regimes",
+    "Deployable speedup from BF16-oracle intervention",
+    "Real low-bit hardware speedup from simulated quantization",
+    "A nonsignificant result proves equivalence",
+    "Benchmark pretraining contamination has been eliminated"
+  ],
+  "confirmatory_freeze": false,
+  "repository": "https://github.com/JunKIM2603a/quant-sampling-decomposition",
+  "authoritative_design": "research/session01/02_hypothesis_and_protocol.md",
+  "approval": {
+    "confirmed": false,
+    "date": null,
+    "evidence": null,
+    "email_sent": false
+  },
+  "controls": {
+    "required_implementation": [
+      "F_equals_Q_four_arm_identity",
+      "top_p_one_FF_equals_FQ_QQ_equals_QF",
+      "cache_vs_full_prefix",
+      "FF_QQ_reference_policy_match",
+      "batch_order_rng_invariance",
+      "parser_stop_and_ties"
+    ],
+    "required_diagnostics": [
+      "support_cardinality",
+      "support_jaccard",
+      "retained_probability_mass",
+      "same_prefix_TV",
+      "eos_and_reasoning_end_membership",
+      "cap_and_final_answer_completion"
+    ],
+    "interpretation_controls": [
+      {
+        "name": "QK",
+        "definition": "Q probabilities on Q top-k where k=|M_F| at QK own prefix",
+        "needed_for": "token identity beyond candidate count claim"
+      },
+      {
+        "name": "QQ-E_QF-E",
+        "definition": "union shared EOS/reasoning_end token set E into corresponding masks at each own prefix",
+        "needed_for": "claims beyond termination-token membership"
+      }
+    ],
+    "secondary_experiments_frozen": false
+  },
+  "execution_pending": [
+    "professor_PASS",
+    "model_and_tokenizer_revision",
+    "quantization_code_and_full_config",
+    "split_manifest_and_duplicates",
+    "prompt_and_parser_hash",
+    "eos_reasoning_end_ids",
+    "prng_implementation",
+    "actual_GPU_hours_and_throughput",
+    "confirmatory_protocol_commit"
+  ],
+  "change_summary": [
+    "new literature boundary for CD/DCD/Min-k",
+    "linear threshold contrasts instead of primary ratio-CI decisions",
+    "explicit denominator eligibility",
+    "candidate-count and termination controls",
+    "conditional extensions and quantified precision risk"
+  ]
+}

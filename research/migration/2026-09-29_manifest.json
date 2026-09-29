@@ -1,0 +1,108 @@
+{
+  "date_kst": "2026-09-29",
+  "source_repository": "JunKIM2603a/ai-research-chatgpt",
+  "source_commit": "c21bccc704df3e1e487fd8241b87e702578695b2",
+  "target_repository": "JunKIM2603a/quant-sampling-decomposition",
+  "target_parent": "1d8f5c4db249e87b6325f444ed032f060381ea8a",
+  "migration_commit": "1ae2d88b47e1c48510ba2ad5f054ae1ec7a4110a",
+  "target_branch": "main",
+  "verification": "16 files compared by Git blob SHA at migration commit; all match; target README preserved",
+  "files": [
+    {
+      "path": "PROJECT_INSTRUCTIONS.md",
+      "source_blob_sha": "b648afee85b758e5350c9b84bd789ee999111773",
+      "destination_blob_sha": "b648afee85b758e5350c9b84bd789ee999111773",
+      "match": true
+    },
+    {
+      "path": "PROJECT_STATUS.md",
+      "source_blob_sha": "bb10e0f1c364b88aa2eb9678c69805b5deb058cd",
+      "destination_blob_sha": "bb10e0f1c364b88aa2eb9678c69805b5deb058cd",
+      "match": true
+    },
+    {
+      "path": "protocols/quant_sampling_v0.1.json",
+      "source_blob_sha": "0d5912c1fa355b99ef67537394886b570ab4b06d",
+      "destination_blob_sha": "0d5912c1fa355b99ef67537394886b570ab4b06d",
+      "match": true
+    },
+    {
+      "path": "research/2026-09-29/01_decision.md",
+      "source_blob_sha": "313f88d0dd55178750594afddf63dcca3e800e35",
+      "destination_blob_sha": "313f88d0dd55178750594afddf63dcca3e800e35",
+      "match": true
+    },
+    {
+      "path": "research/2026-09-29/02_evidence.md",
+      "source_blob_sha": "38d3205dd9da5f593b3ab483b8a94d4bf9f0f50f",
+      "destination_blob_sha": "38d3205dd9da5f593b3ab483b8a94d4bf9f0f50f",
+      "match": true
+    },
+    {
+      "path": "research/2026-09-29/03_protocol.md",
+      "source_blob_sha": "44926d3a7113e7f26af1ebf860dde1e98c93972f",
+      "destination_blob_sha": "44926d3a7113e7f26af1ebf860dde1e98c93972f",
+      "match": true
+    },
+    {
+      "path": "research/2026-09-29/04_backup_marker_controls.md",
+      "source_blob_sha": "049280af4f48b3fe4d17aa5eed2f6d111fd182c2",
+      "destination_blob_sha": "049280af4f48b3fe4d17aa5eed2f6d111fd182c2",
+      "match": true
+    },
+    {
+      "path": "research/2026-09-29/05_proposal_ko.md",
+      "source_blob_sha": "7ddc4d3137f4009ea4e3624b34d4a171bf16b57b",
+      "destination_blob_sha": "7ddc4d3137f4009ea4e3624b34d4a171bf16b57b",
+      "match": true
+    },
+    {
+      "path": "research/2026-09-29/06_schedule_compute.md",
+      "source_blob_sha": "5a104d1264fbc355a906cb502e86afcd545a1e37",
+      "destination_blob_sha": "5a104d1264fbc355a906cb502e86afcd545a1e37",
+      "match": true
+    },
+    {
+      "path": "research/2026-09-29/07_red_team.md",
+      "source_blob_sha": "8b1a916fd12bee809431c6d224251bc0b5f201b1",
+      "destination_blob_sha": "8b1a916fd12bee809431c6d224251bc0b5f201b1",
+      "match": true
+    },
+    {
+      "path": "research/2026-09-29/08_search_log.json",
+      "source_blob_sha": "e2ca0f3d013a40ff6648f7517b3874b18db1867c",
+      "destination_blob_sha": "e2ca0f3d013a40ff6648f7517b3874b18db1867c",
+      "match": true
+    },
+    {
+      "path": "research/DECISIONS.md",
+      "source_blob_sha": "79e2cb469cb14db5af7f36c0af2d227fd2dd1cb3",
+      "destination_blob_sha": "79e2cb469cb14db5af7f36c0af2d227fd2dd1cb3",
+      "match": true
+    },
+    {
+      "path": "research/PROJECT_SETUP.md",
+      "source_blob_sha": "841c18ac544ec300f1fcc3f9c19eb01ac8057a01",
+      "destination_blob_sha": "841c18ac544ec300f1fcc3f9c19eb01ac8057a01",
+      "match": true
+    },
+    {
+      "path": "research/SESSION_PLAN.md",
+      "source_blob_sha": "8cb0d83757f58122772f61251b168b15996298bb",
+      "destination_blob_sha": "8cb0d83757f58122772f61251b168b15996298bb",
+      "match": true
+    },
+    {
+      "path": "research/handoffs/00_to_01.md",
+      "source_blob_sha": "0c128f88147efaedf8c81817c37dda22b2afbb87",
+      "destination_blob_sha": "0c128f88147efaedf8c81817c37dda22b2afbb87",
+      "match": true
+    },
+    {
+      "path": "results/README.md",
+      "source_blob_sha": "aab7dde077fb20837bf44e5402111aed77dbd6e6",
+      "destination_blob_sha": "aab7dde077fb20837bf44e5402111aed77dbd6e6",
+      "match": true
+    }
+  ]
+}
