@@ -1,0 +1,25 @@
+{
+  "passed": false,
+  "same_weight_trace_identity": true,
+  "top_p_one_trace_identity": true,
+  "cache": {
+    "F": {
+      "max_abs_logit": 0.21875,
+      "max_tv": 0.009286526618974375
+    },
+    "Q": {
+      "max_abs_logit": 0.3125,
+      "max_tv": 0.02662345340131388
+    }
+  },
+  "baseline_distribution_errors": {
+    "FF": 0.0,
+    "QQ": 0.0
+  },
+  "tolerances": {
+    "bf16_cache_max_abs_logit": 0.25,
+    "bf16_cache_tv": 0.001,
+    "independent_baseline_max_abs_probability": 2e-06
+  },
+  "scope": "short-prefix development check; full 32768-token budget still needs target-GPU validation"
+}

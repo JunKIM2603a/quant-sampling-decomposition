@@ -2,13 +2,15 @@
 
 ## 최신 중단 지점: target-gate-gpu1-01 (9/30 검토)
 
-사용자 로그에서 calibration 128/128 및 GPTQ 저장은 확인됐다. smoke 본 생성 전 구현 검사에서 중단됐으며 실패 세부 JSON은 아직 검토하지 못했다. **환경 설치/calibration/양자화를 처음부터 다시 실행할 필요가 확인된 상태가 아니다.** 기존 checkpoint와 실패 출력 폴더를 보존하고 다음 파일을 먼저 전달한다.
+사용자가 후속 제공한 validation JSON에서 F/Q cache TV 및 Q max logit 기준 초과를 확인했다. identity·p=1·baseline 분포는 통과했다. **현재는 아래 짧은 진단만 실행한다.** 기존 checkpoint와 실패 출력 폴더를 보존한다. 설치/calibration/양자화를 반복하지 않으며, 허용 오차도 바꾸지 않는다.
 
 ```bash
-cat runs/target-gate-gpu1-01/dev-smoke.validation.json
+conda activate quantsplit
+git pull --ff-only
+python scripts/diagnose_cache.py --device cuda:1 --q-checkpoint checkpoints/gptq-w3-g128 --output runs/cache-diagnostic-gpu1-01.json
 ```
 
-또는 이미 생성된 `runs/target-gate-gpu1-01.tar.gz`를 첨부한다. Q manifest와 실패 검사 내용을 함께 검토할 수 있다. runner는 이번 보완부터 실패 JSON을 터미널에도 출력하지만, 기존 실패 수치를 확인하려고 재실행할 필요는 없다. 오차 기준·연구 설정은 그대로 유지한다.
+완료 후 `runs/cache-diagnostic-gpu1-01.json`을 첨부한다. 오류가 나면 같은 JSON과 터미널 오류를 함께 전달한다. 이미 파일이 있으면 새 번호를 사용한다. Q manifest·hash 검증·모드별 오차와 cache 길이를 저장한다. 정상 종료는 진단 수집 완료일 뿐 기존 관문 통과가 아니다. 상세 비교·해석은 [04_cache_diagnostic.md](04_cache_diagnostic.md)를 따른다. smoke/full-cap은 원인 검토 뒤 재개한다.
 
 아래는 전체 실행 절차다.
 

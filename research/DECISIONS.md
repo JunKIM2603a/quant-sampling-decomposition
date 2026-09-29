@@ -96,3 +96,12 @@
 - 현재 조치: checkpoint 보존, dev-smoke.validation.json 또는 기존 tar.gz 수신 후 진단. CUDA/SDPA/GPTQ 중 하나를 원인으로 단정하거나 기준을 완화하지 않는다.
 - 실패 JSON이 터미널 로그에도 나타나도록 출력만 보완했다. 실제 계산·오차 기준·H1·프로토콜은 변경하지 않았다. 기존 오류 재현을 위해 고비용 과정을 반복하지 않는다.
 - 상태: 02 미완료·03 인계 비활성. 교수 실제 PASS 미확인. 근거 요약은 research/session02/target_gpu_run01_review.json.
+
+## 2026-09-30 — 실제 cache 대조 실패 수신·원인 분리 진단 준비
+
+- 사용자 `cat dev-smoke.validation.json` 내용을 수신하여 target_gpu_run01_validation.json에 보존했다. 원본 파일 bytes/hash를 직접 받은 것으로 기록하지 않는다.
+- F max logit=.21875는 .25 이내지만 TV=.0092865266은 .001 초과. Q max logit=.3125 및 TV=.0266234534 모두 기준 초과. F=Q·p=1 trace와 독립 baseline 분포는 통과. 이는 cache/full-prefix 수치 대조이며 F-Q 효과·정답률·H1 결과가 아니다.
+- BF16/GEMM/SDPA 연산 경로의 수치 차이 가능성은 공식 문서와 일치하지만 이번 원인으로 확정하지 않는다. cache 위치/길이·직접 Transformers 참조·fresh cache·동일 full-prefix 반복도 비교한다.
+- 같은 잠긴 development probe와 기존 GPTQ checkpoint로 네 가지 단기 계산 모드를 비교하는 진단을 추가했다. 마지막 FP32는 원인 분리용으로 BF16 값을 승격하며 디스크 가중치·연구 설정·오차 기준을 바꾸지 않는다. 모드별 결과로 자동 설정 선택/기준 완화를 하지 않는다.
+- assistant CPU 환경에서 기존 24 + 신규 3 = 27 tests 통과(2.777초). 작은 실제 Qwen2 네 모드, cache 출력 오류 주입 검출, 설정 복원 및 비유한값 거부를 확인했다. 새 진단의 실제 4090/1.5B 실행은 아직 없다.
+- 상태: 02 미완료·03 비활성·교수 실제 PASS 미확인. 다음 입력은 runs/cache-diagnostic-gpu1-01.json. 상세: research/session02/04_cache_diagnostic.md.

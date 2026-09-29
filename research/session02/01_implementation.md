@@ -1,6 +1,6 @@
 # QuantSplit 02 — 구현과 현재 판정
 
-2026-09-29 KST. **코드·CPU 검증 완료, 실제 1.5B/GPTQ/RTX 4090 검증 대기. 02 전체는 미완료다.** H1의 경험적 결과는 아직 없다.
+2026-09-29 KST 구현 기록. **후속 9/30: 실제 1.5B/GPTQ 실행에서 cache 대조 실패. 02 전체 미완료.** 아래 CPU 결과는 최초 검증 이력이며, 최신 실제 GPU 수치·진단은 [04_cache_diagnostic.md](04_cache_diagnostic.md)를 따른다. H1의 경험적 결과는 아직 없다.
 
 ## 진행 권한
 
@@ -46,7 +46,7 @@ COLM 선행연구 코드의 GPTQ/WeightQuantizer를 MIT 고지와 함께 사용�
 
 128문항의 BF16 참조 생성으로 prompt+trace 최대 2,048토큰을 만든다(T=.6, p=.95, seed42). 가변 길이를 padding 없이 사용하며 layer kwargs/position embeddings를 개별 sequence별로 보존한다. GPTQ 코어의 damping 자동 증가를 제거해 Cholesky 실패는 명시적으로 중단한다. 기존 upstream 전체 pipeline이나 다른 calibration 집합의 정확 재현이라고 주장하지 않는다.
 
-완성 checkpoint는 양자화·역양자화된 BF16 safetensors와 base revision, calibration token hash, quantization config/source hash, 파일 hash manifest를 가진다. GPTQ integer kernel 가속을 측정하는 구현이 아니다. **실제 1.5B calibration·GPTQ checkpoint는 아직 만들지 않았다.**
+완성 checkpoint는 양자화·역양자화된 BF16 safetensors와 base revision, calibration token hash, quantization config/source hash, 파일 hash manifest를 가진다. GPTQ integer kernel 가속을 측정하는 구현이 아니다. 최초 CPU 검증 시 실제 checkpoint는 미생성이었다. 9/30 후속 사용자 로그에서 실제 calibration 128/128 및 checkpoint 저장을 확인했다. Q manifest 원본의 직접 검토는 대기다.
 
 ## 확인한 결과와 남은 관문
 
@@ -55,7 +55,7 @@ COLM 선행연구 코드의 GPTQ/WeightQuantizer를 MIT 고지와 함께 사용�
 | 수치·경계·독립 경로·파서·분할 | 19개 통과 | [core_test_report.json](core_test_report.json) |
 | 실제 Transformers 작은 Qwen2 | F=Q, p=1, 순서, cache/full-prefix, 독립 baseline 분포 통과 | [tiny_model_verification.json](tiny_model_verification.json) |
 | 작은 모델 GPTQ | 대각 Hessian에서 RTN 일치, 가변 길이 처리, 14개 대상 weight 변경·나머지 보존, BF16 cache/4-arm 통과 | 같은 검증 JSON |
-| 실제 DeepSeek 1.5B BF16/GPTQ | 미실행 | 실제 장비 필요 |
+| 실제 DeepSeek 1.5B BF16/GPTQ (후속 9/30) | identity·p=1·baseline 통과, cache 대조 실패 | [실제 실패 수치](target_gpu_run01_validation.json) |
 | RTX 4090의 VRAM/처리량·32,768 cap | 미측정 | 실제 장비 필요 |
 | H1/파일럿/확증 | 미실행 | 03 이후 별도 |
 

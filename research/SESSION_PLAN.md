@@ -4,7 +4,7 @@
 
 ## 현재 진행 상태
 
-**최신 2026-09-30:** 사용자 GPU 로그에서 preflight·calibration 128개 생성·GPTQ checkpoint 저장까지 확인했다. 실제 F/Q 구현 검사에서 중단됐으며 `dev-smoke.validation.json`의 세부 수치가 아직 없다. 먼저 해당 보고서를 받아 원인을 진단한다. 기존 checkpoint 보존, 02 미완료·03 비활성 유지. 아래 9/29 내용은 진행 이력이다.
+**최신 2026-09-30:** 사용자 GPU 로그에서 preflight·calibration 128개 생성·GPTQ checkpoint 저장까지 확인했다. 후속 validation JSON에서 F/Q cache TV 및 Q logit 기준 초과를 확인했다. identity·p=1·baseline은 통과했다. 27개 CPU tests로 검증한 짧은 cache 진단을 실제 장비에서 실행해 원인을 구분한다. [진단 순서](session02/04_cache_diagnostic.md)를 따른다. 기존 checkpoint 보존, 02 미완료·03 비활성 유지. 아래 9/29 내용은 진행 이력이다.
 
 2026-09-29: 01 문헌·H1·제안서는 완료했다. 사용자가 “승인 했다는 전제로 우선 진행해줘.”라고 지시하여 승인 가정으로 02에 진입했다. 교수님 실제 PASS는 여전히 미확인이다. 02 구현·19개 core tests·작은 Qwen2/GPTQ CPU 검증과 모델/데이터 분할 고정은 완료했고, 실제 1.5B/GPTQ·RTX 4090·긴 context 검증이 남았다. **02 전체 미완료**이며 [현재 인계](handoffs/02_target_gpu_pending.md)를 따른다.
 
