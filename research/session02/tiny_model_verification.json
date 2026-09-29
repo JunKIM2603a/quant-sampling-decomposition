@@ -1,0 +1,84 @@
+{
+  "kind": "random_tiny_qwen2_implementation_verification_not_research_result",
+  "torch": "2.8.0+cpu",
+  "transformers": "4.57.1",
+  "device": "cpu",
+  "seed": 20260929,
+  "passed": true,
+  "checks": [
+    "F_equals_Q",
+    "top_p_one",
+    "arm_order_invariance",
+    "cache_vs_full_prefix_FP32",
+    "cache_vs_full_prefix_BF16",
+    "FF_QQ_transformers_TopPLogitsWarper_distribution",
+    "GPTQ_diagonal_H_equals_RTN",
+    "GPTQ_variable_length_layerwise",
+    "GPTQ_only_14_target_weights_changed",
+    "GPTQ_BF16_four_arm_cache"
+  ],
+  "cache_max_abs_errors_fp32": {
+    "F": [
+      0.0,
+      4.470348358154297e-08,
+      1.4901161193847656e-08,
+      2.9802322387695312e-08
+    ],
+    "Q": [
+      0.0,
+      2.9802322387695312e-08,
+      4.470348358154297e-08,
+      5.960464477539063e-08
+    ]
+  },
+  "cache_max_abs_errors_bf16": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "baseline_distribution_errors": {
+    "FF": 3.725290298461914e-09,
+    "QQ": 5.587935447692871e-09
+  },
+  "tiny_GPTQ_target_count": 14,
+  "tiny_GPTQ_cache_errors_bf16": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "target_driver_validation_on_tiny_pair": {
+    "passed": true,
+    "same_weight_trace_identity": true,
+    "top_p_one_trace_identity": true,
+    "cache": {
+      "F": {
+        "max_abs_logit": 0.0,
+        "max_tv": 0.0
+      },
+      "Q": {
+        "max_abs_logit": 0.0,
+        "max_tv": 0.0
+      }
+    },
+    "baseline_distribution_errors": {
+      "FF": 3.725290298461914e-09,
+      "QQ": 7.450580596923828e-09
+    },
+    "tolerances": {
+      "bf16_cache_max_abs_logit": 0.25,
+      "bf16_cache_tv": 0.001,
+      "independent_baseline_max_abs_probability": 2e-06
+    },
+    "scope": "short-prefix development check; full 32768-token budget still needs target-GPU validation"
+  },
+  "tolerances": {
+    "fp32_logits": 1e-05,
+    "bf16_logits": 0.02,
+    "distribution": 1e-06
+  },
+  "actual_1_5b_model_verified": false,
+  "actual_GPTQ_verified": false,
+  "GPU_verified": false
+}

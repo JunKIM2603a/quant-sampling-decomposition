@@ -1,0 +1,73 @@
+{
+  "status": "DEVELOPMENT_ONLY_NOT_CONFIRMATORY_FROZEN",
+  "model_id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
+  "model_revision": "ad9f0ae0864d7fbcd1cd905e3c6c5b069cc8b562",
+  "tokenizer_revision": "ad9f0ae0864d7fbcd1cd905e3c6c5b069cc8b562",
+  "tokenizer_hash": "3efdc2da1790073c1105cf74972a09185d8532e2e612667309bcae4ad25d856b",
+  "dataset_revision": "740312add88f781978c0658806c59bc2815b9866",
+  "split_manifest_sha256": "f650f57279971fee307f9a85ced0033d75347ab4c3af86d49c560c508a1c6ad8",
+  "rng_version": "quantsplit-sha256-uniform-v1",
+  "worklist_sha256": {
+    "calibration": "df45b13750aa17ca84a690efb3298a05512743d258924b010b693588f707820b",
+    "development": "9562c01efeff10361ae5b9646b32e393f395e71e57e1f731e5646e4830ce65ff",
+    "pilot": "41aacc49f6333091b86d95a3adf8f1506c7481259d67c99e3c6097ab20c43d70"
+  },
+  "parser_version": "boxed-after-think-v1",
+  "eos_ids": [
+    151643
+  ],
+  "reasoning_end_ids": [
+    151649
+  ],
+  "reasoning_end_single_token": true,
+  "model_context_limit": 131072,
+  "tokenizer_advertised_max_length": 16384,
+  "context_policy": "No truncation; prompt + cap <= model limit; validate long context on target GPU",
+  "prompt_probe_sha256": "5d89cc6157a3bd4bd6e8371938e7da226eec25b5fad726132048548448fbe96b",
+  "prompt_probe_ids": [
+    151646,
+    151644,
+    3838,
+    374,
+    220,
+    17,
+    488,
+    220,
+    18,
+    1939,
+    5501,
+    2874,
+    3019,
+    553,
+    3019,
+    11,
+    323,
+    2182,
+    697,
+    1590,
+    4226,
+    2878,
+    1124,
+    79075,
+    46391,
+    151645,
+    151648,
+    198
+  ],
+  "model_vocab_size": 151936,
+  "tokenizer_length": 151665,
+  "special_token_policy": "entire model vocabulary; EOS stops, reasoning-end does not stop",
+  "packages": {
+    "torch": "2.8.0+cpu",
+    "transformers": "4.57.1",
+    "datasets": "4.3.0",
+    "numpy": "2.5.3",
+    "tokenizers": "0.22.2",
+    "huggingface-hub": "0.36.2"
+  },
+  "q_checkpoint_ready": false,
+  "test_outputs_seen": false,
+  "professor_PASS_verified": false,
+  "user_authorized_assumed_approval": true,
+  "chat_template_sha256": "56a1447ad31926fdc21fb07e56e5642bd9c850c4f52d8c8af7bbe5f079a84f5f"
+}

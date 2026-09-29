@@ -58,3 +58,15 @@
 - 교수님 제안서와 이메일 초안을 만들었으나 발송하지 않았다. 사용자 명시대로 교수님 PASS 미확인이다.
 - 산출물: research/session01/01~07 문서, protocols/quant_sampling_v0.2.json, migration manifest, 현행 상태/지침/계획과 승인 대기·조건부 다음 단계 인계.
 - 판정: 제출 문서 작업 완료, **01단계 전체는 승인 대기로 미완료**. 다음 단계는 PASS 및 수정 반영 후 QuantSplit 02. 현재 모델 실험 GO가 아니다.
+
+
+## 2026-09-29 — 사용자 승인 가정 지시에 따른 02 구현
+
+- 직접 지시: “승인 했다는 전제로 우선 진행해줘.” 사용자가 기존 승인 대기 조건을 바꾸었으므로 반복 허가 요청 없이 02를 시작했다. 교수 실제 PASS는 확인한 사실이 아니며 미확인으로 보존한다.
+- 4-arm·FP32 sampler·독립 cache·키 기반 난수·boxed parser·분할·checkpoint 검증을 구현했다. 모델/데이터 revision 및 128/128/128 train 분할을 고정했다. 공식 test는 질문 중복 감사에만 사용했고 자체 test 모델 출력은 없다.
+- 19개 core 검증 및 무작위 작은 Qwen2/GPTQ CPU 검증을 통과했다. 실측 수치와 조건은 research/session02/*_verification.json, core_test_report.json에 기록한다. 작은 모델 검증을 실제 1.5B 증거로 바꾸지 않는다.
+- 선행연구의 MIT GPTQ 코어를 출처·라이선스와 함께 추출했다. 고정 damping .01에서 실패하도록 자동 증가를 제거하고, 가변 길이 calibration의 layer kwargs를 보존하는 순차 driver를 구현했다. 실제 calibration 생성·GPTQ 저장·개발 4-arm 명령을 준비했다.
+- H1·분모 적격·정답률 여유·효과 임계값·주 seed 42/43은 변경하지 않았다. 개발 상세값을 v0.2.1로 추가했다. 이는 확증 동결이 아니다.
+- tokenizer 16,384와 model context 131,072의 메타데이터 차이를 발견했다. 자동 truncation을 금지하고 실제 prompt+32,768 cap의 장비 검증을 남겼다. EOS와 reasoning-end도 실제 tokenizer로 구분했다.
+- 판단: **02 구현 진전 / 실제 장비 관문 미완료**. 현재 실행 환경에 CUDA GPU가 없고 사용자 4090은 연결되지 않았다. 실제 1.5B checkpoint·cache/정책 대조·긴 context·VRAM·처리량이 확인되기 전 03으로 완료 전환하지 않는다.
+- 현재 인계: research/handoffs/02_target_gpu_pending.md. 다음 대화는 ‘QuantSplit 02-2 — 실제 GPU 검증·파일럿 준비’. 03 인계는 조건부 준비다.

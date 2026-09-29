@@ -1,0 +1,22 @@
+{
+  "kind": "implementation_tests_not_research_results",
+  "command": "python -m unittest discover -s tests -v",
+  "returncode": 0,
+  "output": "test_disjoint_splits_deterministic_exact_near_audit (test_core.DataTests.test_disjoint_splits_deterministic_exact_near_audit) ... ok\ntest_arm_order_does_not_change_outputs (test_core.GenerationTests.test_arm_order_does_not_change_outputs) ... ok\ntest_each_arm_owns_two_caches_same_current_prefix (test_core.GenerationTests.test_each_arm_owns_two_caches_same_current_prefix) ... ok\ntest_eos_included_and_reasoning_end_not_stop (test_core.GenerationTests.test_eos_included_and_reasoning_end_not_stop) ... ok\ntest_equal_backends_and_top_p_one_rollout_identity (test_core.GenerationTests.test_equal_backends_and_top_p_one_rollout_identity) ... ok\ntest_complete_answer_scores_even_when_capped (test_core.ParserTests.test_complete_answer_scores_even_when_capped) ... ok\ntest_final_box_after_last_reasoning_end (test_core.ParserTests.test_final_box_after_last_reasoning_end) ... ok\ntest_numeric_formats_and_rejection (test_core.ParserTests.test_numeric_formats_and_rejection) ... ok\ntest_reasoning_number_never_counts (test_core.ParserTests.test_reasoning_number_never_counts) ... ok\ntest_boundary_and_ties (test_core.SamplingTests.test_boundary_and_ties) ... ok\ntest_crossed_policy_matches_hand_computed_example (test_core.SamplingTests.test_crossed_policy_matches_hand_computed_example) ... ok\ntest_errors_not_zero_length_results (test_core.SamplingTests.test_errors_not_zero_length_results) ... ok\ntest_inverse_cdf_skips_zero_mass_and_last_rounding (test_core.SamplingTests.test_inverse_cdf_skips_zero_mass_and_last_rounding) ... ok\ntest_no_second_top_p (test_core.SamplingTests.test_no_second_top_p) ... ok\ntest_rng_order_seed_and_step (test_core.SamplingTests.test_rng_order_seed_and_step) ... ok\ntest_same_logits_four_distributions_identical (test_core.SamplingTests.test_same_logits_four_distributions_identical) ... ok\ntest_sampler_marginals_on_fixed_uniform_grid (test_core.SamplingTests.test_sampler_marginals_on_fixed_uniform_grid) ... ok\ntest_top_p_one_includes_zero_probability_tokens (test_core.SamplingTests.test_top_p_one_includes_zero_probability_tokens) ... ok\ntest_tv_identity_on_independent_random_vectors (test_core.SamplingTests.test_tv_identity_on_independent_random_vectors) ... ok\n\n----------------------------------------------------------------------\nRan 19 tests in 0.279s\n\nOK\n",
+  "source_sha256": {
+    "src/quantsplit/gptq_core.py": "0651cf904403c152278a83d0508c59b47eac1fd77dbd06ca5db9f7130d9a3130",
+    "src/quantsplit/generation.py": "186f6c2b7fe29f249a43e70b7d00c9f54010d6cd702c238075f4c24d2276ff4c",
+    "src/quantsplit/evaluation.py": "6aa4ba7589136ef0e9e2c7991371f4d28ac2d7f798b8e4ce4992383cca874263",
+    "src/quantsplit/validation.py": "3a75227eb4c62079ba6842b8e92331c287c4c2ecb5c5ba6ab7d32f1f2126a597",
+    "src/quantsplit/hf_backend.py": "98f41d78561f885bb0677e596d1c9c38920a184ffbe851f5a4ae7decd8ad7246",
+    "src/quantsplit/__init__.py": "c18ec83716b97a1075bf4a423da914563842ecb62174e943b7d9d8110f37fbee",
+    "src/quantsplit/sampling.py": "2f379ec67ef790a2a2932500a477edac91a4ff361ab3615d473592f5d9be96d0",
+    "src/quantsplit/quantization.py": "a545faaec53eca881a1d5af2672225dd9a72b0d3f9c7a76c8317c610bdada3e9",
+    "src/quantsplit/data.py": "12977705f10cdbf4b5dca889cc20db6d57bbe0f2d80b8217d5d182f0492317ee",
+    "tests/test_core.py": "62872c3511bef6d67bcd9bc032d8cd6ad0c39ba55b5388dc6f6d38273753bd18",
+    "scripts/build_gptq.py": "20f7c1b671e83bbaf404c5642b0e866c418fc6a4b9d5d852a85299e9523905f5",
+    "scripts/prepare_assets.py": "1ca344fd0657e8268513951ae0b03d72bc5665cbf25cbfe4a605e83b20637774",
+    "scripts/run_development.py": "77b00f08004c90c54fba5835cf030ae519de4664b43b4d28f3903f656c3ba59c",
+    "scripts/verify_tiny_model.py": "0b72e3bb4d5f78243631edd7c877d705511be017945fad32df4a870a6f9d91b0"
+  }
+}

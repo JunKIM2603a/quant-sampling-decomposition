@@ -1,0 +1,21 @@
+{
+  "bits": 3,
+  "group_size": 128,
+  "symmetric": false,
+  "damp_percent": 0.01,
+  "damp_auto_increment": false,
+  "act_order": true,
+  "static_groups": true,
+  "block_size": 128,
+  "weight_clip": true,
+  "clip_norm": 2.4,
+  "clip_grid": 100,
+  "clip_maxshrink": 0.8,
+  "activation_dtype": "bfloat16",
+  "kv_dtype": "bfloat16",
+  "rotation": false,
+  "quantize_embeddings": false,
+  "quantize_lm_head": false,
+  "upstream_revision": "bf947e29f52e3f666e3263efac149dae0ac18d00",
+  "driver": "quantsplit-layerwise-captured-kwargs-v1"
+}

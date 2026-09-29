@@ -1,24 +1,30 @@
-# QuantSplit — 저비트 추론의 확률·후보집합 분해
+# QuantSplit
 
-양자화 전후 모델의 확률 공급자와 top-p 후보집합 공급자를 교차해, 자유 생성의 소비 토큰·정답률·상호작용을 분석하는 연구입니다.
+저비트 추론 모델의 출력 길이 증가에서 확률 왜곡과 샘플링 후보집합 변화의 역할을 분리한다.
 
-**현재: 제출용 신규성 검토·H1·제안서 정리 완료, 교수님 PASS 대기. 모델 실험은 실행하지 않았습니다.**
+**현재: 사용자 승인 가정 지시로 02 구현을 진행. 19개 core tests와 작은 Qwen2/GPTQ CPU 검증 통과. 실제 1.5B/GPTQ·RTX 4090·긴 context 검증은 남아 있다. H1 결과는 아직 없다.**
 
-| 조건 | 확률 공급자 | 후보집합 공급자 |
+| 정책 | 확률 공급자 | top-p 후보집합 공급자 |
 |---|---|---|
-| FF | BF16 | BF16 |
-| QQ | 양자화 | 양자화 |
-| QF | 양자화 | BF16 |
-| FQ | BF16 | 양자화 |
+| FF | BF16 F | BF16 F |
+| QQ | 양자화 Q | 양자화 Q |
+| QF | 양자화 Q | BF16 F |
+| FQ | BF16 F | 양자화 Q |
 
-각 조건의 현재 prefix를 두 모델이 동일하게 처리합니다. 효과는 특정 생성 정책의 개입 효과이며, 유일한 자연적 원인 비율 또는 배포 속도 개선이 아닙니다.
+각 정책이 자신의 토큰열을 만들고, 그 안에서 F/Q가 동일 prefix를 별도 KV cache로 처리한다. QF는 Q의 logits와 허용 토큰 간 상대확률을 유지한다. 재정규화된 절대확률은 변한다.
 
-- 시작: [현재 상태](PROJECT_STATUS.md), [프로젝트 지침](PROJECT_INSTRUCTIONS.md), [세션 계획](research/SESSION_PLAN.md)
-- 제출: [교수님 제안서](research/session01/04_proposal_ko.md), [이메일 초안](research/session01/05_advisor_email.md)
-- 근거: [신규성 검토](research/session01/01_novelty_review.md), [검색 기록](research/session01/06_search_audit.json)
-- 설계: [H1·판정 기준](research/session01/02_hypothesis_and_protocol.md), [프로토콜 v0.2](protocols/quant_sampling_v0.2.json), [경쟁 설명](research/session01/03_competing_explanations.md)
-- 실행 전 검토: [정밀도·계산 예산](research/session01/07_resource_and_precision.md)
-- 인계: [승인 대기](research/handoffs/01_approval_pending.md), [PASS 이후 02](research/handoffs/01_to_02.md)
-- 기록: [결정 근거](research/DECISIONS.md), [이관 manifest](research/migration/2026-09-29_manifest.json)
+- [현재 상태](PROJECT_STATUS.md) · [프로젝트 지침](PROJECT_INSTRUCTIONS.md) · [세션 운영](research/SESSION_PLAN.md)
+- [구현·검증](research/session02/01_implementation.md) · [실제 GPU 실행 순서](research/session02/02_runbook.md) · [현재 인계](research/handoffs/02_target_gpu_pending.md)
+- [신규성](research/session01/01_novelty_review.md) · [H1·판정](research/session01/02_hypothesis_and_protocol.md) · [교수 제안서](research/session01/04_proposal_ko.md)
+- [v0.2.1 개발 프로토콜](protocols/quant_sampling_v0.2.1-development.json) · [실행 lock](configs/execution_lock.json) · [결정 근거](research/DECISIONS.md)
 
-이전 ai-research-chatgpt의 관련 자료 16개를 2026-09-29에 원문 이관했습니다. research/2026-09-29/와 protocol v0.1은 당시 초안 기록이며 현행 설계는 v0.2입니다.
+CPU core 검사:
+
+```bash
+python -m pip install -e .
+python -m unittest discover -s tests -v
+```
+
+실제 Transformers 작은 모델 검증과 GPU 실행은 runbook을 따른다. GPU가 없는 환경의 CPU 검증을 사용자 장비 실험으로 보고하지 않는다. `runs/`, `data/`, `checkpoints/`는 Git에 올리지 않으며 작은 manifest·검증 기록을 보존한다.
+
+00단계 `research/2026-09-29/`와 v0.1은 역사 자료다. 제출 가설은 v0.2, 구현 상세와 승인 가정 지시는 v0.2.1을 따른다. 교수 실제 PASS와 확증 동결은 별도 사실로 기록한다.

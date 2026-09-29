@@ -1,3 +1,5 @@
+> 현재 상태(2026-09-29): 사용자 승인 가정 지시로 02 구현에 진입. 실제 GPU 검증 대기. 최신 [PROJECT_STATUS.md](../PROJECT_STATUS.md)와 [02 인계](handoffs/02_target_gpu_pending.md)를 따른다.
+
 # QuantSplit — 프로젝트 구성
 
 갱신: 2026-09-29 KST.
