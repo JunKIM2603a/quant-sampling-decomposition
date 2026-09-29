@@ -80,3 +80,10 @@
 - 24개 CPU 검사가 통과했고 고정 캐시 자산 재생성과 환경 미충족 시 중단/로그 묶음을 확인했다. 실제 1.5B/GPTQ·RTX 4090·32,768 길이 실험은 수행하지 않았다.
 - H1 수치·seed·판정·확증 동결 상태는 변경하지 않았다. 교수 승인 사실과 장비 통과를 만들지 않았다.
 - 상태: **02 미완료 / 실제 장비 증거 대기 / 03 인계 비활성**. 다음 입력은 사용자 PC의 preflight 또는 target-gate 보고서 묶음과 GPU별 가용 시간이다. 상세 기록: research/session02/03_target_gpu_preparation.md.
+
+## 2026-09-29 — driver 535.183.01 / CUDA 표시 12.2 로그 수신
+
+- 사용자 제공 시각 22:31:30 KST의 nvidia-smi에서 2×RTX 4090, driver 535.183.01, CUDA 표시 12.2를 확인했다. conda Python 3.12 환경 생성도 성공했다. GPU 0 사용량 5,793 MiB/28%, GPU 1은 789 MiB/0%였다. 순간 관측값이며 독점 가용성을 뜻하지 않는다.
+- NVIDIA/PyTorch 공식 문서를 확인했다. CUDA 12.x minor compatibility의 최소 Linux driver 525.60.13 조건은 충족하지만 PTX/새 기능 등 예외가 있다. 표시 차이만으로 불가 또는 완전 호환이라고 단정하지 않는다.
+- torch 2.8.0/cu126을 유지하여 `cuda:1`에서 작은 BF16 matmul·SDPA·FP32 Cholesky를 먼저 실행하도록 preflight와 runbook을 보완했다. 드라이버 변경·다른 작업 종료·torch 버전 변경은 하지 않았다.
+- assistant 환경에서 새 preflight의 문법 및 GPU 없음 실패 경로만 확인한다. 사용자 GPU에서의 실제 kernel/모델 실행은 여전히 대기다. H1·효과 기준·데이터·확증 동결·교수 실제 PASS 상태는 바뀌지 않는다.

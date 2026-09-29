@@ -1,4 +1,4 @@
-"""Read-only target preflight, usable even before torch has been installed."""
+"""Target metadata and tiny CUDA-kernel preflight; no model downloads."""
 import argparse
 from datetime import datetime, timezone
 import hashlib
@@ -61,6 +61,27 @@ def main():
             report["blockers"].append("selected GPU is not RTX 4090; target evidence review required")
         if not report["selected_gpu"]["bf16_supported"]:
             report["blockers"].append("BF16 unsupported")
+        else:
+            # Device discovery alone does not establish runtime/driver compatibility.
+            # Use native kernels needed by this project; no torch.compile/PTX build.
+            report["kernel_checks"] = {"passed": False, "scope": "tiny native kernels only"}
+            with torch.inference_mode():
+                x = torch.ones((64, 64), dtype=torch.bfloat16, device=args.device)
+                product = x @ x
+                attention_input = torch.ones((1, 4, 64, 128), dtype=torch.bfloat16, device=args.device)
+                attention = torch.nn.functional.scaled_dot_product_attention(
+                    attention_input, attention_input, attention_input, is_causal=True)
+                identity = torch.eye(32, dtype=torch.float32, device=args.device)
+                chol = torch.linalg.cholesky(identity)
+                torch.cuda.synchronize()
+                checks = {"bf16_matmul": bool((product == 64).all().item()),
+                          "bf16_sdpa": bool(torch.isfinite(attention).all().item()) and
+                                       bool(torch.allclose(attention, attention_input, atol=.01, rtol=.01)),
+                          "fp32_cholesky": bool(torch.allclose(chol, identity))}
+            report["kernel_checks"].update(checks)
+            report["kernel_checks"]["passed"] = all(checks.values())
+            if not all(checks.values()):
+                report["blockers"].append("CUDA native kernel check failed")
     except Exception as exc:
         report["blockers"].append(f"{type(exc).__name__}: {exc}")
     report["files_sha256"] = {name: hashlib.sha256((root / name).read_bytes()).hexdigest()

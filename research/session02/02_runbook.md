@@ -14,7 +14,7 @@ bash scripts/run_target_gate.sh cuda:0 runs/target-gate-01 checkpoints/gptq-w3-g
 
 기존 완성 Q manifest가 있으면 재양자화하지 않고 뒤의 runner에서 checkpoint 해시를 검증한다. 부분 checkpoint 폴더가 있으면 덮어쓰지 않고 중단한다. 아래 2절의 완성 calibration 재사용 절차를 따른다. `.tar.gz`에는 작은 JSON·로그만 넣으며 가중치·원시 생성 JSONL은 넣지 않는다. 강제 종료/SIGKILL/디스크 장애 때에는 bundle이 없을 수 있으므로 남은 로그를 전달한다.
 
-환경 준비 여부부터 확인하려면 다음 명령만 실행한다. 모델·데이터를 다운로드하지 않고, PyTorch가 없는 Python에서도 진단 파일을 남긴다. exit code 2는 장비 또는 환경 관문 미충족이다. `ready_for_asset_preparation=true`는 02 완료가 아니다.
+환경 준비 여부부터 확인하려면 다음 명령만 실행한다. 모델·데이터를 다운로드하지 않고, PyTorch가 없는 Python에서도 진단 파일을 남긴다. CUDA가 있으면 작은 BF16 행렬곱·SDPA·FP32 Cholesky를 실제 실행한다. exit code 2는 장비 또는 환경 관문 미충족이다. `ready_for_asset_preparation=true`는 02 완료가 아니다.
 
 ```bash
 python scripts/check_target_environment.py --device cuda:0 --output runs/target-preflight-01.json
@@ -41,6 +41,34 @@ CUDA 12.6 빌드 설치 예(공식 v2.8.0 표, 2026-09-29 재확인). 현재 드
 ```bash
 python -m pip install torch==2.8.0 --index-url https://download.pytorch.org/whl/cu126
 ```
+
+### 사용자 로그의 CUDA 12.2 표시와 cu126 설치
+
+2026-09-29 22:31:30 KST 사용자 제공 nvidia-smi: driver `535.183.01`, CUDA 표시 `12.2`, RTX 4090 두 장. 이 표시는 드라이버의 CUDA 지원 수준이며 conda 환경에 설치된 PyTorch runtime 버전이 아니다. CUDA 12.x의 minor-version compatibility 최소 Linux driver는 `525.60.13`이므로 현재 드라이버는 그 조건을 만족한다. **cu126을 시도할 수 있지만 모든 연산의 호환을 보장하지 않으므로 작은 실제 kernel 검사를 먼저 수행한다.** PTX JIT나 새 드라이버 기능을 요구하는 경로에는 제약이 있다.
+
+현재 계획은 PyTorch 2.8.0/cu126을 유지하여 검사한다. 이 표시 차이만으로 드라이버·시스템 CUDA를 교체하거나 torch 2.5 등으로 내리지 않는다. torch 2.8.0 공식 설치표에는 cu122가 없다. 표시를 맞추기 위한 `cu122` URL을 만들지 않는다.
+
+해당 시점 GPU 0은 5,793 MiB/28%, GPU 1은 789 MiB/0%였다. 다른 프로세스는 그대로 두고 먼저 `cuda:1`을 사용한다. GPU 1도 일부 메모리가 사용 중이므로 전용/유휴 GPU라고 기록하지 않는다. 인덱스는 `CUDA_VISIBLE_DEVICES`를 별도로 재매핑하지 않은 경우다.
+
+```bash
+conda activate quantsplit
+git pull --ff-only
+python -m pip install torch==2.8.0 --index-url https://download.pytorch.org/whl/cu126
+python -m pip install -e '.[model,data]'
+python scripts/check_target_environment.py --device cuda:1 --output runs/target-preflight-gpu1-01.json
+```
+
+각 설치가 성공한 뒤 다음 줄로 진행한다. `ready_for_asset_preparation=true`와 `kernel_checks.passed=true`이면 다음 통합 명령을 사용할 수 있다.
+
+```bash
+bash scripts/run_target_gate.sh cuda:1 runs/target-gate-gpu1-01 checkpoints/gptq-w3-g128
+```
+
+실패하면 preflight JSON과 오류를 검토하여 드라이버/라이브러리/실제 kernel 문제를 구분한다. 작은 연산 통과를 실제 1.5B/GPTQ/full-cap 통과로 바꾸지 않는다.
+
+공식 근거(2026-09-29 확인): [nvidia-smi 문서](https://docs.nvidia.com/deploy/nvidia-smi/index.html), [CUDA 12.6 release notes](https://docs.nvidia.com/cuda/archive/12.6.0/cuda-toolkit-release-notes/index.html), [minor compatibility와 PTX 제약](https://docs.nvidia.com/deploy/cuda-compatibility/minor-version-compatibility.html), [PyTorch 공식 설치표](https://pytorch.org/get-started/previous-versions/).
+
+### 개별 단계 실행 시
 
 ```bash
 python -m pip install -e '.[model,data]'

@@ -13,7 +13,7 @@
 | 검증 | 기존 19개 core + 02-2 추가 5개 = 24개 통과. 작은 Qwen2/GPTQ CPU 기록 보존; 새 합성 context 경로도 작은 CPU 모델에서만 검사 |
 | 자산 | 모델/tokenizer·GSM8K revision 고정. calibration/development/pilot 128/128/128 분할 고정 |
 | 실제 1.5B calibration/GPTQ | 미실행. 명령·manifest 구현 준비됨 |
-| 사용자 RTX 4090 검증 | 미실행. 02-2 환경 재확인: GPU·연결 수단 없음, 새 장비 로그 미제공 |
+| 사용자 RTX 4090 검증 | 사용자 nvidia-smi 로그로 2×4090·driver 535.183.01/CUDA 표시 12.2 확인. assistant 원격 연결 없음. PyTorch kernel·모델 실행 검증은 아직 |
 | 02 전체 | **미완료 — 실제 모델·장비·긴 context 검증 필요** |
 | 파일럿·H1 결과·확증 | 미실행. 자체 test 모델 출력 없음 |
 | 프로토콜 동결 | 아직 아님. 03에서 파일럿·정밀도·예산 후 확증 동결 |

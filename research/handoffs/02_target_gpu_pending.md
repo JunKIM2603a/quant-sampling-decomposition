@@ -19,6 +19,10 @@
 - 다음 입력: 사용자 RTX 4090 PC의 `runs/target-gate-01.tar.gz` 또는 `target-preflight-01.json`/오류 로그. 하루 GPU별 실제 가용 시간도 필요하다.
 - **02 완료 아님. 03으로 넘기지 않음.** 실제 checkpoint·짧은 대조·자연 생성 full-cap·합성 context·VRAM·처리량 증거를 확인한 뒤에만 조건부 인계를 활성화한다.
 
+### 후속 장비 로그 수신
+
+사용자가 2026-09-29 22:31:30 KST의 nvidia-smi를 제공했다. 두 RTX 4090과 driver 535.183.01/CUDA 표시 12.2를 확인했다. 이는 PyTorch 모델 실행 증거가 아니다. Python 3.12 conda 환경 생성은 성공했다. 공식 minor compatibility 조건을 검토하여 torch 2.8.0/cu126을 유지하고 작은 실제 BF16 matmul/SDPA·FP32 Cholesky 사전 검사를 추가했다. 로그상 여유가 더 큰 `cuda:1`을 우선 사용한다. 다음 입력은 `target-preflight-gpu1-01.json` 또는 실행 오류다. 02/03 및 실제 교수 PASS 상태는 변하지 않았다.
+
 ```text
 이 세션은 ‘QuantSplit 02-2 — 실제 GPU 검증·파일럿 준비’야.
 저장소: https://github.com/JunKIM2603a/quant-sampling-decomposition
