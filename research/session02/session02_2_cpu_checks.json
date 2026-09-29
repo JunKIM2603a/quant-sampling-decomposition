@@ -1,0 +1,56 @@
+{
+  "recorded_at_utc": "2026-09-29T13:24:45.634189+00:00",
+  "base_commit": "2963e90e5408c120fa8cd083ed816cfa8a269551",
+  "scope": "assistant CPU environment; not user RTX 4090; not actual DeepSeek 1.5B",
+  "tests": {
+    "command": "PYTHONPATH=src python -m unittest discover -s tests -v",
+    "count": 24,
+    "passed": 24,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "observed_seconds": 3.155,
+    "torch": "2.8.0+cpu",
+    "transformers": "4.57.1",
+    "existing_core": 19,
+    "new_asset_contract": 4,
+    "new_tiny_context_probe": 1,
+    "tiny_context_tokens": 67
+  },
+  "asset_regeneration": {
+    "mode": "offline pinned cached tokenizer and GSM8K",
+    "passed": true,
+    "test_outputs_generated": 0,
+    "locked_files_byte_identical": [
+      "configs/execution_lock.json",
+      "research/session02/split_manifest.json",
+      "protocols/quant_sampling_v0.2.1-development.json"
+    ],
+    "split_manifest_sha256": "f650f57279971fee307f9a85ced0033d75347ab4c3af86d49c560c508a1c6ad8"
+  },
+  "negative_pipeline_check": {
+    "environment": "default assistant Python with missing model packages and no nvidia-smi",
+    "exit_code": 2,
+    "stopped_before_model_preparation": true,
+    "bundle_members": [
+      "reports/exit_code.txt",
+      "reports/preflight.json",
+      "reports/preflight.log"
+    ]
+  },
+  "source_sha256": {
+    "scripts/check_target_environment.py": "3a13468e8fbfa475149dd3ce03f96346fb81b6870ca3983d0f38065b03722d9d",
+    "scripts/prepare_assets.py": "44a08f48edd2af3b4b09bab17a4b5c4fb9abd5a527f7cc0ae9b85f708c5c04b1",
+    "scripts/run_development.py": "46be8cc5b109209d3b746d45839d565a1479db7548845a34b7ee9f0f25a7545a",
+    "scripts/run_target_gate.sh": "11347d0e19034c5daebf71bd31193fbba9fca71cf4a18e7ba726d550ee768027",
+    "src/quantsplit/assets.py": "9baf9ca139ac6e0f2c66045feeb1b489c100e92eebd56f8c8e63982e577597a1",
+    "src/quantsplit/validation.py": "edf351eaa76c494a930049b0272d81e0ad431a6405a0ab48532ff71e6a20dd1f",
+    "tests/test_target_preparation.py": "28c024f30535115e0a175b70fdcf946654c6797794653cd93d9fab82f2c87b5b"
+  },
+  "actual_1_5B_GPU_execution": false,
+  "full_32768_context_executed": false,
+  "stage02_complete": false,
+  "scientific_H1_result": false,
+  "professor_PASS_verified": false,
+  "user_authorized_assumed_approval": true
+}

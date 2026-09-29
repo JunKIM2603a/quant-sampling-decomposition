@@ -5,15 +5,15 @@
 | 항목 | 현재 상태 |
 |---|---|
 | 기준 저장소 | https://github.com/JunKIM2603a/quant-sampling-decomposition |
-| 현재 단계 | **QuantSplit 02 — 4-arm 구현·평가 검증** |
+| 현재 단계 | **QuantSplit 02-2 — 실제 GPU 검증·파일럿 준비** |
 | 진행 권한 | 사용자가 “승인 했다는 전제로 우선 진행해줘.”라고 지시. 승인 가정으로 진행 |
 | 교수 실제 PASS | 미확인. 가정과 실제 승인 기록을 구분 |
 | 01 산출물 | 문헌·신규성 범위·H1·경쟁 설명·판정·교수 제안서 완료 |
 | 02 구현 | 4-arm, cache, sampler, 난수, parser, 분할, GPTQ 준비·개발 runner 구현 |
-| 검증 | 19개 core tests와 작은 Qwen2/GPTQ의 실제 CPU 검사 통과 |
+| 검증 | 기존 19개 core + 02-2 추가 5개 = 24개 통과. 작은 Qwen2/GPTQ CPU 기록 보존; 새 합성 context 경로도 작은 CPU 모델에서만 검사 |
 | 자산 | 모델/tokenizer·GSM8K revision 고정. calibration/development/pilot 128/128/128 분할 고정 |
 | 실제 1.5B calibration/GPTQ | 미실행. 명령·manifest 구현 준비됨 |
-| 사용자 RTX 4090 검증 | 미실행. 현재 환경은 CPU, 사용자 장비 미연결 |
+| 사용자 RTX 4090 검증 | 미실행. 02-2 환경 재확인: GPU·연결 수단 없음, 새 장비 로그 미제공 |
 | 02 전체 | **미완료 — 실제 모델·장비·긴 context 검증 필요** |
 | 파일럿·H1 결과·확증 | 미실행. 자체 test 모델 출력 없음 |
 | 프로토콜 동결 | 아직 아님. 03에서 파일럿·정밀도·예산 후 확증 동결 |
@@ -31,7 +31,7 @@
 
 ## 현재 판단과 다음 행동
 
-실행 가능한 개발 코드를 마련하고 작은 모델까지 검증했다. 실제 장비가 확인되면 calibration 생성→GPTQ checkpoint→개발 대조→full-cap/context 검사를 순서대로 수행한다. 같은 진행 허가를 다시 요청하지 않는다. 실제 장비 증거 없이 02 완료나 H1 판정을 선언하지 않는다.
+실행 가능한 개발 코드를 마련하고 작은 모델까지 검증했다. 02-2에서는 자산 재생성이 고정 lock을 덮어쓰던 문제를 수정했고, 장비 preflight·실패 시 로그 묶음·합성 긴 context 검사를 추가했다. [02-2 변경·CPU 검증 기록](research/session02/03_target_gpu_preparation.md)을 따른다. 사용자 GPU에서 `bash scripts/run_target_gate.sh cuda:0 runs/target-gate-01 checkpoints/gptq-w3-g128`를 실행한 증거를 검토해야 한다. 같은 진행 허가를 다시 요청하지 않는다. 실제 장비 증거 없이 02 완료나 H1 판정을 선언하지 않는다.
 
 H1은 1.5B GPTQ-W3/g128, T=.6, p=.95, GSM8K에서 QF가 QQ의 초과 토큰을 50% 넘게 복구하고 QQ 대비 정확도 손실이 3%p 미만이라는 기존 제출 가설을 유지한다. CPU 검증 수치는 이 H1의 실험 결과가 아니다. 정확한 판정은 v0.2 설계를 따른다.
 

@@ -2,6 +2,26 @@
 
 사용자의 승인 가정 진행 지시가 적용된 작업이다. 같은 허가를 다시 요청할 필요는 없다. 현재 02는 실제 GPU 관문을 남긴 상태다. 아래 명령은 **사용자 RTX 4090 환경에서 수행할 명령이며 이 세션에서 실행한 기록이 아니다.**
 
+## 0. 02-2에서 추가한 실행·로그 수집
+
+환경이 준비되었으면 아래 명령 하나로 **장비 사전 확인 → CPU 회귀 검사 → 자산 대조 → calibration/GPTQ → 짧은 4-arm → full-cap 자유 생성 → 합성 긴 context**를 실행한다. 실패한 단계에서 중단하며 로그를 `runs/target-gate-01.tar.gz`에 묶는다. 이 파일을 현재 채팅에 첨부하면 다음 관문을 검토할 수 있다. 이미 같은 출력 경로가 있으면 `02`처럼 새 이름을 쓴다.
+
+```bash
+# RTX 4090 PC의 저장소 root, quantsplit 환경에서 실행
+git pull --ff-only
+bash scripts/run_target_gate.sh cuda:0 runs/target-gate-01 checkpoints/gptq-w3-g128
+```
+
+기존 완성 Q manifest가 있으면 재양자화하지 않고 뒤의 runner에서 checkpoint 해시를 검증한다. 부분 checkpoint 폴더가 있으면 덮어쓰지 않고 중단한다. 아래 2절의 완성 calibration 재사용 절차를 따른다. `.tar.gz`에는 작은 JSON·로그만 넣으며 가중치·원시 생성 JSONL은 넣지 않는다. 강제 종료/SIGKILL/디스크 장애 때에는 bundle이 없을 수 있으므로 남은 로그를 전달한다.
+
+환경 준비 여부부터 확인하려면 다음 명령만 실행한다. 모델·데이터를 다운로드하지 않고, PyTorch가 없는 Python에서도 진단 파일을 남긴다. exit code 2는 장비 또는 환경 관문 미충족이다. `ready_for_asset_preparation=true`는 02 완료가 아니다.
+
+```bash
+python scripts/check_target_environment.py --device cuda:0 --output runs/target-preflight-01.json
+```
+
+두 GPU를 함께 48GB로 사용하지 않는다. 이 관문은 지정한 한 GPU에서 실행한다. 두 번째 GPU의 독립 worker 검증과 실제 하루 가용 시간은 03 예산 결정 전에 확인한다.
+
 ## 1. 코드와 환경
 
 저장소 root에서 실행한다. 기존 다른 프로젝트의 conda 환경을 바꾸지 않고 별도 환경을 사용한다.
@@ -16,6 +36,12 @@ nvidia-smi
 
 PyTorch 2.8.0의 CUDA 빌드를 현재 드라이버와 호환되는 공식 설치 명령으로 설치한다. [공식 이전 버전 설치표](https://pytorch.org/get-started/previous-versions/)를 확인한다. CPU 빌드를 설치하면 GPU runner가 중단한다. 그 뒤:
 
+CUDA 12.6 빌드 설치 예(공식 v2.8.0 표, 2026-09-29 재확인). 현재 드라이버의 실행 호환성은 사전 확인 결과로 판단한다.
+
+```bash
+python -m pip install torch==2.8.0 --index-url https://download.pytorch.org/whl/cu126
+```
+
 ```bash
 python -m pip install -e '.[model,data]'
 python -c 'import torch; print(torch.__version__, torch.cuda.is_available(), torch.cuda.get_device_name(0))'
@@ -24,7 +50,7 @@ python scripts/verify_tiny_model.py --output runs/tiny_verification.json
 python scripts/prepare_assets.py
 ```
 
-prepare_assets는 고정 revision의 tokenizer·GSM8K를 다운로드하고 train worklist를 재생성한다. checkpoint 가중치는 아직 다운로드하지 않는다. split hash가 `f650f57279971fee307f9a85ced0033d75347ab4c3af86d49c560c508a1c6ad8`인지 비교한다. 환경 package 값은 실제 장비 값으로 갱신될 수 있으므로 차이를 기록한다. 분할·prompt·tokenizer hash가 달라지면 먼저 원인을 해결한다.
+prepare_assets는 고정 revision의 tokenizer·GSM8K를 다운로드하고 train worklist를 재생성한다. checkpoint 가중치는 아직 다운로드하지 않는다. split hash가 `f650f57279971fee307f9a85ced0033d75347ab4c3af86d49c560c508a1c6ad8`인지 비교한다. **02-2 수정부터 기존 split/lock/worklist와 다르면 쓰기 전에 중단한다. 기존 lock을 새 환경 값으로 덮어쓰지 않는다.** 실제 package는 출력과 preflight/실행 manifest에 별도로 기록한다. 분할·prompt·tokenizer hash가 달라지면 먼저 원인을 해결한다.
 
 ## 2. F 생성 calibration과 GPTQ checkpoint
 
@@ -56,8 +82,16 @@ F/Q 두 BF16 모델을 한 GPU에 올려 arm을 차례로 수행한다. runner�
 python scripts/run_development.py --device cuda:0 --q-checkpoint checkpoints/gptq-w3-g128 --q-manifest checkpoints/gptq-w3-g128/manifest.json --limit 2 --max-new-tokens 32768 --output runs/dev-fullcap.jsonl
 ```
 
-조기에 EOS가 나왔다면 32,768까지 cache가 늘어나는 경우를 검증한 것은 아니다. 필요하면 개발 전용 합성 긴 prefix로 context·메모리를 추가 검증하고 그 증거를 기록한다. 해당 결과를 벤치마크 정답률로 쓰지 않는다. sampler의 CPU 이동 비용도 포함해 실효 처리량을 측정한다.
+조기에 EOS가 나왔다면 32,768까지 cache가 늘어나는 경우를 검증한 것은 아니다. 새 manifest는 각 arm의 prompt/생성/cache 길이·종료 사유를 기록한다. 자유 생성 실효 처리량에는 sampler의 CPU 이동 비용을 포함한다.
+
+아래 개발 전용 검사는 128개 development 문항 중 가장 긴 prompt를 반복해 **최대 prompt 길이+32,768**까지 두 모델의 독립 cache를 동시에 늘린다. 512토큰 chunk로 채운 뒤 마지막 두 번은 1토큰씩 처리한다. 마지막 위치에서 각 모델의 cache logits와 별도의 전체 prefix 계산을 비교한다. 기존 logit .25/TV .001 기준을 그대로 적용하며, 실패하면 기준을 완화하지 않고 검토한다.
+
+```bash
+python scripts/run_development.py --device cuda:0 --q-checkpoint checkpoints/gptq-w3-g128 --q-manifest checkpoints/gptq-w3-g128/manifest.json --max-new-tokens 32768 --context-stress-only --output runs/context-stress.jsonl
+```
+
+이 모드는 `.validation.json`과 `.context.json`만 남기고 생성 JSONL을 만들지 않는다. `.context.json`에는 실제 cache 길이·오차·VRAM peak·소요 시간·checkpoint/코드 hash가 들어간다. 합성 stress 시간은 자유 생성 처리량으로 사용하지 않는다. task 정답률·H1 결과가 아니며 모든 입력에서의 메모리 보증도 아니다. 합성 검사와 앞의 자연 생성 검사를 함께 검토한다.
 
 남길 것: GPU/driver/package, F/Q checkpoint manifest, 구현 대조 결과, full-cap/context 검사, 실제 가용 GPU 시간. 실제 장비 전수 검사·환경 오차 검토가 끝나야 02 완료로 갱신한다. 그 후 03에서 128문항 pilot·정밀도·예산을 평가하고 확증 전 동결한다. 이 저장소의 현재 runner에는 test 실행 명령이 없으며, 여기서 H1 판정이나 확증을 수행하지 않는다.
 
-현재 세션으로 가져올 작은 파일: Q `manifest.json`, `dev-smoke.validation.json`, 두 개발 실행의 `.manifest.json`, 오류 로그(있다면). 대형 가중치·원시 trace는 Git에 올리지 않는다.
+현재 세션으로 가져올 작은 파일: `target-gate-01.tar.gz` 또는 preflight, Q `manifest.json`, `dev-smoke.validation.json`, 두 개발 실행의 `.manifest.json`, `context-stress.context.json`, 오류 로그. 하루 실제 사용 가능한 GPU별 시간을 함께 알려주면 03 예산을 계산할 수 있다. 대형 가중치·원시 trace는 Git에 올리지 않는다.

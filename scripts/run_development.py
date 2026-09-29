@@ -1,6 +1,7 @@
 """Development-only four-arm driver; Q must be a verified dequantized GPTQ checkpoint."""
 import argparse
 from dataclasses import asdict
+from datetime import datetime, timezone
 import importlib.metadata
 import json
 from pathlib import Path
@@ -10,9 +11,9 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 from quantsplit.data import manifest_hash, question_hash
 from quantsplit.evaluation import score_gsm8k
 from quantsplit.generation import Settings, generate_four
-from quantsplit.hf_backend import (HFBackend, cache_errors, render_prompt, tokenizer_hash,
+from quantsplit.hf_backend import (HFBackend, render_prompt, tokenizer_hash,
                                    verify_q_checkpoint, file_sha256)
-from quantsplit.validation import validate_model_pair
+from quantsplit.validation import validate_model_pair, validate_long_context_pair
 
 
 def main():
@@ -26,13 +27,17 @@ def main():
     p.add_argument("--limit", type=int, default=2)
     p.add_argument("--max-new-tokens", type=int, default=128)
     p.add_argument("--seed", type=int, default=42)
+    p.add_argument("--context-stress-only", action="store_true",
+                   help="synthetic long-context check; no task outputs or accuracy")
     p.add_argument("--output", type=Path, required=True)
     args = p.parse_args()
     if not args.device.startswith("cuda:") or not torch.cuda.is_available():
         raise RuntimeError("target-device validation requires an available CUDA GPU")
     if not 1 <= args.limit <= 128 or not 1 <= args.max_new_tokens <= 32768:
         raise ValueError("invalid development limits")
-    if any(path.exists() for path in [args.output,args.output.with_suffix(".manifest.json"),args.output.with_suffix(".validation.json")]):
+    if args.context_stress_only and args.max_new_tokens != 32768:
+        raise ValueError("target context stress requires --max-new-tokens 32768")
+    if any(path.exists() for path in [args.output,args.output.with_suffix(".manifest.json"),args.output.with_suffix(".validation.json"),args.output.with_suffix(".context.json")]):
         raise FileExistsError("choose a new output name; existing runs are not overwritten")
     lock = json.loads(args.lock.read_text())
     splits = json.loads(args.split_manifest.read_text())
@@ -81,10 +86,46 @@ def main():
     args.output.with_suffix(".validation.json").write_text(json.dumps(validation,indent=2)+"\n")
     if not validation['passed']:
         raise RuntimeError("implementation checks failed; inspect the saved validation report")
+    source = Path(__file__).resolve().parents[1] / "src/quantsplit"
+    provenance = {"recorded_at_utc": datetime.now(timezone.utc).isoformat(),
+                  "lock_sha256": file_sha256(args.lock),
+                  "q_manifest_sha256": file_sha256(args.q_manifest),
+                  "runner_sha256": file_sha256(__file__),
+                  "source_sha256": {p.name: file_sha256(p) for p in source.glob("*.py")},
+                  "gpu": torch.cuda.get_device_name(), "cuda": torch.version.cuda,
+                  "packages": {k: importlib.metadata.version(k) for k in ["torch", "transformers", "numpy"]}}
+    if args.context_stress_only:
+        # Cover the longest of all locked development prompts, not just the two smoke rows.
+        stress_prompt = max((render_prompt(tokenizer, row["question"])[0] for row in rows), key=len)
+        torch.cuda.reset_peak_memory_stats()
+        torch.cuda.synchronize()
+        start = time.perf_counter()
+        report = {**provenance, "kind": "synthetic_context_only", "completed": False,
+                  "passed": False, "scientific_H1_result": False, "stage02_complete": False,
+                  "prompt_tokens": len(stress_prompt), "generation_cap": args.max_new_tokens}
+        try:
+            report.update(validate_long_context_pair(f, q, stress_prompt,
+                len(stress_prompt) + args.max_new_tokens,
+                progress=lambda n, total: print(f"context {n}/{total}", flush=True)))
+            torch.cuda.synchronize()
+            report["completed"] = True
+        except Exception as exc:
+            report["error_type"], report["error"] = type(exc).__name__, str(exc)
+            raise
+        finally:
+            report.update(seconds=time.perf_counter() - start,
+                          peak_allocated_bytes=torch.cuda.max_memory_allocated(),
+                          peak_reserved_bytes=torch.cuda.max_memory_reserved())
+            args.output.with_suffix(".context.json").write_text(json.dumps(report, indent=2) + "\n")
+        if not report["passed"]:
+            raise RuntimeError("long-context check failed; inspect saved .context.json; tolerances unchanged")
+        print(json.dumps(report, indent=2))
+        return
     torch.cuda.reset_peak_memory_stats()
     torch.cuda.synchronize()
     start = time.perf_counter()
     count = 0
+    run_summaries = []
     with args.output.open("x") as out:
         for row, prompt in zip(rows[:args.limit], prompts):
             settings = Settings(args.max_new_tokens, eos_ids=tuple(lock["eos_ids"]),
@@ -100,18 +141,22 @@ def main():
                 out.write(json.dumps(record, ensure_ascii=False) + "\n")
                 out.flush()
                 count += result.consumed_tokens
+                run_summaries.append({"question_id": row["question_id"], "arm": arm,
+                    "prompt_tokens": len(prompt), "consumed_tokens": result.consumed_tokens,
+                    "stop_reason": result.stop_reason,
+                    "last_cache_length": len(prompt) + result.consumed_tokens - 1})
+                print(f"{row['question_id']} {arm}: {result.consumed_tokens} tokens ({result.stop_reason})", flush=True)
     torch.cuda.synchronize()
     seconds = time.perf_counter() - start
-    manifest = {"kind": "development_only", "completed": True, "run_args": {k: str(v) if isinstance(v, Path) else v for k,v in vars(args).items()},
-                "lock_sha256": file_sha256(args.lock), "q_manifest_sha256": file_sha256(args.q_manifest),
+    manifest = {**provenance, "kind": "development_only", "completed": True,
+                "scientific_H1_result": False, "stage02_complete": False,
+                "run_summaries": run_summaries,
+                "full_generation_cap_reached": any(x["consumed_tokens"] == 32768 for x in run_summaries),
+                "run_args": {k: str(v) if isinstance(v, Path) else v for k,v in vars(args).items()},
                 "output_sha256": file_sha256(args.output), "model_validation": validation,
                 "seconds": seconds, "consumed_tokens": count, "effective_tokens_per_second": count/seconds,
                 "peak_allocated_bytes": torch.cuda.max_memory_allocated(),
-                "peak_reserved_bytes": torch.cuda.max_memory_reserved(),
-                "gpu": torch.cuda.get_device_name(), "cuda": torch.version.cuda,
-                "packages": {k: importlib.metadata.version(k) for k in ["torch", "transformers", "numpy"]}}
-    source = Path(__file__).resolve().parents[1] / "src/quantsplit"
-    manifest["source_sha256"] = {p.name: file_sha256(p) for p in source.glob("*.py")}
+                "peak_reserved_bytes": torch.cuda.max_memory_reserved()}
     args.output.with_suffix(".manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
     print(json.dumps(manifest, indent=2))
 

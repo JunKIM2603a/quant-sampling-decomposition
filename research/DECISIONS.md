@@ -70,3 +70,13 @@
 - tokenizer 16,384와 model context 131,072의 메타데이터 차이를 발견했다. 자동 truncation을 금지하고 실제 prompt+32,768 cap의 장비 검증을 남겼다. EOS와 reasoning-end도 실제 tokenizer로 구분했다.
 - 판단: **02 구현 진전 / 실제 장비 관문 미완료**. 현재 실행 환경에 CUDA GPU가 없고 사용자 4090은 연결되지 않았다. 실제 1.5B checkpoint·cache/정책 대조·긴 context·VRAM·처리량이 확인되기 전 03으로 완료 전환하지 않는다.
 - 현재 인계: research/handoffs/02_target_gpu_pending.md. 다음 대화는 ‘QuantSplit 02-2 — 실제 GPU 검증·파일럿 준비’. 03 인계는 조건부 준비다.
+
+## 2026-09-29 — QuantSplit 02-2: 장비 미연결 확인과 실행 준비 보완
+
+- 사용자 권한: 승인 가정으로 계속 진행, 교수님의 실제 PASS로 기록하지 말라는 지시를 재확인했다. 실제 PASS는 여전히 미확인이다.
+- 기준 main `2963e90e5408c120fa8cd083ed816cfa8a269551`과 요청 문서 7개를 확인했다. 현재 assistant 환경에 NVIDIA GPU/장비 연결 도구가 없고 신규 GPU 실행 로그도 미제공이다.
+- 자산 재생성이 고정 split/lock을 덮어쓰는 결함을 수정했다. 기존 기록과 먼저 대조하고 불일치이면 파일을 쓰지 않는다. 기존 split·lock·v0.2.1 protocol은 byte 동일하게 유지했다.
+- preflight, 통합 장비 실행/로그 묶음, 별도 합성 긴 context 검사와 각 arm의 실제 길이/종료 기록을 추가했다. 짧게 종료한 full-cap 실행만으로 긴 cache 검사를 통과시키지 않는다.
+- 24개 CPU 검사가 통과했고 고정 캐시 자산 재생성과 환경 미충족 시 중단/로그 묶음을 확인했다. 실제 1.5B/GPTQ·RTX 4090·32,768 길이 실험은 수행하지 않았다.
+- H1 수치·seed·판정·확증 동결 상태는 변경하지 않았다. 교수 승인 사실과 장비 통과를 만들지 않았다.
+- 상태: **02 미완료 / 실제 장비 증거 대기 / 03 인계 비활성**. 다음 입력은 사용자 PC의 preflight 또는 target-gate 보고서 묶음과 GPU별 가용 시간이다. 상세 기록: research/session02/03_target_gpu_preparation.md.

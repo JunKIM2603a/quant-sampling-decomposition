@@ -10,6 +10,15 @@
 
 이어서 사용할 세션: **QuantSplit 02-2 — 실제 GPU 검증·파일럿 준비**.
 
+## 02-2에서 이어서 확인한 상태
+
+- 시작 기준 main: `2963e90e5408c120fa8cd083ed816cfa8a269551`. 요청한 7개 문서를 읽었고 원격 파일 해시를 대조했다.
+- 현재 assistant 환경은 사용자 PC가 아니며 GPU와 사용자 장비 연결 수단이 없다. 이 요청에 첨부된 새로운 장비 로그도 없다. 실제 교수 PASS는 미확인으로 유지한다.
+- 고정 자산을 재생성하면서 lock을 덮어쓰던 결함을 고쳤다. 사전 대조 후 불일치이면 중단한다. 19개 기존+5개 추가 CPU 검사를 통과했다.
+- `scripts/check_target_environment.py`, `scripts/run_target_gate.sh`, runner의 `--context-stress-only`를 추가했다. [변경·검증 범위](../session02/03_target_gpu_preparation.md), [실행 순서](../session02/02_runbook.md)를 읽는다.
+- 다음 입력: 사용자 RTX 4090 PC의 `runs/target-gate-01.tar.gz` 또는 `target-preflight-01.json`/오류 로그. 하루 GPU별 실제 가용 시간도 필요하다.
+- **02 완료 아님. 03으로 넘기지 않음.** 실제 checkpoint·짧은 대조·자연 생성 full-cap·합성 context·VRAM·처리량 증거를 확인한 뒤에만 조건부 인계를 활성화한다.
+
 ```text
 이 세션은 ‘QuantSplit 02-2 — 실제 GPU 검증·파일럿 준비’야.
 저장소: https://github.com/JunKIM2603a/quant-sampling-decomposition

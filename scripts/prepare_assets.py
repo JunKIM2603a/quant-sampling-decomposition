@@ -8,8 +8,9 @@ from datasets import load_dataset
 from transformers import AutoTokenizer
 from quantsplit.data import make_splits, manifest_hash
 from quantsplit.evaluation import PARSER_VERSION
-from quantsplit.hf_backend import render_prompt, tokenizer_hash, file_sha256
+from quantsplit.hf_backend import render_prompt, tokenizer_hash
 from quantsplit.sampling import RNG_VERSION
+from quantsplit.assets import validate_asset_contract
 
 
 def write_json(path, value):
@@ -33,8 +34,7 @@ def main():
         raise ValueError("unexpected GSM8K split sizes")
     manifest = make_splits(train, test)
     manifest.update({"dataset_id": d["id"], "dataset_revision": d["revision"], "subset": "main"})
-    write_json(args.manifest, manifest)
-    args.output_dir.mkdir(parents=True, exist_ok=True)
+    worklists = {}
     for name in ["calibration", "development", "pilot"]:
         rows = []
         for item in manifest[name]:
@@ -42,7 +42,7 @@ def main():
             if name != "calibration":
                 row["answer"] = train[item["row_index"]]["answer"]
             rows.append(json.dumps(row, ensure_ascii=False))
-        (args.output_dir / f"{name}.jsonl").write_text("\n".join(rows) + "\n")
+        worklists[name] = "\n".join(rows) + "\n"
     eos = m["generation_config.json"]["eos_token_id"]
     eos_ids = [eos] if isinstance(eos, int) else eos
     if tokenizer.eos_token_id not in eos_ids:
@@ -54,8 +54,8 @@ def main():
             "tokenizer_hash": tokenizer_hash(tokenizer), "dataset_revision": d["revision"],
             "chat_template_sha256": hashlib.sha256(tokenizer.chat_template.encode()).hexdigest(),
             "split_manifest_sha256": manifest_hash(manifest), "rng_version": RNG_VERSION,
-            "worklist_sha256": {name: file_sha256(args.output_dir / f"{name}.jsonl")
-                                for name in ["calibration", "development", "pilot"]},
+            "worklist_sha256": {name: hashlib.sha256(content.encode("utf-8")).hexdigest()
+                                for name, content in worklists.items()},
             "parser_version": PARSER_VERSION, "eos_ids": eos_ids,
             "reasoning_end_ids": think_end_ids,
             "reasoning_end_single_token": len(think_end_ids) == 1,
@@ -71,12 +71,24 @@ def main():
             "q_checkpoint_ready": False,
             "test_outputs_seen": False, "professor_PASS_verified": False,
             "user_authorized_assumed_approval": True}
-    write_json(args.lock, lock)
+    validate_asset_contract(args.manifest, args.lock, manifest, lock, worklists, args.output_dir)
+    if not args.manifest.exists():
+        write_json(args.manifest, manifest)
+    if not args.lock.exists():
+        write_json(args.lock, lock)
+    args.output_dir.mkdir(parents=True, exist_ok=True)
+    for name, content in worklists.items():
+        path = args.output_dir / f"{name}.jsonl"
+        if not path.exists():
+            with path.open("x", encoding="utf-8") as stream:
+                stream.write(content)
     print(json.dumps({"model_revision": m["revision"], "dataset_revision": d["revision"],
                       "split_manifest_sha256": manifest_hash(manifest),
                       "excluded_train_rows": len(manifest["excluded"]),
                       "eos_ids": eos_ids, "reasoning_end_ids": think_end_ids,
-                      "test_outputs_generated": 0}, indent=2))
+                      "test_outputs_generated": 0,
+                      "recorded_files_preserved": True,
+                      "runtime_packages": lock["packages"]}, indent=2))
 
 
 if __name__ == "__main__":
