@@ -1,6 +1,6 @@
 # QuantSplit — 현재 연구 상태
 
-최종 갱신: 2026-09-29 KST. 제출 가설 v0.2 / 개발 구현 v0.2.1. 과거 00·01 문서는 역사 기록을 포함한다.
+최종 갱신: 2026-09-30 KST. 제출 가설 v0.2 / 개발 구현 v0.2.1. 과거 00·01 문서는 역사 기록을 포함한다.
 
 | 항목 | 현재 상태 |
 |---|---|
@@ -12,9 +12,9 @@
 | 02 구현 | 4-arm, cache, sampler, 난수, parser, 분할, GPTQ 준비·개발 runner 구현 |
 | 검증 | 기존 19개 core + 02-2 추가 5개 = 24개 통과. 작은 Qwen2/GPTQ CPU 기록 보존; 새 합성 context 경로도 작은 CPU 모델에서만 검사 |
 | 자산 | 모델/tokenizer·GSM8K revision 고정. calibration/development/pilot 128/128/128 분할 고정 |
-| 실제 1.5B calibration/GPTQ | 미실행. 명령·manifest 구현 준비됨 |
-| 사용자 RTX 4090 검증 | 사용자 nvidia-smi 로그로 2×4090·driver 535.183.01/CUDA 표시 12.2 확인. assistant 원격 연결 없음. PyTorch kernel·모델 실행 검증은 아직 |
-| 02 전체 | **미완료 — 실제 모델·장비·긴 context 검증 필요** |
+| 실제 1.5B calibration/GPTQ | 사용자 로그에서 calibration 128/128 및 checkpoint/manifest 저장 완료 확인. 원본 Q manifest 직접 검토는 대기 |
+| 사용자 RTX 4090 검증 | cuda:1, torch 2.8.0+cu126에서 BF16 matmul/SDPA·FP32 Cholesky 통과. 실제 F/Q 구현 검사에서 중단, 세부 JSON 미제공 |
+| 02 전체 | **미완료 — 실제 모델 구현 검사 실패의 상세 진단·수정 및 full-cap/context 검증 필요** |
 | 파일럿·H1 결과·확증 | 미실행. 자체 test 모델 출력 없음 |
 | 프로토콜 동결 | 아직 아님. 03에서 파일럿·정밀도·예산 후 확증 동결 |
 | 이메일 | 초안만 작성, 미발송 |
@@ -31,7 +31,7 @@
 
 ## 현재 판단과 다음 행동
 
-실행 가능한 개발 코드를 마련하고 작은 모델까지 검증했다. 02-2에서는 자산 재생성이 고정 lock을 덮어쓰던 문제를 수정했고, 장비 preflight·실패 시 로그 묶음·합성 긴 context 검사를 추가했다. [02-2 변경·CPU 검증 기록](research/session02/03_target_gpu_preparation.md)을 따른다. 사용자 GPU에서 `bash scripts/run_target_gate.sh cuda:0 runs/target-gate-01 checkpoints/gptq-w3-g128`를 실행한 증거를 검토해야 한다. 같은 진행 허가를 다시 요청하지 않는다. 실제 장비 증거 없이 02 완료나 H1 판정을 선언하지 않는다.
+사용자가 `a8b325c`로 실행한 `target-gate-gpu1-01` 로그를 제공했다. GPU 사전 연산·24개 tests·작은 CPU 모델·자산 대조와 calibration/GPTQ 저장까지 진행됐다. 그다음 `validate_model_pair`가 false를 반환하여 smoke 본 생성 전에 중단됐다. [로그 검토 기록](research/session02/target_gpu_run01_review.json)을 따른다. **기존 checkpoint를 보존하고 `runs/target-gate-gpu1-01/dev-smoke.validation.json` 또는 이미 생성된 `.tar.gz`를 먼저 확인한다.** 실패 항목과 수치가 없는 상태에서 원인을 단정하거나 허용 오차를 완화하지 않는다. 같은 진행 허가를 다시 요청하지 않는다. 02 완료나 H1 판정을 선언하지 않는다.
 
 H1은 1.5B GPTQ-W3/g128, T=.6, p=.95, GSM8K에서 QF가 QQ의 초과 토큰을 50% 넘게 복구하고 QQ 대비 정확도 손실이 3%p 미만이라는 기존 제출 가설을 유지한다. CPU 검증 수치는 이 H1의 실험 결과가 아니다. 정확한 판정은 v0.2 설계를 따른다.
 

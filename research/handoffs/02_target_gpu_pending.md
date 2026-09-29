@@ -1,12 +1,23 @@
 # QuantSplit 02 — 실제 장비 검증 대기 인계
 
-2026-09-29 KST. **02 미완료·대화만 전환 가능. 현재 정지는 승인 때문이 아니라 사용자 GPU 미연결 때문이다.**
+최신 상태 2026-09-30 KST. **02 미완료. 사용자 GPU 실행은 시작했고, 실제 모델 구현 검사 실패의 세부 보고서를 기다린다. 아래 9/29 내용은 이력이다.**
 
 사용자가 “승인 했다는 전제로 우선 진행해줘.”라고 명시했다. 이 권한으로 계속 진행한다. 교수님의 실제 PASS 확인은 여전히 미확인이며 승인 사실을 만들어 적지 않는다. 같은 진행 허가를 다시 묻지 않는다.
 
 완료: 4-arm/독립 cache/FP32 sampler/RNG/parser/split 구현, tokenizer·데이터 revision 고정, 19개 core tests, 작은 실제 Qwen2 및 GPTQ CPU 검증, 실제 GPU용 calibration→GPTQ→개발 runner.
 
-미완료: 실제 1.5B calibration·GPTQ, RTX 4090의 대조군/긴 context/처리량/VRAM 검증, 하루 가용 시간. H1·파일럿·test 결과는 없다. seed 42/43·H1 수치·판정은 v0.2에서 바꾸지 않았다. 현재 개발 프로토콜 v0.2.1은 확증 동결이 아니다.
+최신 미완료: 실제 Q manifest 직접 검토, F/Q 구현 검사 실패 진단, 긴 context/처리량/VRAM 검증, 하루 가용 시간. calibration 128개 생성과 GPTQ 저장은 사용자 로그에서 완료 확인했다. H1·파일럿·test 결과는 없다. seed 42/43·H1 수치·판정은 v0.2에서 바꾸지 않았다. 현재 개발 프로토콜 v0.2.1은 확증 동결이 아니다.
+
+## 9/30 새 로그 — 현재 우선 작업
+
+사용자가 `a8b325c`/cuda:1로 실행한 터미널 로그를 제공했다. 실제 CUDA kernel 3종, 24개 tests, 작은 Qwen2/GPTQ CPU 검사, 자산 대조, calibration 128/128과 GPTQ 저장 메시지가 확인됐다. 이후 `run_development.py`의 `validate_model_pair` 결과가 false여서 본 smoke 생성 전에 중단됐다. 원본 JSON은 이번 첨부에 없다.
+
+1. `runs/target-gate-gpu1-01/dev-smoke.validation.json` 또는 `runs/target-gate-gpu1-01.tar.gz`를 받는다. 후자에는 Q manifest도 들어간다.
+2. F=Q/p=1/cache logit·TV/baseline 중 실제 실패 항목과 값을 확인한다. 추측으로 SDPA·CUDA·GPTQ를 원인이라고 단정하지 않는다.
+3. 기존 `checkpoints/gptq-w3-g128`를 보존한다. 원인 진단 전 재양자화·설정 변경·기준 완화를 하지 않는다. 수정이 필요하면 근거를 기록한 뒤 새 run 출력 경로에서 검사한다.
+4. full-cap/context·파일럿·H1은 아직 수행되지 않았다. 03 인계는 계속 비활성이다.
+
+기계 판독 요약: [target_gpu_run01_review.json](../session02/target_gpu_run01_review.json).
 
 이어서 사용할 세션: **QuantSplit 02-2 — 실제 GPU 검증·파일럿 준비**.
 

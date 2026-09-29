@@ -1,0 +1,129 @@
+{
+  "review_date_kst": "2026-09-30",
+  "status": "ACTUAL_MODEL_IMPLEMENTATION_VALIDATION_BLOCKED_DETAILS_PENDING",
+  "evidence": {
+    "kind": "user_supplied_terminal_text",
+    "filename": "붙여넣은 텍스트(1).txt",
+    "sha256": "9eced62a2897ac91a1b78a9f00de0c469752a0938281986291dfbeaf99442204",
+    "lines": 331,
+    "raw_validation_json_received": false,
+    "q_manifest_received": false
+  },
+  "preflight": {
+    "kind": "environment_preflight_only",
+    "recorded_at_utc": "2026-09-29T13:52:08.517053+00:00",
+    "scientific_H1_result": false,
+    "stage02_complete": false,
+    "professor_PASS_verified": false,
+    "user_authorized_assumed_approval": true,
+    "python": "3.12.14 (main, Sep  2 2026, 23:27:36) [GCC 15.3.0]",
+    "platform": "Linux-5.15.0-122-generic-x86_64-with-glibc2.35",
+    "device": "cuda:1",
+    "repository": {
+      "returncode": 0,
+      "stdout": "a8b325c83c95144496b53d0292129a846086a24b",
+      "stderr": ""
+    },
+    "working_tree": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "nvidia_smi": {
+      "returncode": 0,
+      "stdout": "0, NVIDIA GeForce RTX 4090, 535.183.01, 24564 MiB, 22732 MiB\n1, NVIDIA GeForce RTX 4090, 535.183.01, 24564 MiB, 23428 MiB",
+      "stderr": ""
+    },
+    "disk_free_bytes": 1233945997312,
+    "packages": {
+      "torch": "2.8.0+cu126",
+      "transformers": "4.57.1",
+      "numpy": "2.5.3",
+      "datasets": "4.3.0",
+      "tokenizers": "0.22.2",
+      "huggingface-hub": "0.36.2",
+      "safetensors": "0.8.0"
+    },
+    "blockers": [],
+    "cuda_available": true,
+    "torch_cuda": "12.6",
+    "gpu_count": 2,
+    "selected_gpu": {
+      "name": "NVIDIA GeForce RTX 4090",
+      "total_memory_bytes": 25393692672,
+      "bf16_supported": true
+    },
+    "kernel_checks": {
+      "passed": true,
+      "scope": "tiny native kernels only",
+      "bf16_matmul": true,
+      "bf16_sdpa": true,
+      "fp32_cholesky": true
+    },
+    "files_sha256": {
+      "configs/execution_lock.json": "d2f2b8ced9137da65018e37ffdb6752c74f9b0db23a7e4cfb0f342aad6c193a6",
+      "protocols/quant_sampling_v0.2.1-development.json": "d3ccdc891a1243625d74490b61847b0d0997cdc86f49b1e82a5f54f4e77e5e6d"
+    },
+    "ready_for_asset_preparation": true
+  },
+  "tests": {
+    "passed": 24,
+    "observed_seconds": 6.997
+  },
+  "tiny_model": {
+    "passed": true,
+    "device": "cpu",
+    "not_actual_1_5B_validation": true
+  },
+  "assets": {
+    "model_revision": "ad9f0ae0864d7fbcd1cd905e3c6c5b069cc8b562",
+    "dataset_revision": "740312add88f781978c0658806c59bc2815b9866",
+    "split_manifest_sha256": "f650f57279971fee307f9a85ced0033d75347ab4c3af86d49c560c508a1c6ad8",
+    "excluded_train_rows": 0,
+    "eos_ids": [
+      151643
+    ],
+    "reasoning_end_ids": [
+      151649
+    ],
+    "test_outputs_generated": 0,
+    "recorded_files_preserved": true,
+    "runtime_packages": {
+      "torch": "2.8.0+cu126",
+      "transformers": "4.57.1",
+      "datasets": "4.3.0",
+      "numpy": "2.5.3",
+      "tokenizers": "0.22.2",
+      "huggingface-hub": "0.36.2"
+    }
+  },
+  "checkpoint": {
+    "calibration_completed_rows_reported": 128,
+    "save_success_message_present": true,
+    "manifest_directly_reviewed": false,
+    "preserve_existing_checkpoint": true
+  },
+  "failure": {
+    "stage": "validate_model_pair before development task generation",
+    "exception": "RuntimeError: implementation checks failed; inspect the saved validation report",
+    "details": null,
+    "cause": null
+  },
+  "needed_files": [
+    "runs/target-gate-gpu1-01/dev-smoke.validation.json",
+    "checkpoints/gptq-w3-g128/manifest.json"
+  ],
+  "existing_bundle": "runs/target-gate-gpu1-01.tar.gz",
+  "stage02_complete": false,
+  "stage03_active": false,
+  "scientific_H1_result": false,
+  "professor_PASS_verified": false,
+  "not_run": [
+    "development_task_rollouts",
+    "full_cap_generation",
+    "synthetic_full_context",
+    "pilot",
+    "confirmation"
+  ],
+  "decision": "Review saved validation values before any computation fix or tolerance change; preserve checkpoint."
+}

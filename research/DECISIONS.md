@@ -87,3 +87,12 @@
 - NVIDIA/PyTorch 공식 문서를 확인했다. CUDA 12.x minor compatibility의 최소 Linux driver 525.60.13 조건은 충족하지만 PTX/새 기능 등 예외가 있다. 표시 차이만으로 불가 또는 완전 호환이라고 단정하지 않는다.
 - torch 2.8.0/cu126을 유지하여 `cuda:1`에서 작은 BF16 matmul·SDPA·FP32 Cholesky를 먼저 실행하도록 preflight와 runbook을 보완했다. 드라이버 변경·다른 작업 종료·torch 버전 변경은 하지 않았다.
 - assistant 환경에서 새 preflight의 문법 및 GPU 없음 실패 경로만 확인한다. 사용자 GPU에서의 실제 kernel/모델 실행은 여전히 대기다. H1·효과 기준·데이터·확증 동결·교수 실제 PASS 상태는 바뀌지 않는다.
+
+## 2026-09-30 — 실제 GPU 첫 실행 로그 검토: 구현 검사 상세 대기
+
+- 사용자 첨부 텍스트 전체 331행을 읽었다. 실행 commit a8b325c, cuda:1, torch 2.8.0+cu126/Transformers 4.57.1, clean working tree가 로그에 있다. 실제 BF16 matmul·SDPA 및 FP32 Cholesky 사전 검사가 통과했다.
+- 24개 tests 통과(6.997초), 작은 Qwen2/GPTQ 검사는 device=cpu임을 구분했다. 자산 고정 해시 일치, calibration 128/128, GPTQ checkpoint/manifest 저장 메시지를 확인했다. 실제 Q manifest 원본과 weight는 이 첨부로 직접 검토하지 못했다.
+- 중단은 run_development.py의 validate_model_pair 반환값 passed=false에 따른 RuntimeError다. 본 development 생성·full-cap/context·파일럿·H1은 진행되지 않았다. 실제 실패 항목/오차값은 저장 JSON에 있고 첨부 텍스트에 없다.
+- 현재 조치: checkpoint 보존, dev-smoke.validation.json 또는 기존 tar.gz 수신 후 진단. CUDA/SDPA/GPTQ 중 하나를 원인으로 단정하거나 기준을 완화하지 않는다.
+- 실패 JSON이 터미널 로그에도 나타나도록 출력만 보완했다. 실제 계산·오차 기준·H1·프로토콜은 변경하지 않았다. 기존 오류 재현을 위해 고비용 과정을 반복하지 않는다.
+- 상태: 02 미완료·03 인계 비활성. 교수 실제 PASS 미확인. 근거 요약은 research/session02/target_gpu_run01_review.json.

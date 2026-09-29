@@ -83,9 +83,12 @@ def main():
     probe = prompts[0][:32]
     validation = validate_model_pair(f,q,probe)
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.with_suffix(".validation.json").write_text(json.dumps(validation,indent=2)+"\n")
+    validation_path = args.output.with_suffix(".validation.json")
+    validation_path.write_text(json.dumps(validation,indent=2)+"\n")
     if not validation['passed']:
-        raise RuntimeError("implementation checks failed; inspect the saved validation report")
+        print(json.dumps({"validation_report": str(validation_path), "validation": validation}, indent=2),
+              flush=True)
+        raise RuntimeError(f"implementation checks failed; see {validation_path}")
     source = Path(__file__).resolve().parents[1] / "src/quantsplit"
     provenance = {"recorded_at_utc": datetime.now(timezone.utc).isoformat(),
                   "lock_sha256": file_sha256(args.lock),
