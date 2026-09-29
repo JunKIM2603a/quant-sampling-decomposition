@@ -1,18 +1,19 @@
 {
   "review_date_kst": "2026-09-30",
-  "status": "GPU_DIAGNOSTIC_CONSOLE_REVIEWED_BF16_GATE_STILL_FAILED",
+  "status": "GPU_DIAGNOSTIC_FULL_REPORT_REVIEWED_NUMERICAL_POLICY_AUDIT_PENDING",
   "evidence": {
-    "kind": "user_pasted_terminal_output",
+    "kind": "user_uploaded_original_json_and_prior_console",
     "command": "python scripts/diagnose_cache.py --device cuda:1 --q-checkpoint checkpoints/gptq-w3-g128 --output runs/cache-diagnostic-gpu1-01.json",
     "git_pull_fast_forward_reported": "a8b325c..bc3e599",
     "expected_code_commit": "bc3e599c331dd453801506110c30d50acc052894",
     "diagnostic_saved_message_present": true,
-    "diagnostic_json_directly_received": false,
-    "diagnostic_file_sha256": null,
-    "q_manifest_directly_reviewed": false,
-    "stepwise_errors_directly_reviewed": false,
-    "runtime_settings_directly_reviewed": false,
-    "code_path_inference": "Reaching all eight summaries and the saved message implies the script completed its asset checks and cache-length/finite checks; original report fields have not been directly reviewed."
+    "diagnostic_json_directly_received": true,
+    "diagnostic_file_sha256": "f8f084aa9ab42fc050468ca651a2ae3fd8f8c607f399316e5acab810d97a192e",
+    "q_manifest_directly_reviewed": true,
+    "stepwise_errors_directly_reviewed": true,
+    "runtime_settings_directly_reviewed": true,
+    "diagnostic_file_bytes": 170747,
+    "evidence_path": "research/session02/evidence/cache-diagnostic-gpu1-01.json"
   },
   "console_records": [
     {
@@ -222,8 +223,8 @@
   },
   "decision": {
     "state": "HOLD_AT_STAGE02",
-    "next_action": "Read existing runs/cache-diagnostic-gpu1-01.json; no repeat GPU calculation needed to provide it.",
-    "validation_review": "Separate same-schedule cache implementation checks from numerical sensitivity to recomputation shape; any gate revision requires an explicit development version and preserved original failure.",
+    "next_action": "Run fixed numerical-audit-v1: eight locked full development prompts, up to 32 F/FF tokens; same-schedule cache reference and four-arm policy sensitivity. No replacement gate activated.",
+    "validation_review": "Implementation correctness and numerical policy sensitivity are separated in the new audit; the original BF16 failed gate remains active until an explicit reviewed revision.",
     "thresholds_relaxed": false,
     "research_dtype_changed": false,
     "checkpoint_requantization_required_by_evidence": false,
@@ -236,5 +237,83 @@
   "sources": [
     "https://docs.pytorch.org/docs/2.8/notes/numerical_accuracy.html",
     "https://huggingface.co/docs/transformers/v4.57.1/en/cache_explanation"
-  ]
+  ],
+  "full_report_review": {
+    "recorded_at_utc": "2026-09-29T20:44:38.392691+00:00",
+    "device": "cuda:1",
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "cuda": "12.6",
+    "git_commit": "bc3e599c331dd453801506110c30d50acc052894",
+    "git_status": "",
+    "packages": {
+      "torch": "2.8.0+cu126",
+      "transformers": "4.57.1",
+      "numpy": "2.5.3"
+    },
+    "source_hashes_match_recorded_commit": true,
+    "runner_hash_matches_recorded_commit": true,
+    "lock_hash_matches_repository": true,
+    "q_manifest_sha256": "8ce77f5a15d59c0ac4eedee09fff3ce814f97c141c923a501c4e048c51caae85",
+    "embedded_manifest_reconstructed_bytes_hash_matches": true,
+    "q_quantization_config_matches_repository": true,
+    "q_reported_target_count": 196,
+    "q_target_name_set_matches_28_layers_times_7_projections": true,
+    "q_all_196_reported_before_after_hashes_differ": true,
+    "q_reported_non_target_weights_unchanged": true,
+    "q_reported_calibration_sequences": 128,
+    "q_checkpoint_hashes_verified_on_user_gpu_host": true,
+    "assistant_independently_rehashed_weight_files": false,
+    "q_weight_sha256_recorded": "21d52a2b81775749236f06166583bb8882ee3e87cadabbfe4b46054f139e080a",
+    "all_40_probe_records_match_reported_maxima": true,
+    "all_28_layer_cache_lengths_match_32_through_36": true,
+    "all_prefill_cache_full_errors_zero": true,
+    "all_40_direct_fresh_and_repeat_comparisons_zero": true,
+    "all_logged_logits_finite": true,
+    "bf16_auto_tv_by_prefix_length": {
+      "F": {
+        "32": 0.0,
+        "33": 0.002609048646617468,
+        "34": 0.009286526618974375,
+        "35": 0.0022774490544826467,
+        "36": 0.0007130408893084545
+      },
+      "Q": {
+        "32": 0.0,
+        "33": 0.0030496444241879853,
+        "34": 0.02662345340131388,
+        "35": 0.0010209695525256028,
+        "36": 0.005306865512173025
+      }
+    },
+    "runtime_settings_by_mode": {
+      "bf16_auto": {
+        "sdpa_policy": "automatic",
+        "matmul_tf32": false,
+        "cudnn_tf32": false,
+        "bf16_reduced_precision_reduction": true,
+        "math_sdp_reduced_precision_reduction": false
+      },
+      "bf16_math": {
+        "sdpa_policy": "math_only",
+        "matmul_tf32": false,
+        "cudnn_tf32": false,
+        "bf16_reduced_precision_reduction": true,
+        "math_sdp_reduced_precision_reduction": false
+      },
+      "bf16_math_full_reduction": {
+        "sdpa_policy": "math_only",
+        "matmul_tf32": false,
+        "cudnn_tf32": false,
+        "bf16_reduced_precision_reduction": false,
+        "math_sdp_reduced_precision_reduction": false
+      },
+      "fp32_math": {
+        "sdpa_policy": "math_only",
+        "matmul_tf32": false,
+        "cudnn_tf32": false,
+        "bf16_reduced_precision_reduction": false,
+        "math_sdp_reduced_precision_reduction": false
+      }
+    }
+  }
 }

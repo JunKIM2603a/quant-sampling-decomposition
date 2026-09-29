@@ -114,3 +114,12 @@
 - 현재 판단: BF16 연구 설정을 유지하고, cache 구현 검증과 다른 계산 형태의 수치 민감도를 분리하는 검증 개편안을 작성했다. 아직 적용하지 않았다. 변경을 채택하면 최초 실패 및 이미 본 데이터를 보존하고 새 개발 버전에 명시한다. 기준 완화·FP32 연구 전환·재양자화·기존 실패 PASS 처리는 하지 않았다.
 - 다음 입력: 이미 생성된 JSON 원본. 추가 GPU 실행을 요구하지 않는다. source/runner/protocol 변경 없이 결과·상태 문서만 갱신했다. 이전 27개 CPU tests 이력은 유지하며 이번 문서 변경 때문에 GPU/CPU 검사를 새로 실행한 것으로 기록하지 않는다.
 - 상태: 02 미완료·03 비활성·교수 실제 PASS 미확인. 근거: research/session02/cache_diagnostic_gpu1_01_review.json, 검토안: research/session02/05_cache_diagnostic_review.md.
+
+## 2026-09-30 — 원본 GPU 진단·Q manifest 검토 완료 / numerical-audit-v1 고정
+
+- 원본 cache-diagnostic-gpu1-01.json(170,747 bytes, SHA256 f8f084aa9ab42fc050468ca651a2ae3fd8f8c607f399316e5acab810d97a192e)을 받아 byte 그대로 보존했다. commit bc3e599의 runner/source 해시·lock·실제 설정·40개 위치·28개 층 길이·최대값을 대조했다. prefill은 차이0, decode 이후 BF16 차이가 나타난다.
+- 내장 Q manifest의 revision/설정·196개 대상 이름과 before/after hash 변경·128개 calibration·비대상 불변 보고를 검토했다. 재직렬화한 manifest 해시도 일치한다. 사용자 장비 checkpoint 해시 검증 완료 보고를 확인했으며 assistant가 weight bytes를 직접 재검증한 것은 아니다.
+- 기존 진단에는 F-Q 차이나 실제 top-p/교차 정책의 정밀도 민감도 자료가 없으므로 이를 확인하는 한정 development audit v1을 고정했다. 첫8개 locked development 전체 prompt, F/FF 최대32토큰(T=.6,p=.95,seed42), 생성 직전 0/1/8/16/31 및 마지막 위치. 같은 경로에서 BF16 cached/full-prefix와 BF16/FP32 4-arm 분포·후보집합을 비교한다. 첫문항 앞32토큰 진단을 이미 본 이력을 plan에 남겼다.
+- 실제 BF16 연구·GPTQ checkpoint·원래 오차 기준·본 runner의 실패 관문은 유지했다. 신규 audit의 직접 cache exact 검사와 FP32 비교 표지는 자동 stage02 GO가 아니다. 민감도 결과를 보고 검증 개편을 결정하며 본 데이터와 변경 이유를 새 버전에 명시한다. 현재 v0.2.1 및 H1은 변경하지 않았다.
+- 기존27 + 신규3 = 30개 CPU tests 통과(2.999초). 실제 작은 Qwen2 BF16/FP32 replay·EOS 종료·관측 위치 밖 cache 오류 검출·후보집합 교환에 따른 4-arm TV 기대값 검증. GPU 없음 CLI 오류 JSON도 확인했다. 새 audit의 실제 GPU 실행은 아직 아니다.
+- 다음 입력은 runs/numerical-audit-gpu1-01.json. 02 미완료·03 비활성·교수 실제 PASS 미확인. 상세 research/session02/06_numerical_audit.md, 고정 계획 configs/numerical_audit_v1.json.

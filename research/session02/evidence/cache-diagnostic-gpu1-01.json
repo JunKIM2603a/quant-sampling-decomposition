@@ -1,0 +1,5957 @@
+{
+  "kind": "short_cache_diagnostic_only",
+  "completed": true,
+  "stage02_complete": false,
+  "scientific_H1_result": false,
+  "professor_PASS_verified": false,
+  "tolerances": {
+    "bf16_cache_max_abs_logit": 0.25,
+    "bf16_cache_tv": 0.001,
+    "independent_baseline_max_abs_probability": 2e-06
+  },
+  "recorded_at_utc": "2026-09-29T20:44:38.392691+00:00",
+  "run_args": {
+    "device": "cuda:1",
+    "q_checkpoint": "checkpoints/gptq-w3-g128",
+    "output": "runs/cache-diagnostic-gpu1-01.json"
+  },
+  "models": {
+    "F": {
+      "config": {
+        "model_type": "qwen2",
+        "vocab_size": 151936,
+        "hidden_size": 1536,
+        "num_hidden_layers": 28,
+        "num_attention_heads": 12,
+        "num_key_value_heads": 2,
+        "max_position_embeddings": 131072,
+        "rope_theta": 10000,
+        "rope_scaling": null,
+        "use_sliding_window": false,
+        "sliding_window": null
+      },
+      "modes": {
+        "bf16_auto": {
+          "steps": [
+            {
+              "step": 0,
+              "prefix_tokens": 32,
+              "cache_lengths": {
+                "repository": [
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32
+                ],
+                "direct": [
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32
+                ],
+                "fresh": [
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32
+                ]
+              },
+              "cached_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "repository_vs_direct": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "fresh_cache_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "full_repeat": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              }
+            },
+            {
+              "step": 1,
+              "prefix_tokens": 33,
+              "cache_lengths": {
+                "repository": [
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33
+                ],
+                "direct": [
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33
+                ],
+                "fresh": [
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33
+                ]
+              },
+              "cached_vs_full": {
+                "max_abs_logit": 0.21875,
+                "tv": 0.002609048646617468
+              },
+              "repository_vs_direct": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "fresh_cache_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "full_repeat": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              }
+            },
+            {
+              "step": 2,
+              "prefix_tokens": 34,
+              "cache_lengths": {
+                "repository": [
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34
+                ],
+                "direct": [
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34
+                ],
+                "fresh": [
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34
+                ]
+              },
+              "cached_vs_full": {
+                "max_abs_logit": 0.203125,
+                "tv": 0.009286526618974375
+              },
+              "repository_vs_direct": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "fresh_cache_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "full_repeat": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              }
+            },
+            {
+              "step": 3,
+              "prefix_tokens": 35,
+              "cache_lengths": {
+                "repository": [
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35
+                ],
+                "direct": [
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35
+                ],
+                "fresh": [
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35
+                ]
+              },
+              "cached_vs_full": {
+                "max_abs_logit": 0.1875,
+                "tv": 0.0022774490544826467
+              },
+              "repository_vs_direct": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "fresh_cache_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "full_repeat": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              }
+            },
+            {
+              "step": 4,
+              "prefix_tokens": 36,
+              "cache_lengths": {
+                "repository": [
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36
+                ],
+                "direct": [
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36
+                ],
+                "fresh": [
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36
+                ]
+              },
+              "cached_vs_full": {
+                "max_abs_logit": 0.1875,
+                "tv": 0.0007130408893084545
+              },
+              "repository_vs_direct": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "fresh_cache_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "full_repeat": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              }
+            }
+          ],
+          "maxima": {
+            "cached_vs_full": {
+              "max_abs_logit": 0.21875,
+              "max_tv": 0.009286526618974375
+            },
+            "repository_vs_direct": {
+              "max_abs_logit": 0.0,
+              "max_tv": 0.0
+            },
+            "fresh_cache_vs_full": {
+              "max_abs_logit": 0.0,
+              "max_tv": 0.0
+            },
+            "full_repeat": {
+              "max_abs_logit": 0.0,
+              "max_tv": 0.0
+            }
+          },
+          "meets_existing_cache_tolerance": false,
+          "all_logits_finite": true,
+          "all_cache_lengths_correct": true,
+          "settings": {
+            "sdpa_policy": "automatic",
+            "matmul_tf32": false,
+            "cudnn_tf32": false,
+            "bf16_reduced_precision_reduction": true,
+            "math_sdp_reduced_precision_reduction": false
+          },
+          "parameter_dtype": "torch.bfloat16",
+          "seconds": 1.3124659210443497,
+          "peak_allocated_bytes": 3570025472
+        },
+        "bf16_math": {
+          "steps": [
+            {
+              "step": 0,
+              "prefix_tokens": 32,
+              "cache_lengths": {
+                "repository": [
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32
+                ],
+                "direct": [
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32
+                ],
+                "fresh": [
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32
+                ]
+              },
+              "cached_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "repository_vs_direct": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "fresh_cache_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "full_repeat": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              }
+            },
+            {
+              "step": 1,
+              "prefix_tokens": 33,
+              "cache_lengths": {
+                "repository": [
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33
+                ],
+                "direct": [
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33
+                ],
+                "fresh": [
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33
+                ]
+              },
+              "cached_vs_full": {
+                "max_abs_logit": 0.328125,
+                "tv": 0.01137818415542713
+              },
+              "repository_vs_direct": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "fresh_cache_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "full_repeat": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              }
+            },
+            {
+              "step": 2,
+              "prefix_tokens": 34,
+              "cache_lengths": {
+                "repository": [
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34
+                ],
+                "direct": [
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34
+                ],
+                "fresh": [
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34
+                ]
+              },
+              "cached_vs_full": {
+                "max_abs_logit": 0.28125,
+                "tv": 0.00044962902125186756
+              },
+              "repository_vs_direct": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "fresh_cache_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "full_repeat": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              }
+            },
+            {
+              "step": 3,
+              "prefix_tokens": 35,
+              "cache_lengths": {
+                "repository": [
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35
+                ],
+                "direct": [
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35
+                ],
+                "fresh": [
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35
+                ]
+              },
+              "cached_vs_full": {
+                "max_abs_logit": 0.25,
+                "tv": 0.0021891961633046693
+              },
+              "repository_vs_direct": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "fresh_cache_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "full_repeat": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              }
+            },
+            {
+              "step": 4,
+              "prefix_tokens": 36,
+              "cache_lengths": {
+                "repository": [
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36
+                ],
+                "direct": [
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36
+                ],
+                "fresh": [
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36
+                ]
+              },
+              "cached_vs_full": {
+                "max_abs_logit": 0.25,
+                "tv": 0.00310094807258146
+              },
+              "repository_vs_direct": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "fresh_cache_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "full_repeat": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              }
+            }
+          ],
+          "maxima": {
+            "cached_vs_full": {
+              "max_abs_logit": 0.328125,
+              "max_tv": 0.01137818415542713
+            },
+            "repository_vs_direct": {
+              "max_abs_logit": 0.0,
+              "max_tv": 0.0
+            },
+            "fresh_cache_vs_full": {
+              "max_abs_logit": 0.0,
+              "max_tv": 0.0
+            },
+            "full_repeat": {
+              "max_abs_logit": 0.0,
+              "max_tv": 0.0
+            }
+          },
+          "meets_existing_cache_tolerance": false,
+          "all_logits_finite": true,
+          "all_cache_lengths_correct": true,
+          "settings": {
+            "sdpa_policy": "math_only",
+            "matmul_tf32": false,
+            "cudnn_tf32": false,
+            "bf16_reduced_precision_reduction": true,
+            "math_sdp_reduced_precision_reduction": false
+          },
+          "parameter_dtype": "torch.bfloat16",
+          "seconds": 1.4704705104231834,
+          "peak_allocated_bytes": 3570025472
+        },
+        "bf16_math_full_reduction": {
+          "steps": [
+            {
+              "step": 0,
+              "prefix_tokens": 32,
+              "cache_lengths": {
+                "repository": [
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32
+                ],
+                "direct": [
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32
+                ],
+                "fresh": [
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32
+                ]
+              },
+              "cached_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "repository_vs_direct": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "fresh_cache_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "full_repeat": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              }
+            },
+            {
+              "step": 1,
+              "prefix_tokens": 33,
+              "cache_lengths": {
+                "repository": [
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33
+                ],
+                "direct": [
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33
+                ],
+                "fresh": [
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33
+                ]
+              },
+              "cached_vs_full": {
+                "max_abs_logit": 0.25,
+                "tv": 0.002973279809397719
+              },
+              "repository_vs_direct": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "fresh_cache_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "full_repeat": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              }
+            },
+            {
+              "step": 2,
+              "prefix_tokens": 34,
+              "cache_lengths": {
+                "repository": [
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34
+                ],
+                "direct": [
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34
+                ],
+                "fresh": [
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34
+                ]
+              },
+              "cached_vs_full": {
+                "max_abs_logit": 0.25,
+                "tv": 0.006144078116465332
+              },
+              "repository_vs_direct": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "fresh_cache_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "full_repeat": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              }
+            },
+            {
+              "step": 3,
+              "prefix_tokens": 35,
+              "cache_lengths": {
+                "repository": [
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35
+                ],
+                "direct": [
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35
+                ],
+                "fresh": [
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35
+                ]
+              },
+              "cached_vs_full": {
+                "max_abs_logit": 0.25,
+                "tv": 0.00564831332185445
+              },
+              "repository_vs_direct": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "fresh_cache_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "full_repeat": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              }
+            },
+            {
+              "step": 4,
+              "prefix_tokens": 36,
+              "cache_lengths": {
+                "repository": [
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36
+                ],
+                "direct": [
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36
+                ],
+                "fresh": [
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36
+                ]
+              },
+              "cached_vs_full": {
+                "max_abs_logit": 0.1640625,
+                "tv": 0.0009122312827229456
+              },
+              "repository_vs_direct": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "fresh_cache_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "full_repeat": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              }
+            }
+          ],
+          "maxima": {
+            "cached_vs_full": {
+              "max_abs_logit": 0.25,
+              "max_tv": 0.006144078116465332
+            },
+            "repository_vs_direct": {
+              "max_abs_logit": 0.0,
+              "max_tv": 0.0
+            },
+            "fresh_cache_vs_full": {
+              "max_abs_logit": 0.0,
+              "max_tv": 0.0
+            },
+            "full_repeat": {
+              "max_abs_logit": 0.0,
+              "max_tv": 0.0
+            }
+          },
+          "meets_existing_cache_tolerance": false,
+          "all_logits_finite": true,
+          "all_cache_lengths_correct": true,
+          "settings": {
+            "sdpa_policy": "math_only",
+            "matmul_tf32": false,
+            "cudnn_tf32": false,
+            "bf16_reduced_precision_reduction": false,
+            "math_sdp_reduced_precision_reduction": false
+          },
+          "parameter_dtype": "torch.bfloat16",
+          "seconds": 1.2211689129471779,
+          "peak_allocated_bytes": 3570025472
+        },
+        "fp32_math": {
+          "steps": [
+            {
+              "step": 0,
+              "prefix_tokens": 32,
+              "cache_lengths": {
+                "repository": [
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32
+                ],
+                "direct": [
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32
+                ],
+                "fresh": [
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32
+                ]
+              },
+              "cached_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "repository_vs_direct": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "fresh_cache_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "full_repeat": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              }
+            },
+            {
+              "step": 1,
+              "prefix_tokens": 33,
+              "cache_lengths": {
+                "repository": [
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33
+                ],
+                "direct": [
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33
+                ],
+                "fresh": [
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33
+                ]
+              },
+              "cached_vs_full": {
+                "max_abs_logit": 2.7179718017578125e-05,
+                "tv": 4.5872664759602187e-07
+              },
+              "repository_vs_direct": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "fresh_cache_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "full_repeat": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              }
+            },
+            {
+              "step": 2,
+              "prefix_tokens": 34,
+              "cache_lengths": {
+                "repository": [
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34
+                ],
+                "direct": [
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34
+                ],
+                "fresh": [
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34
+                ]
+              },
+              "cached_vs_full": {
+                "max_abs_logit": 2.3365020751953125e-05,
+                "tv": 5.968526084663559e-07
+              },
+              "repository_vs_direct": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "fresh_cache_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "full_repeat": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              }
+            },
+            {
+              "step": 3,
+              "prefix_tokens": 35,
+              "cache_lengths": {
+                "repository": [
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35
+                ],
+                "direct": [
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35
+                ],
+                "fresh": [
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35
+                ]
+              },
+              "cached_vs_full": {
+                "max_abs_logit": 2.384185791015625e-05,
+                "tv": 5.391596071504568e-07
+              },
+              "repository_vs_direct": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "fresh_cache_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "full_repeat": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              }
+            },
+            {
+              "step": 4,
+              "prefix_tokens": 36,
+              "cache_lengths": {
+                "repository": [
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36
+                ],
+                "direct": [
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36
+                ],
+                "fresh": [
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36
+                ]
+              },
+              "cached_vs_full": {
+                "max_abs_logit": 2.47955322265625e-05,
+                "tv": 1.692395440307488e-08
+              },
+              "repository_vs_direct": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "fresh_cache_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "full_repeat": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              }
+            }
+          ],
+          "maxima": {
+            "cached_vs_full": {
+              "max_abs_logit": 2.7179718017578125e-05,
+              "max_tv": 5.968526084663559e-07
+            },
+            "repository_vs_direct": {
+              "max_abs_logit": 0.0,
+              "max_tv": 0.0
+            },
+            "fresh_cache_vs_full": {
+              "max_abs_logit": 0.0,
+              "max_tv": 0.0
+            },
+            "full_repeat": {
+              "max_abs_logit": 0.0,
+              "max_tv": 0.0
+            }
+          },
+          "meets_existing_cache_tolerance": true,
+          "all_logits_finite": true,
+          "all_cache_lengths_correct": true,
+          "settings": {
+            "sdpa_policy": "math_only",
+            "matmul_tf32": false,
+            "cudnn_tf32": false,
+            "bf16_reduced_precision_reduction": false,
+            "math_sdp_reduced_precision_reduction": false
+          },
+          "parameter_dtype": "torch.float32",
+          "seconds": 1.2579746767878532,
+          "peak_allocated_bytes": 7138930688
+        }
+      }
+    },
+    "Q": {
+      "config": {
+        "model_type": "qwen2",
+        "vocab_size": 151936,
+        "hidden_size": 1536,
+        "num_hidden_layers": 28,
+        "num_attention_heads": 12,
+        "num_key_value_heads": 2,
+        "max_position_embeddings": 131072,
+        "rope_theta": 10000,
+        "rope_scaling": null,
+        "use_sliding_window": false,
+        "sliding_window": null
+      },
+      "modes": {
+        "bf16_auto": {
+          "steps": [
+            {
+              "step": 0,
+              "prefix_tokens": 32,
+              "cache_lengths": {
+                "repository": [
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32
+                ],
+                "direct": [
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32
+                ],
+                "fresh": [
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32
+                ]
+              },
+              "cached_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "repository_vs_direct": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "fresh_cache_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "full_repeat": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              }
+            },
+            {
+              "step": 1,
+              "prefix_tokens": 33,
+              "cache_lengths": {
+                "repository": [
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33
+                ],
+                "direct": [
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33
+                ],
+                "fresh": [
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33
+                ]
+              },
+              "cached_vs_full": {
+                "max_abs_logit": 0.265625,
+                "tv": 0.0030496444241879853
+              },
+              "repository_vs_direct": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "fresh_cache_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "full_repeat": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              }
+            },
+            {
+              "step": 2,
+              "prefix_tokens": 34,
+              "cache_lengths": {
+                "repository": [
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34
+                ],
+                "direct": [
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34
+                ],
+                "fresh": [
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34
+                ]
+              },
+              "cached_vs_full": {
+                "max_abs_logit": 0.3125,
+                "tv": 0.02662345340131388
+              },
+              "repository_vs_direct": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "fresh_cache_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "full_repeat": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              }
+            },
+            {
+              "step": 3,
+              "prefix_tokens": 35,
+              "cache_lengths": {
+                "repository": [
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35
+                ],
+                "direct": [
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35
+                ],
+                "fresh": [
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35
+                ]
+              },
+              "cached_vs_full": {
+                "max_abs_logit": 0.1875,
+                "tv": 0.0010209695525256028
+              },
+              "repository_vs_direct": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "fresh_cache_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "full_repeat": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              }
+            },
+            {
+              "step": 4,
+              "prefix_tokens": 36,
+              "cache_lengths": {
+                "repository": [
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36
+                ],
+                "direct": [
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36
+                ],
+                "fresh": [
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36
+                ]
+              },
+              "cached_vs_full": {
+                "max_abs_logit": 0.21875,
+                "tv": 0.005306865512173025
+              },
+              "repository_vs_direct": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "fresh_cache_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "full_repeat": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              }
+            }
+          ],
+          "maxima": {
+            "cached_vs_full": {
+              "max_abs_logit": 0.3125,
+              "max_tv": 0.02662345340131388
+            },
+            "repository_vs_direct": {
+              "max_abs_logit": 0.0,
+              "max_tv": 0.0
+            },
+            "fresh_cache_vs_full": {
+              "max_abs_logit": 0.0,
+              "max_tv": 0.0
+            },
+            "full_repeat": {
+              "max_abs_logit": 0.0,
+              "max_tv": 0.0
+            }
+          },
+          "meets_existing_cache_tolerance": false,
+          "all_logits_finite": true,
+          "all_cache_lengths_correct": true,
+          "settings": {
+            "sdpa_policy": "automatic",
+            "matmul_tf32": false,
+            "cudnn_tf32": false,
+            "bf16_reduced_precision_reduction": true,
+            "math_sdp_reduced_precision_reduction": false
+          },
+          "parameter_dtype": "torch.bfloat16",
+          "seconds": 0.5148843750357628,
+          "peak_allocated_bytes": 3570025472
+        },
+        "bf16_math": {
+          "steps": [
+            {
+              "step": 0,
+              "prefix_tokens": 32,
+              "cache_lengths": {
+                "repository": [
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32
+                ],
+                "direct": [
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32
+                ],
+                "fresh": [
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32
+                ]
+              },
+              "cached_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "repository_vs_direct": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "fresh_cache_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "full_repeat": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              }
+            },
+            {
+              "step": 1,
+              "prefix_tokens": 33,
+              "cache_lengths": {
+                "repository": [
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33
+                ],
+                "direct": [
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33
+                ],
+                "fresh": [
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33
+                ]
+              },
+              "cached_vs_full": {
+                "max_abs_logit": 0.25,
+                "tv": 0.00207976808927191
+              },
+              "repository_vs_direct": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "fresh_cache_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "full_repeat": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              }
+            },
+            {
+              "step": 2,
+              "prefix_tokens": 34,
+              "cache_lengths": {
+                "repository": [
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34
+                ],
+                "direct": [
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34
+                ],
+                "fresh": [
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34
+                ]
+              },
+              "cached_vs_full": {
+                "max_abs_logit": 0.25,
+                "tv": 0.0004404768813292663
+              },
+              "repository_vs_direct": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "fresh_cache_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "full_repeat": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              }
+            },
+            {
+              "step": 3,
+              "prefix_tokens": 35,
+              "cache_lengths": {
+                "repository": [
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35
+                ],
+                "direct": [
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35
+                ],
+                "fresh": [
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35
+                ]
+              },
+              "cached_vs_full": {
+                "max_abs_logit": 0.234375,
+                "tv": 0.009873063146616462
+              },
+              "repository_vs_direct": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "fresh_cache_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "full_repeat": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              }
+            },
+            {
+              "step": 4,
+              "prefix_tokens": 36,
+              "cache_lengths": {
+                "repository": [
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36
+                ],
+                "direct": [
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36
+                ],
+                "fresh": [
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36
+                ]
+              },
+              "cached_vs_full": {
+                "max_abs_logit": 0.203125,
+                "tv": 0.012685908702989917
+              },
+              "repository_vs_direct": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "fresh_cache_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "full_repeat": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              }
+            }
+          ],
+          "maxima": {
+            "cached_vs_full": {
+              "max_abs_logit": 0.25,
+              "max_tv": 0.012685908702989917
+            },
+            "repository_vs_direct": {
+              "max_abs_logit": 0.0,
+              "max_tv": 0.0
+            },
+            "fresh_cache_vs_full": {
+              "max_abs_logit": 0.0,
+              "max_tv": 0.0
+            },
+            "full_repeat": {
+              "max_abs_logit": 0.0,
+              "max_tv": 0.0
+            }
+          },
+          "meets_existing_cache_tolerance": false,
+          "all_logits_finite": true,
+          "all_cache_lengths_correct": true,
+          "settings": {
+            "sdpa_policy": "math_only",
+            "matmul_tf32": false,
+            "cudnn_tf32": false,
+            "bf16_reduced_precision_reduction": true,
+            "math_sdp_reduced_precision_reduction": false
+          },
+          "parameter_dtype": "torch.bfloat16",
+          "seconds": 0.6674129590392113,
+          "peak_allocated_bytes": 3570025472
+        },
+        "bf16_math_full_reduction": {
+          "steps": [
+            {
+              "step": 0,
+              "prefix_tokens": 32,
+              "cache_lengths": {
+                "repository": [
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32
+                ],
+                "direct": [
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32
+                ],
+                "fresh": [
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32
+                ]
+              },
+              "cached_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "repository_vs_direct": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "fresh_cache_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "full_repeat": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              }
+            },
+            {
+              "step": 1,
+              "prefix_tokens": 33,
+              "cache_lengths": {
+                "repository": [
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33
+                ],
+                "direct": [
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33
+                ],
+                "fresh": [
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33
+                ]
+              },
+              "cached_vs_full": {
+                "max_abs_logit": 0.34375,
+                "tv": 0.004052507520415995
+              },
+              "repository_vs_direct": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "fresh_cache_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "full_repeat": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              }
+            },
+            {
+              "step": 2,
+              "prefix_tokens": 34,
+              "cache_lengths": {
+                "repository": [
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34
+                ],
+                "direct": [
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34
+                ],
+                "fresh": [
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34
+                ]
+              },
+              "cached_vs_full": {
+                "max_abs_logit": 0.296875,
+                "tv": 0.03328933277830065
+              },
+              "repository_vs_direct": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "fresh_cache_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "full_repeat": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              }
+            },
+            {
+              "step": 3,
+              "prefix_tokens": 35,
+              "cache_lengths": {
+                "repository": [
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35
+                ],
+                "direct": [
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35
+                ],
+                "fresh": [
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35
+                ]
+              },
+              "cached_vs_full": {
+                "max_abs_logit": 0.21875,
+                "tv": 0.014353151820706272
+              },
+              "repository_vs_direct": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "fresh_cache_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "full_repeat": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              }
+            },
+            {
+              "step": 4,
+              "prefix_tokens": 36,
+              "cache_lengths": {
+                "repository": [
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36
+                ],
+                "direct": [
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36
+                ],
+                "fresh": [
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36
+                ]
+              },
+              "cached_vs_full": {
+                "max_abs_logit": 0.21875,
+                "tv": 0.00038334426143047333
+              },
+              "repository_vs_direct": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "fresh_cache_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "full_repeat": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              }
+            }
+          ],
+          "maxima": {
+            "cached_vs_full": {
+              "max_abs_logit": 0.34375,
+              "max_tv": 0.03328933277830065
+            },
+            "repository_vs_direct": {
+              "max_abs_logit": 0.0,
+              "max_tv": 0.0
+            },
+            "fresh_cache_vs_full": {
+              "max_abs_logit": 0.0,
+              "max_tv": 0.0
+            },
+            "full_repeat": {
+              "max_abs_logit": 0.0,
+              "max_tv": 0.0
+            }
+          },
+          "meets_existing_cache_tolerance": false,
+          "all_logits_finite": true,
+          "all_cache_lengths_correct": true,
+          "settings": {
+            "sdpa_policy": "math_only",
+            "matmul_tf32": false,
+            "cudnn_tf32": false,
+            "bf16_reduced_precision_reduction": false,
+            "math_sdp_reduced_precision_reduction": false
+          },
+          "parameter_dtype": "torch.bfloat16",
+          "seconds": 1.2316541448235512,
+          "peak_allocated_bytes": 3570025472
+        },
+        "fp32_math": {
+          "steps": [
+            {
+              "step": 0,
+              "prefix_tokens": 32,
+              "cache_lengths": {
+                "repository": [
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32
+                ],
+                "direct": [
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32
+                ],
+                "fresh": [
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32,
+                  32
+                ]
+              },
+              "cached_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "repository_vs_direct": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "fresh_cache_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "full_repeat": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              }
+            },
+            {
+              "step": 1,
+              "prefix_tokens": 33,
+              "cache_lengths": {
+                "repository": [
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33
+                ],
+                "direct": [
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33
+                ],
+                "fresh": [
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33,
+                  33
+                ]
+              },
+              "cached_vs_full": {
+                "max_abs_logit": 3.4809112548828125e-05,
+                "tv": 1.1175177046704242e-06
+              },
+              "repository_vs_direct": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "fresh_cache_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "full_repeat": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              }
+            },
+            {
+              "step": 2,
+              "prefix_tokens": 34,
+              "cache_lengths": {
+                "repository": [
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34
+                ],
+                "direct": [
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34
+                ],
+                "fresh": [
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34,
+                  34
+                ]
+              },
+              "cached_vs_full": {
+                "max_abs_logit": 3.3855438232421875e-05,
+                "tv": 3.83834888104782e-06
+              },
+              "repository_vs_direct": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "fresh_cache_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "full_repeat": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              }
+            },
+            {
+              "step": 3,
+              "prefix_tokens": 35,
+              "cache_lengths": {
+                "repository": [
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35
+                ],
+                "direct": [
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35
+                ],
+                "fresh": [
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35,
+                  35
+                ]
+              },
+              "cached_vs_full": {
+                "max_abs_logit": 2.6226043701171875e-05,
+                "tv": 7.400307596509652e-07
+              },
+              "repository_vs_direct": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "fresh_cache_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "full_repeat": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              }
+            },
+            {
+              "step": 4,
+              "prefix_tokens": 36,
+              "cache_lengths": {
+                "repository": [
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36
+                ],
+                "direct": [
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36
+                ],
+                "fresh": [
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36,
+                  36
+                ]
+              },
+              "cached_vs_full": {
+                "max_abs_logit": 2.5987625122070312e-05,
+                "tv": 1.744927279349803e-07
+              },
+              "repository_vs_direct": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "fresh_cache_vs_full": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              },
+              "full_repeat": {
+                "max_abs_logit": 0.0,
+                "tv": 0.0
+              }
+            }
+          ],
+          "maxima": {
+            "cached_vs_full": {
+              "max_abs_logit": 3.4809112548828125e-05,
+              "max_tv": 3.83834888104782e-06
+            },
+            "repository_vs_direct": {
+              "max_abs_logit": 0.0,
+              "max_tv": 0.0
+            },
+            "fresh_cache_vs_full": {
+              "max_abs_logit": 0.0,
+              "max_tv": 0.0
+            },
+            "full_repeat": {
+              "max_abs_logit": 0.0,
+              "max_tv": 0.0
+            }
+          },
+          "meets_existing_cache_tolerance": true,
+          "all_logits_finite": true,
+          "all_cache_lengths_correct": true,
+          "settings": {
+            "sdpa_policy": "math_only",
+            "matmul_tf32": false,
+            "cudnn_tf32": false,
+            "bf16_reduced_precision_reduction": false,
+            "math_sdp_reduced_precision_reduction": false
+          },
+          "parameter_dtype": "torch.float32",
+          "seconds": 1.2585674822330475,
+          "peak_allocated_bytes": 7137882112
+        }
+      }
+    }
+  },
+  "device": "cuda:1",
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "cuda": "12.6",
+  "git_commit": "bc3e599c331dd453801506110c30d50acc052894",
+  "git_status": "",
+  "packages": {
+    "torch": "2.8.0+cu126",
+    "transformers": "4.57.1",
+    "numpy": "2.5.3"
+  },
+  "lock_sha256": "d2f2b8ced9137da65018e37ffdb6752c74f9b0db23a7e4cfb0f342aad6c193a6",
+  "q_manifest_sha256": "8ce77f5a15d59c0ac4eedee09fff3ce814f97c141c923a501c4e048c51caae85",
+  "q_manifest": {
+    "format": "dequantized_bfloat16",
+    "method": "GPTQ",
+    "bits": 3,
+    "group_size": 128,
+    "symmetric": false,
+    "base_model_revision": "ad9f0ae0864d7fbcd1cd905e3c6c5b069cc8b562",
+    "tokenizer_hash": "3efdc2da1790073c1105cf74972a09185d8532e2e612667309bcae4ad25d856b",
+    "split_manifest_sha256": "f650f57279971fee307f9a85ced0033d75347ab4c3af86d49c560c508a1c6ad8",
+    "calibration_tokens_sha256": "0a49f1bebbe91328a8e49f9fa7f919ab4e0780ca75e3ec4dc113f9162f111d32",
+    "quantization_code_revision": "quantsplit-layerwise-captured-kwargs-v1",
+    "source_sha256": {
+      "assets.py": "9baf9ca139ac6e0f2c66045feeb1b489c100e92eebd56f8c8e63982e577597a1",
+      "evaluation.py": "6aa4ba7589136ef0e9e2c7991371f4d28ac2d7f798b8e4ce4992383cca874263",
+      "validation.py": "edf351eaa76c494a930049b0272d81e0ad431a6405a0ab48532ff71e6a20dd1f",
+      "generation.py": "186f6c2b7fe29f249a43e70b7d00c9f54010d6cd702c238075f4c24d2276ff4c",
+      "quantization.py": "a545faaec53eca881a1d5af2672225dd9a72b0d3f9c7a76c8317c610bdada3e9",
+      "gptq_core.py": "0651cf904403c152278a83d0508c59b47eac1fd77dbd06ca5db9f7130d9a3130",
+      "hf_backend.py": "98f41d78561f885bb0677e596d1c9c38920a184ffbe851f5a4ae7decd8ad7246",
+      "__init__.py": "c18ec83716b97a1075bf4a423da914563842ecb62174e943b7d9d8110f37fbee",
+      "sampling.py": "2f379ec67ef790a2a2932500a477edac91a4ff361ab3615d473592f5d9be96d0",
+      "data.py": "12977705f10cdbf4b5dca889cc20db6d57bbe0f2d80b8217d5d182f0492317ee"
+    },
+    "quantization_config": {
+      "bits": 3,
+      "group_size": 128,
+      "symmetric": false,
+      "damp_percent": 0.01,
+      "damp_auto_increment": false,
+      "act_order": true,
+      "static_groups": true,
+      "block_size": 128,
+      "weight_clip": true,
+      "clip_norm": 2.4,
+      "clip_grid": 100,
+      "clip_maxshrink": 0.8,
+      "activation_dtype": "bfloat16",
+      "kv_dtype": "bfloat16",
+      "rotation": false,
+      "quantize_embeddings": false,
+      "quantize_lm_head": false,
+      "upstream_revision": "bf947e29f52e3f666e3263efac149dae0ac18d00",
+      "driver": "quantsplit-layerwise-captured-kwargs-v1"
+    },
+    "quantization_report": {
+      "config": {
+        "bits": 3,
+        "group_size": 128,
+        "symmetric": false,
+        "damp_percent": 0.01,
+        "damp_auto_increment": false,
+        "act_order": true,
+        "static_groups": true,
+        "block_size": 128,
+        "weight_clip": true,
+        "clip_norm": 2.4,
+        "clip_grid": 100,
+        "clip_maxshrink": 0.8,
+        "activation_dtype": "bfloat16",
+        "kv_dtype": "bfloat16",
+        "rotation": false,
+        "quantize_embeddings": false,
+        "quantize_lm_head": false,
+        "upstream_revision": "bf947e29f52e3f666e3263efac149dae0ac18d00",
+        "driver": "quantsplit-layerwise-captured-kwargs-v1"
+      },
+      "target_count": 196,
+      "weights": [
+        {
+          "name": "model.layers.0.self_attn.q_proj.weight",
+          "before": "c9324f194c1e3f152fbced96f32adbb2bdfe1179171e5a90f75f317f609f3f0c",
+          "after": "624fff297869db1f4feb3c2ac5a6fa0957109273e21193e9e2ecbc535f1ffb85"
+        },
+        {
+          "name": "model.layers.0.self_attn.k_proj.weight",
+          "before": "28958f2e8da7c01aafc29fb8e5ca8abe4869f0effa3d3fb67c7d1602c83b22ae",
+          "after": "5ad224b6a5b204b893b8ed689cc181e353e1c88d534129d9da480fba70b342c5"
+        },
+        {
+          "name": "model.layers.0.self_attn.v_proj.weight",
+          "before": "b17c3fd8fbce80b50718ad2369bb26aca0ffaeb06c147f51456a0595e6fcd0c5",
+          "after": "64fe7821a506c5d9b44fe9314c7efa24480e497a0be548ad215d37decd301949"
+        },
+        {
+          "name": "model.layers.0.self_attn.o_proj.weight",
+          "before": "48c75f36e7db7265adfd24d98d0a7f32808c5b151f2c628077a14e05ee3b2d4c",
+          "after": "e8a196f2185985fdf5ccf7d10ee57d12c3db21406b875f17d7c03d098378c170"
+        },
+        {
+          "name": "model.layers.0.mlp.up_proj.weight",
+          "before": "d419b35c96345febbe8a32f662077d62a8d31606387728f78fb4f7986941c1d9",
+          "after": "6d4dce5e13176a5fef300e8726a89463f27d562446bb47d3374f840a24a41680"
+        },
+        {
+          "name": "model.layers.0.mlp.gate_proj.weight",
+          "before": "a15ce9f8ab32f6544fba3b9a027d09fdb59d084d400d9095a327b5c6ca0e071a",
+          "after": "32b1fabae12d6a49299a16c9dae16b1dec244b2d21c14f4527751656cf99d791"
+        },
+        {
+          "name": "model.layers.0.mlp.down_proj.weight",
+          "before": "f0ffc37381645e27de8118d8b25de19cdd0212c323d0c40b9c47700d9a940600",
+          "after": "67798fb0a969b9d52fabefd2367d5b9e38af936ec10b7c1953b76c4e2654fc14"
+        },
+        {
+          "name": "model.layers.1.self_attn.q_proj.weight",
+          "before": "894f359eda48c3aef07cda821c95bba3ddb610786b11c8ccd6bd49227f72cf90",
+          "after": "dcde7f3246afa2d75e03cb77d1ab40646c7738b6d06dd23e202aea52c99adc4d"
+        },
+        {
+          "name": "model.layers.1.self_attn.k_proj.weight",
+          "before": "f5e02eaaa004773853560be67193bc014ebb0e2c229dc77c9df55ecfa2e2aac7",
+          "after": "29200f739058a0df139bb64e4dce555b1e094538444d7aefb942ac37ac118bde"
+        },
+        {
+          "name": "model.layers.1.self_attn.v_proj.weight",
+          "before": "c4c9a43f14e95bb55df904e160b1a41ac281254b1b8a09431bb71b57772aea5e",
+          "after": "db31de964eb1c0ae964741a6b5c66af5612b8b8c0d6814b060ca9111a926e45d"
+        },
+        {
+          "name": "model.layers.1.self_attn.o_proj.weight",
+          "before": "6f58e84564c43a4080d8a9bf738a2822d89b96cf848a01904db2160efaabc346",
+          "after": "c070224114fc76c07e9e8ab7a8f93669247709800c40b17304e05435ec628f63"
+        },
+        {
+          "name": "model.layers.1.mlp.up_proj.weight",
+          "before": "9fcca405ede94571caf826e843c571f180cd0c48840c6f7b0d01da53403234f3",
+          "after": "9a47d84b81b56cbf62355ba04ad9a72fbcd1776b983141812254011913b0797b"
+        },
+        {
+          "name": "model.layers.1.mlp.gate_proj.weight",
+          "before": "12466bb75cd22da66378e1166f55c3ae37bd6eb237af15de5fc100d0472e272c",
+          "after": "bd92a9410bdda5528de6a03bd9b02c5c5b1bce5a588c8ae264ff95c5011d79bd"
+        },
+        {
+          "name": "model.layers.1.mlp.down_proj.weight",
+          "before": "743e4de14f5d7ecb9da572e521b4ef4b74b1291e17f7ee9ebcb89ac4504fa858",
+          "after": "f982f117112e656cd429defb6784171da69f1be83dcf0f849990d56ba57ec964"
+        },
+        {
+          "name": "model.layers.2.self_attn.q_proj.weight",
+          "before": "8a1dde903701f56f4460ff058a7e3827cb9c1abd204c7468acf004d5f13a5eb1",
+          "after": "0acc9795c1f26e7ee5d6dad704f63bc2af0da6ae25ee528cd66f64a5e876fd8f"
+        },
+        {
+          "name": "model.layers.2.self_attn.k_proj.weight",
+          "before": "9a53ec1194c64462b7684bf0fac44ab399cda217445a041445b480555fd5958c",
+          "after": "1afa5e5ba6915e73c62736fc821ebba3e6c0ee82ae5d107498e6198dede922c6"
+        },
+        {
+          "name": "model.layers.2.self_attn.v_proj.weight",
+          "before": "378f890e4a406a5f51f8e7f57f4246f91273b59837ec18c56b619d0c34a70723",
+          "after": "810e51b374012059380e355032dbaa074a18735cdb41f5a7ed3d6261ee480a2a"
+        },
+        {
+          "name": "model.layers.2.self_attn.o_proj.weight",
+          "before": "9ac9e72eab54020eee67fd4a073fed2816a6caf194dbdd8d6842971789e5a261",
+          "after": "d5fdfd01ddb95633fd83278b01555b2a80a30b7b1191aa1985dbe5bd6cb2eb03"
+        },
+        {
+          "name": "model.layers.2.mlp.up_proj.weight",
+          "before": "cfc7d923496f2eebbd87e5ba4b7ef3826ea169eac46dd0ca2d6f7b94acdafa7f",
+          "after": "1c2e3e6a304579eff951941064ae64b3d74700282b61d2d58fa754af2d5e868c"
+        },
+        {
+          "name": "model.layers.2.mlp.gate_proj.weight",
+          "before": "ecb5cad907d88023ad2e2f3e2d451617ce0edde86d10b82c95c17c6dc4a5def8",
+          "after": "abe55e8c7c2ef8b526c801def7951e004bf20399431d352c711c3caa2b76941e"
+        },
+        {
+          "name": "model.layers.2.mlp.down_proj.weight",
+          "before": "e6d5a480f8202dcf3dddb2a80011bd988de4e9ce69033af56c0e9f9212fd264d",
+          "after": "7d6d3ca8f060aa27c074a1b30cbb3a437579499165ff63c258d1dad9cb05f604"
+        },
+        {
+          "name": "model.layers.3.self_attn.q_proj.weight",
+          "before": "8f3d507f7c538e95b11204a6d792446c96b7f68beedaa8032316b7cecf54db79",
+          "after": "db52d594bb9c53f4a3e115cf1dd8c473bfa789b4a566db848027e1cca65cc4ce"
+        },
+        {
+          "name": "model.layers.3.self_attn.k_proj.weight",
+          "before": "3ce242134797ceeedd7fa648306a0da1cbd8e5fdba97307c72b9468f8626ea16",
+          "after": "e40c00a12b47c2f51ef95746dd45951311f4b3ba53cb4c1977c2db9636c10599"
+        },
+        {
+          "name": "model.layers.3.self_attn.v_proj.weight",
+          "before": "e138eed4931320c72e9c8f43ae5e7d703d2594677b0d4b84af7af71620d0081c",
+          "after": "5327529e089d997c8bb08c48e33dff393724539cbcb37a11d046800ed52520f7"
+        },
+        {
+          "name": "model.layers.3.self_attn.o_proj.weight",
+          "before": "d1c8cf1d8010bf5d383915c599d3f6a094758aa006741af627bab095fb0bf608",
+          "after": "8a50267ac080c6ea372dd6b962ffa995ff9091914f3f54ede9b8fc9ae2de381f"
+        },
+        {
+          "name": "model.layers.3.mlp.up_proj.weight",
+          "before": "e95d6e61110a6e9bde10f4b1e221ce3baca70385ba8d6993be47e7eb1087ee58",
+          "after": "e93831ebf136b5f1a09d17936c0e8e8187e4347c718f2ab3b5ff0b282def08dd"
+        },
+        {
+          "name": "model.layers.3.mlp.gate_proj.weight",
+          "before": "25950429878fcd00e9550f09b7e2a6eb4cdb872b41a6038f8bd9467eed7e6c98",
+          "after": "e5aa369a4566bef2c7d804c53e0683ba57c3835a77e8fa78e9f60beb25580a36"
+        },
+        {
+          "name": "model.layers.3.mlp.down_proj.weight",
+          "before": "cb1bef588e4e4a0ea65c2511430933bd4271e4cdab0fa67ba87ed332a4d1af61",
+          "after": "17f1f34695798776fd22c99ec5bb044afa4ef0264ace20da0ad33f50340aec2a"
+        },
+        {
+          "name": "model.layers.4.self_attn.q_proj.weight",
+          "before": "d1213264c6537ca2be5041b4f6f44c610e6690eaf195f13388dff4f6e79ee4d9",
+          "after": "c11a8b29cc3e5c393e463094b19ec4b2f4f7d9eb9cd81755bd45cdeb6a1f14ae"
+        },
+        {
+          "name": "model.layers.4.self_attn.k_proj.weight",
+          "before": "cc71cada7a2adfa4ec96ba226b9379abfc30ac0f741710c408380c873c3ba809",
+          "after": "3f3b8aec94983550c208f764cd8dec8c3393626146fe7b0160d0ab1ff773e362"
+        },
+        {
+          "name": "model.layers.4.self_attn.v_proj.weight",
+          "before": "a58002f1efdd69ae48bc48ae44dbaed6b1402c5d75dc7245572af4014a5d257d",
+          "after": "b174745387860b9819ce6232a885e9b9db18012d2e139f80030da531b4ca0e23"
+        },
+        {
+          "name": "model.layers.4.self_attn.o_proj.weight",
+          "before": "4a5744092bd58d6c2acc3d88920acfd31a56e939d0d1a74bc1b9bde860a88874",
+          "after": "33037652811b6450cf5503a8badd9753bdeb022746fd24f82d078fb7b3f9ab53"
+        },
+        {
+          "name": "model.layers.4.mlp.up_proj.weight",
+          "before": "2c06d6294afd42e62751ca6f6c803a64da051f32894944db6145036d375c0a5c",
+          "after": "8443b0acffdcb0c21d93c0824b22c75a729a770197801c0bed80cc953e6cc7f2"
+        },
+        {
+          "name": "model.layers.4.mlp.gate_proj.weight",
+          "before": "f5e56a6ee188cb07d438fbc206cccc72165fab3dca3475f5ae8189e2ba40fe1c",
+          "after": "c7fb2f9a7d5fba8d23f7ab3f7c76ebe548bfc96e371453fb2d9542c1348c2db0"
+        },
+        {
+          "name": "model.layers.4.mlp.down_proj.weight",
+          "before": "e3103e027ea98a1dfd752557c4721104045fde09ad578463252784102a34b251",
+          "after": "b06c9e628db1b460ee092ceb45d1e01d35f3379627e6c42a2349cd00e16b1a6e"
+        },
+        {
+          "name": "model.layers.5.self_attn.q_proj.weight",
+          "before": "d0c438c9ccd119b06e156eb19978a65bd63fec057c65bcbc22a8890cedbafd65",
+          "after": "319a97e1260d2c27a960c9ec28dc65eccdf019962c59ff676f3dca7f19c0b1ef"
+        },
+        {
+          "name": "model.layers.5.self_attn.k_proj.weight",
+          "before": "c5ce7001c62a682a7b60f4ae527014cde07df89d5477f966d837cffa4f6b162d",
+          "after": "5122b0fdc2c8694114a74504665bdefd7e8f1d9f0534cf4213099204f9ac15ad"
+        },
+        {
+          "name": "model.layers.5.self_attn.v_proj.weight",
+          "before": "4b0d3612ea9b21243052fc4233938bb56c44bfe909b45c228344175ab2784c2e",
+          "after": "67f3fb2f8b8c74e9a9d5f9a575e5b52c5537deaa328ba3574e30bae410687c8b"
+        },
+        {
+          "name": "model.layers.5.self_attn.o_proj.weight",
+          "before": "68ea7d78cc50fbfbf1822875eca05c8ddc52b024849db1927d9f1dc9bdc67666",
+          "after": "db9538216b9ac963089906d6f12d6830ba6de9405505bc585780d6ab6a665b9c"
+        },
+        {
+          "name": "model.layers.5.mlp.up_proj.weight",
+          "before": "860e34a73cabeb8e1c65c6dfa04f10dd83d1fc804b039b52c8ba540f2abbd7f3",
+          "after": "66f74353c2d870cedf7b41b1e717c188589c8b1b9ca9874ab02f77a8198dfbd0"
+        },
+        {
+          "name": "model.layers.5.mlp.gate_proj.weight",
+          "before": "2cb44bf9483b9ccce9334221998066180b6b7d529b4099184e8aeab16d17fafb",
+          "after": "d4a85ca5aae0203c90d7d68225677dff4112f71839a1204996a2e9234ff73b53"
+        },
+        {
+          "name": "model.layers.5.mlp.down_proj.weight",
+          "before": "6137200b2bf05f58219dca9c41ed16620a8d060327a802780d95e849ba16a042",
+          "after": "70377d2bd91ec2b2b11ec95f8a828cd1ace237bceb66358bb2d308d5f0bfc59f"
+        },
+        {
+          "name": "model.layers.6.self_attn.q_proj.weight",
+          "before": "098a6314d908466870d871ee6172428b7ee4e29b0ebdd4fbb0c26d749b35ac16",
+          "after": "e9baabd49063541a6901c3801ac80138493c146273b36c17f640ee077fd622ae"
+        },
+        {
+          "name": "model.layers.6.self_attn.k_proj.weight",
+          "before": "b806d7189a546c1abb8b1b6e34bc9f5e3961a99dfb5c149d5ef16c71287a2ea2",
+          "after": "70b58c7bb33110ff93a0a58e7c0d03abb36f39b82ef18e546106ba3281e076fe"
+        },
+        {
+          "name": "model.layers.6.self_attn.v_proj.weight",
+          "before": "c86bab0caa52398a967f39e9b88552479f8991f890d19eb890b059b1a583bf04",
+          "after": "c5aa31ce677e7a103f1540abf129dff6a296f21194695e722e786684b810b240"
+        },
+        {
+          "name": "model.layers.6.self_attn.o_proj.weight",
+          "before": "b6dee1d35e198ac2b35c29358671c11e756bdc1d6a5d2769f67d9bd54b6bbe44",
+          "after": "99a49eeb5fe1c151d2ad6b89d65a6b4cee54e62fe79de74b9a522d93025170b6"
+        },
+        {
+          "name": "model.layers.6.mlp.up_proj.weight",
+          "before": "a3534a175f4c3857c832710864c4112f8c54ad83166054899c5413db2921a602",
+          "after": "439c9517235461e827cbf26628c4c74baddf24e6764ff0cab745791e113af64c"
+        },
+        {
+          "name": "model.layers.6.mlp.gate_proj.weight",
+          "before": "01c6869b05d1f07a358593b61c51c71adf61a4f0dbdc4cd55634df515e43c3c0",
+          "after": "8f882a8f2ebd1f0088ad5f58f9c9dc8d2bed005e7fbfc3fd5b4178a344781495"
+        },
+        {
+          "name": "model.layers.6.mlp.down_proj.weight",
+          "before": "2f28d9837d94cba1ba932f8c2a253e878542c4e2c968f8456678949aad9f2485",
+          "after": "92e83b913afcd19c36693a56de1658b47b979330d19a57b89ce7a8f821aad394"
+        },
+        {
+          "name": "model.layers.7.self_attn.q_proj.weight",
+          "before": "306e8c705e2c103ddf05777592a2347aee694b70732b141385b3e4941095ffb4",
+          "after": "1aecc046966790c20ca5602a1d06321ee326253399325606a7245e710978e3a1"
+        },
+        {
+          "name": "model.layers.7.self_attn.k_proj.weight",
+          "before": "db29be31c28df0e17d3f7bba74dd133f904dd07e5b0f04e4e77bc52abf717a6d",
+          "after": "3c2a6d9527cc9eb74b39e1a8d8355cbb232b462c41cfe236414883b54259f46c"
+        },
+        {
+          "name": "model.layers.7.self_attn.v_proj.weight",
+          "before": "3acc553ff48888e2b5eebd8468581f7bdf0c5351d3e3463fd52cc873309263da",
+          "after": "bf5259ad618ebc2811690181ad18fccf955b7e632565317a161c42eb4b539047"
+        },
+        {
+          "name": "model.layers.7.self_attn.o_proj.weight",
+          "before": "8fb11daeb98cfe867f013a7f1003572775bdd6685fed80cd01fce5463cb2ee88",
+          "after": "f0ea7023d1131d045e43a7365a094717ed81b8004358636719e2ce8c324529a9"
+        },
+        {
+          "name": "model.layers.7.mlp.up_proj.weight",
+          "before": "74bc5d481fb49c5ab272ce025dc0e9bcda8b0db9ffee0289cfefca638dab8aef",
+          "after": "f1c41d7cde0c23855d93c88ead245516e253161e8d6872765202fe775e2bc35c"
+        },
+        {
+          "name": "model.layers.7.mlp.gate_proj.weight",
+          "before": "e3d9a1d667f3b1c21d22e9ce53f8cb5b18c3a8022a102f17ca27e99b6b1df9cd",
+          "after": "b81aedfc375e5f5c4e24d4f2b00d67f23f918a7266b9307d6f3c3b3dc8da1860"
+        },
+        {
+          "name": "model.layers.7.mlp.down_proj.weight",
+          "before": "96b85bd14ae7f0207206e0e6c59f41b33337ab3594b3f65dd230239598aff57f",
+          "after": "2210c976bc01a1f1959691dc8ac5740214e8bdc8f771ee495ef722112b95d636"
+        },
+        {
+          "name": "model.layers.8.self_attn.q_proj.weight",
+          "before": "1f5bd2e218fd22bcddfe55b2a34522944a97be2f7be5c71e0ef431a4c134e856",
+          "after": "da1ab648a2a8ab08676070b1911a3b794b3e4ca791a9755771c00930cecb05b2"
+        },
+        {
+          "name": "model.layers.8.self_attn.k_proj.weight",
+          "before": "4878c7d45f592830cf03e6836253fc523a4cec5b3a577420ec1fb8984f30c282",
+          "after": "8c806bd76fe03fe23355445fa956232c9b4445adef1aadd08729335a0e469e91"
+        },
+        {
+          "name": "model.layers.8.self_attn.v_proj.weight",
+          "before": "643b647af74c1eb7c0507b45e69db7c3417c4390924b3bf46904aefb10189a32",
+          "after": "466301aef87d2374e08a289d48fbea6e87581db89da866e165a7d639fa9ee3a9"
+        },
+        {
+          "name": "model.layers.8.self_attn.o_proj.weight",
+          "before": "5d224a9ccbe7e4062cbde59568bfba6cba3ae253f4d80b5a6ab05f5a96ae66bc",
+          "after": "a591d963d3ad54a665fe3c602aa844582229fced29129e0e56331cf40aaf538d"
+        },
+        {
+          "name": "model.layers.8.mlp.up_proj.weight",
+          "before": "989c7efc1fa8110974711ef5948b903808811ae9dac15b824ca71c0cad7e9a7e",
+          "after": "63cd9a594eff20c7580af03be63f9fdf5303004759777681629dbc5478bddb63"
+        },
+        {
+          "name": "model.layers.8.mlp.gate_proj.weight",
+          "before": "18d72d323fdc13c1642e108fd2e745de56162ece5322ce9dfe2d3d7cd2d62893",
+          "after": "5ef950e37110a385627c06123554cb91786e825ad78473bb2d58bd8cb6d14108"
+        },
+        {
+          "name": "model.layers.8.mlp.down_proj.weight",
+          "before": "86fbf742a2bfcdd76b76f20f17c5810e7d2f690beaefc3c6e65d1dcad829ef06",
+          "after": "df4c198122c0f87756e92b5eb5cda109ea27c8c5859a56d9b23518ed0c0008a8"
+        },
+        {
+          "name": "model.layers.9.self_attn.q_proj.weight",
+          "before": "96ea10cdca4cb52058778ee1a41b24da46c34cf90778b5aab96df5bae5736464",
+          "after": "cf60515ddc03b084e4136bb14198a2b607f18e604f2a831a339cf6eac45c0c53"
+        },
+        {
+          "name": "model.layers.9.self_attn.k_proj.weight",
+          "before": "23d2f15cff6b0ce4ea2e57c8eec023992801dc4acebd8158e9f0461c502b2b30",
+          "after": "a2a73d2c52a2881c2cf996f0017e21a1da8fef2eb8175a0ab08fea0786e66346"
+        },
+        {
+          "name": "model.layers.9.self_attn.v_proj.weight",
+          "before": "8d51df862b28750401cefe47cdb1ed2bd9e5ad5ff702f9ac0caeec412d7dbb76",
+          "after": "2d90f52bdbe9bef30c6aff8d1f657a2505e8ee0f27ac512d37be74cb617e6739"
+        },
+        {
+          "name": "model.layers.9.self_attn.o_proj.weight",
+          "before": "5e4c798f2bec31bfd71da857d7b2023af34f3507284d26c5b1951affdc9556b3",
+          "after": "054f71dc61eb73d65344a0ca07392101688a8bdd50e552317e9e8e0ddb8a94a0"
+        },
+        {
+          "name": "model.layers.9.mlp.up_proj.weight",
+          "before": "1f0d86456b41b47e607420d901ad69ff6f58a8ea64f48f0f9991d2c84153584e",
+          "after": "7c1c0452778ebfcbb8696cc5f905e358404ac10b11c38a4302859a20c5b899c4"
+        },
+        {
+          "name": "model.layers.9.mlp.gate_proj.weight",
+          "before": "84402abc13fb15939529ba9fca1d5d99d1aab54f9eb57114b68931e80e130e4b",
+          "after": "b306a9db80996ca3899d09403f596c043d67067b306c0181a0a650d196e8a84e"
+        },
+        {
+          "name": "model.layers.9.mlp.down_proj.weight",
+          "before": "6a93b77bb8a11d3024d0453ba2e6ceefa7b55f98c144e95dd1243ebbedce4b68",
+          "after": "3526eb87e2cffc3d06e9285c2b77760e18e1431fb06e9e7e97ebcbabf75989f3"
+        },
+        {
+          "name": "model.layers.10.self_attn.q_proj.weight",
+          "before": "45976d076d55c3dd9a1b52d0e7e56dafb79adf42d50884c1e556e33b30db32c1",
+          "after": "29add623fba56fe77932c9000d143a052d236720c596e4e902a9854532191a14"
+        },
+        {
+          "name": "model.layers.10.self_attn.k_proj.weight",
+          "before": "f5461e48a91cdd39203db7c1e4d901deebed6b00bcd04f26b2841c46080324c3",
+          "after": "01bfecb65d9f9c1aa8d621efa9e70011f957519d745c162857f46b57180ff2bf"
+        },
+        {
+          "name": "model.layers.10.self_attn.v_proj.weight",
+          "before": "a609cd57048305c77557a71b474ba2250d61aeaf4ca9006cc15b300e9bfc8fb7",
+          "after": "41dcf691279d30cddcf111988d4e55a47ea56f6c4a1bdb18cd1597d076787721"
+        },
+        {
+          "name": "model.layers.10.self_attn.o_proj.weight",
+          "before": "bf891ec94e72eaa1aa819913c2f61f9fd4b150a8be8d3b7b5cfddfaa93d1d733",
+          "after": "dd29b001b981e2903d55f895ce6a1b8a455672890b3416a461d7b8ae32bbfe85"
+        },
+        {
+          "name": "model.layers.10.mlp.up_proj.weight",
+          "before": "f00d01b1469b7b5833cd9bf6872dd2241d60cf1e801edf13a312cbed207bb04e",
+          "after": "eda161cf04f36beecc5eb979d5327a8f0b026316aa4bb6e4db557844260e0158"
+        },
+        {
+          "name": "model.layers.10.mlp.gate_proj.weight",
+          "before": "80bd6eca91245871b109d42e3970e17f9a503c4d0b8e81336aeceda97f0e140b",
+          "after": "a119b996b039f46d4b6ba642aac769b938431b8b5647e6d7eeb8bfec89db6ae4"
+        },
+        {
+          "name": "model.layers.10.mlp.down_proj.weight",
+          "before": "2a9d0812092c90672fda99cc409f4fb749247d0911c5573157fe7d739bd3a947",
+          "after": "b96e5864b3148ba750e336eea5baa041948a91b08af81017e139e386ee4b3525"
+        },
+        {
+          "name": "model.layers.11.self_attn.q_proj.weight",
+          "before": "efdcf5eb63ef9952dc934f9ac8015baf8aaa859969fbdd2aeb7b93c5cf4e6a14",
+          "after": "e714175bde4ae5c1eab8684eddc77367802ab47fac1a83101314b54f0eb667b1"
+        },
+        {
+          "name": "model.layers.11.self_attn.k_proj.weight",
+          "before": "fc2f6de0ed763e1db8d11fb0384edcb85a399aefed828eb2b32c9cfb3b6ecdac",
+          "after": "0ab727d8b0694f062b0d0478ae18fa808cd14b17c5214a8868ade42951fa89bb"
+        },
+        {
+          "name": "model.layers.11.self_attn.v_proj.weight",
+          "before": "b5ba0cf51b796919a020b647cfdefdfb98eea8c4251b957727196139d4024b72",
+          "after": "a8226435103afdd30a5246d5e5cabd36bc96d2d367cbe1aec7c7a2c71d8787a3"
+        },
+        {
+          "name": "model.layers.11.self_attn.o_proj.weight",
+          "before": "2951d26a1b76325343d6549034f80be2d264fbc2775f7a22800a4f1ef1c9a224",
+          "after": "8b3a965ae4ce8e6e9cf77abe13a41ee87f104bedb8f5039321752f7f3c42d5c9"
+        },
+        {
+          "name": "model.layers.11.mlp.up_proj.weight",
+          "before": "b2e383451d9e8e79b9cda7333a02116b36edd8f7ca3f6fc566e4967e9c2c705d",
+          "after": "b0c8b1feeac6823acd614d2e3076428eee0fb1de0024cefcb425dcd35b0b1c0d"
+        },
+        {
+          "name": "model.layers.11.mlp.gate_proj.weight",
+          "before": "545b60ee8d2dc06e4ba8bfaa06351648934ba52106a660eef04a51eacd82c88c",
+          "after": "cfd09f11eb19af12a634736eca1ac8fed6dccd27b420e9bb4de6da33b8d5cf64"
+        },
+        {
+          "name": "model.layers.11.mlp.down_proj.weight",
+          "before": "6a5136a4cb4a0f2268777231faae5fe58be0930e1709f48934fa9d7be92e8d0d",
+          "after": "bcabb85535f4a850e290998432aea14cc86549a784925770d921a8e43e0f8a66"
+        },
+        {
+          "name": "model.layers.12.self_attn.q_proj.weight",
+          "before": "64f8bd5a06a2881df75e46c947412af1596e4f5f5e19777ab359bc5601347e0b",
+          "after": "75d52825f28fea7daca99cd604c8e61d25ac611b7779e8f2eaf9d4e81a5e7d9f"
+        },
+        {
+          "name": "model.layers.12.self_attn.k_proj.weight",
+          "before": "afa7b928e78493064fb87225feeeb1be1afde5bab26c89cfbdf80a148f458c4d",
+          "after": "0b8533c0f9f704000f1dff041dda50ed530703dc58e24416c81d0583cbbea351"
+        },
+        {
+          "name": "model.layers.12.self_attn.v_proj.weight",
+          "before": "aefb77de4682268eda6fbb8a513643ed1fadae0e188b8f8cb7bf5ce3e7a629ed",
+          "after": "85fd5a953d715ad975ca14cc4e23115e66600f9ebc638965d302de0ce3aeecd8"
+        },
+        {
+          "name": "model.layers.12.self_attn.o_proj.weight",
+          "before": "5b72fdddccf47a9286a5facacf0ac923557cfc31e4b6786f0acb8aa7d7b0d69c",
+          "after": "5bca4702975f1eb86d17b2f652f78136b5b75298889ac2ec2e74509c7d243656"
+        },
+        {
+          "name": "model.layers.12.mlp.up_proj.weight",
+          "before": "cc558ecbf01f59df0271ba0c167dd24e6913e985249921adc2b5dc569321d5d2",
+          "after": "f1d70dff8156824fb29e38c357f6ecd91422e22e2fcf220c1b5b101f712bd3fb"
+        },
+        {
+          "name": "model.layers.12.mlp.gate_proj.weight",
+          "before": "fc82faaa9d331aaec7ffda0fc59d15aa28739bb78c50bdeea40a90e668ab6444",
+          "after": "7b5d1b9145435631da7047c779b60dd677499985384484d6785b22a138cb88ef"
+        },
+        {
+          "name": "model.layers.12.mlp.down_proj.weight",
+          "before": "a00abb003d6640509bcd59beaf2948f7f6e8069ba45789f07a6faf2c7b850467",
+          "after": "9cc1428c3197563f4f14fcf54bbe02278091e9a6eddf662a2753f7095a27f4d5"
+        },
+        {
+          "name": "model.layers.13.self_attn.q_proj.weight",
+          "before": "226271ba938aef9b670179e76e05f297367cc73336a0a44bc958bb0e315224a0",
+          "after": "47e0a36cb9f8e0ad87ae7d2fd4875479536403457b6b9521379a9081affce353"
+        },
+        {
+          "name": "model.layers.13.self_attn.k_proj.weight",
+          "before": "8ab96a55f2d7d9d13ad1f7a25377a78d4b6c792ab3eb7d7e37af8184e465d92e",
+          "after": "b9b7bcd6801a42de72ff4bce52a11a30f23ab32012ecef708769c9dfc00dcc7f"
+        },
+        {
+          "name": "model.layers.13.self_attn.v_proj.weight",
+          "before": "e92a75c38123c64014d046d2e1227267cbb7926b121b935dfb7f9da5c5e60410",
+          "after": "07009dd01c8695cadb4d97575e4b8f207ffa39c66b46197cecdff5d74d58cf3f"
+        },
+        {
+          "name": "model.layers.13.self_attn.o_proj.weight",
+          "before": "dc44b950f12b6e1bdfef701592dda9917930ab9a7b33133f8022df1a96e905ba",
+          "after": "e943c27c5c8a5d9dc356fa1a1466b4b188ec93eca0dd1ee590424518a6869535"
+        },
+        {
+          "name": "model.layers.13.mlp.up_proj.weight",
+          "before": "84d666550b0697fb177afd4acc18c9cfb7565855102324a864cc25463c2dc78b",
+          "after": "c94ce5e584c82e3b79229b1e2b363a0389d6da7bba5be5ab51ff49dcc15af1c9"
+        },
+        {
+          "name": "model.layers.13.mlp.gate_proj.weight",
+          "before": "3f26b34a4444f920496a7b8ebdb959c99e4f9786c0765c1d624372f2bf4c6c90",
+          "after": "de7ca818067e1de927a536d6b2f93e5abace173238958de1cbe2b51e310d804b"
+        },
+        {
+          "name": "model.layers.13.mlp.down_proj.weight",
+          "before": "d78a9beb195beae3010695fe2526eb38a55a7c7656ae68ecd23dd624bf9bc0e8",
+          "after": "b348c1691952f5be3187a25c4a71699d1f503b27ab83dbcd04c3f831f6018a6c"
+        },
+        {
+          "name": "model.layers.14.self_attn.q_proj.weight",
+          "before": "fb6241e99df1a4e3c149e5c14fa07245b3ff8f0f77dd34c7598334f8e3a17efe",
+          "after": "fd26107caea6f2dd1fa8bca2988ab58f048cc775c9fc2228771cd8f4cd1bb795"
+        },
+        {
+          "name": "model.layers.14.self_attn.k_proj.weight",
+          "before": "06d06a5845d2f1a933ff5814c51b81844298407d3efd5af428a248dd7d872247",
+          "after": "13ed04778abfa916ca3835960f3acd1630963e1e3084313e7dd172c1406c040e"
+        },
+        {
+          "name": "model.layers.14.self_attn.v_proj.weight",
+          "before": "cb461729ddd7ab726cf00df00722747d4bdded27112c671f2a9c5d01cf3dd5ca",
+          "after": "cb8d7d4d4e41b8bd6704e9342a7dd47b69462167ad2dd6f2fd65fc0d132b0208"
+        },
+        {
+          "name": "model.layers.14.self_attn.o_proj.weight",
+          "before": "2ef33f0850031d204b7046bdbf487b68542848bdd6edeaf4f038d286fb9f00ba",
+          "after": "e88b19eb4889ac4de2ed6153b0fdb25666df29b130daf0116db668050e437a2d"
+        },
+        {
+          "name": "model.layers.14.mlp.up_proj.weight",
+          "before": "f8e78602cdc1e300b12016ad102f28ed0a42a57497ea69d9f4f605c33791857c",
+          "after": "fd489b2e2d35750afffd65bfaa26e9b9250a9b5a8811d14acc802b38c73aec10"
+        },
+        {
+          "name": "model.layers.14.mlp.gate_proj.weight",
+          "before": "ac2f063791d93399cd386b1efdecfae5fd45e9cfeb3aca7d1c3a1cc63bc9196b",
+          "after": "2999313eb820b634ef2b265fd14531d60eef0dbf4549ba5d3f16af6b94f90280"
+        },
+        {
+          "name": "model.layers.14.mlp.down_proj.weight",
+          "before": "38f2e17ba2992156477f409e2632ec89fd866e2fb64dae4aaf48607e9566f23c",
+          "after": "125c42beac47a4657e7f88737fbe6d879bbb4347cb861e0d31fcb465f1ae88aa"
+        },
+        {
+          "name": "model.layers.15.self_attn.q_proj.weight",
+          "before": "dfb74e424981e8bebfa339ec3b64647405a5e56948f45551ff01ab3fb406a976",
+          "after": "8c63bed6c0e147cb0ef648252cacd939c2f29771eff23921afb5e71a50cb9acd"
+        },
+        {
+          "name": "model.layers.15.self_attn.k_proj.weight",
+          "before": "2d52b1288575189919f2124a11077ed035880ded4b9710f22dd9dfe116b7c856",
+          "after": "8451f502cc1812c0ed1cdc257b982e280a4a22aa35cf770c3df1097873614534"
+        },
+        {
+          "name": "model.layers.15.self_attn.v_proj.weight",
+          "before": "e12ffb3315f28bd0332b7d9aec6ee3e10807b45906e305e4e0ecbe8a28f7d17f",
+          "after": "34d4997b9e49b962048ecd541d02d6487d926715988ebcae4b6684f10b297eca"
+        },
+        {
+          "name": "model.layers.15.self_attn.o_proj.weight",
+          "before": "9f00d4175b21957c03e597cfca878907d912a6e40544c01485ee9f8b90a64e3c",
+          "after": "c86b2dffa717feb36c22374fe3f4a06dbf244cbd32e175371f3b2e013e132dc6"
+        },
+        {
+          "name": "model.layers.15.mlp.up_proj.weight",
+          "before": "57b7bb2010d6aa76011fbab1be36662aa6bf696f71e3b88d05a53df8c9cd44c0",
+          "after": "d64acdf673e84fbf1e8a47e438a5f9f35b9ad9c35cffb26405fee214384b7c61"
+        },
+        {
+          "name": "model.layers.15.mlp.gate_proj.weight",
+          "before": "af72c929836ff1c36c897fb06915e42334a05de6b2e81b22080115fc044aea81",
+          "after": "6c98c6e06ca1da0029ef24f48588d9f09f31f41fec727518db70a682e1b44a3e"
+        },
+        {
+          "name": "model.layers.15.mlp.down_proj.weight",
+          "before": "9cf9ecc5503d9195fae321409eb54416330567ea0843e14925f714b64e45bf25",
+          "after": "e99eea9fe3d5c15072b6a8e2477d0982eb3b3c34ba6fb6d7ed424b19b2f16bc6"
+        },
+        {
+          "name": "model.layers.16.self_attn.q_proj.weight",
+          "before": "ec224c6713eb6e3a2902d2c18556f781d9b9181dd3cb47e8d9817f0316fab9dc",
+          "after": "e4113749d9fae189bd0ea0a60b0e42349e677c199efcc85c34a5eace62f8c31b"
+        },
+        {
+          "name": "model.layers.16.self_attn.k_proj.weight",
+          "before": "21f7e965d757aa0a2d246d5b7d9336a03c4ed663b51e607ad55535fe2877f680",
+          "after": "a35f4fa9f4e1cf01334c4d346e8d480a9aaa517548311b09004b11df6e7ff3bc"
+        },
+        {
+          "name": "model.layers.16.self_attn.v_proj.weight",
+          "before": "89b5864d0fb169b21a5f1ae670e462e99040f94408d84c24f0b464797609a57d",
+          "after": "4b1dd8b8fb34295ad58d6c47c902c10e875f58747dd3f560b3e150fcde896176"
+        },
+        {
+          "name": "model.layers.16.self_attn.o_proj.weight",
+          "before": "343b7787f7ce1db7b807af566b047298551db767792a44d4dbc793650edc6ea4",
+          "after": "85d79a86cc9391b93620adc75f33fa6ddb653b0eb28f0b336f906068650cef85"
+        },
+        {
+          "name": "model.layers.16.mlp.up_proj.weight",
+          "before": "ad95b76933d44466367c4efbd60140e0ba7725c7c81186f9ebe330efafc611a3",
+          "after": "3ef7132eeb022861a4667f21b5fa2e0fd76b4a1ac0c4c7db1b9480dd76786e56"
+        },
+        {
+          "name": "model.layers.16.mlp.gate_proj.weight",
+          "before": "b026139ff92bbb9686ab3248397662414092ca807fa59637864d609b6ad76366",
+          "after": "efe8e2d79db3e2dd566ef93e2230fb67556cd082448101797d3e29290f74919b"
+        },
+        {
+          "name": "model.layers.16.mlp.down_proj.weight",
+          "before": "5eb1b40c168c0aba441a5832903504c22f7a4d31657e9637936be0b4f7bba29c",
+          "after": "e2143310c8e802b9e7c0f4a73b190ef07b26d1c25a681619f3c3d20e32aca6f6"
+        },
+        {
+          "name": "model.layers.17.self_attn.q_proj.weight",
+          "before": "0a69d09e5c37e67158c64fc892bcc7d6e0b51c168a02e06757d25e0e9abb312b",
+          "after": "c022a679ce013e04ae3064e2c0a8dcb389a655ed591c629abad445d53e43b25d"
+        },
+        {
+          "name": "model.layers.17.self_attn.k_proj.weight",
+          "before": "835d73704206ae84a6f268a7496b7f2f176f89768738e7dbde27748edb690f6c",
+          "after": "4d85d01f4f8449265d3c198df40e5f8f783f21805a8246d9c6e340bbc7b2721f"
+        },
+        {
+          "name": "model.layers.17.self_attn.v_proj.weight",
+          "before": "7c91e2da729c8bf068ef22f1c7837c6107cf1a08125b369273413a47342ac46b",
+          "after": "bed83c14259499274e93afecb45c174d4a35901b10b707082eb2852430596bf9"
+        },
+        {
+          "name": "model.layers.17.self_attn.o_proj.weight",
+          "before": "3fbc4041fa4c766783413c6fb4cb4201d3cac144e1e89c226024b46eb06b95e3",
+          "after": "dd8f535cdb80c94ce0d8f41724346b7d5344298a7cb6905c2900d6ef83bea087"
+        },
+        {
+          "name": "model.layers.17.mlp.up_proj.weight",
+          "before": "466bf6319b7809615c4cadecbd60a8a464a7283f11592dc6fd55033179709fba",
+          "after": "deceed2d462308c72beecc3ba11748ef96e68890d1b89e6d308bfe5f382e42f0"
+        },
+        {
+          "name": "model.layers.17.mlp.gate_proj.weight",
+          "before": "febff9b29257f4b601ebe6e20ebfd0f28bdb717023ac43a0ac4f445bb09121a5",
+          "after": "b256570e4f143da3a383ac17f6d387d677da12f2a05dd08409b2d19d188a67b6"
+        },
+        {
+          "name": "model.layers.17.mlp.down_proj.weight",
+          "before": "d7df70aaced8b988950f0579abff1bef08bc1f1eb7bc4fcd3d97168b62fd9781",
+          "after": "b0910f404921fab0b7f8aef1373fa116a43a67c0d7904adb9a00af2e2c586e97"
+        },
+        {
+          "name": "model.layers.18.self_attn.q_proj.weight",
+          "before": "c5a9decedc05eed8e8e3eb3a18816266783ff95da362df4e3dca798e7cb9ec25",
+          "after": "0306d563b89d69fe4c2bc5ef9304c659b0b84b1bcf1f4a938d206c451ce80d9c"
+        },
+        {
+          "name": "model.layers.18.self_attn.k_proj.weight",
+          "before": "6eb7c8c63d203cdc7ee17bf84407c06f11e2e62b302314d5b5e4bee73e76cc7e",
+          "after": "c8b1e16c0431d852f5a85ad8e767901d3d9c97a28db9a9c9512f0110dfabe428"
+        },
+        {
+          "name": "model.layers.18.self_attn.v_proj.weight",
+          "before": "c5655b18791b05d38e5b1b15ac0852a055cf71063496adafa0d69666a4eb4200",
+          "after": "227be9d2aac81f88bc9c9a86877dcdaed1289aa095943546db298e8f930ff08c"
+        },
+        {
+          "name": "model.layers.18.self_attn.o_proj.weight",
+          "before": "e1c43d56ab8083849fb514de1b919e9bbec664908af5f8d10c2f4b963c083c81",
+          "after": "36d084e039793e9b237e68a25f540320122770201e5c78a3a3af1913a9473e51"
+        },
+        {
+          "name": "model.layers.18.mlp.up_proj.weight",
+          "before": "d46ef0ec32bb1d8e6e024bdbad3ca41fe68e8aafcb3ecf9c9988bb29ac5644e2",
+          "after": "21ad4c4bb6b31e8152f6260cb683b5f7cc3aa86443a3aa42033b0ee08c5ed759"
+        },
+        {
+          "name": "model.layers.18.mlp.gate_proj.weight",
+          "before": "8eb275eb88a7c31b222c9c81c2f9dcb0a8a11eb0aba4b9513da31c4428d39484",
+          "after": "3a870eaa9a184127c083a98aeead98227ebb9a58343e7d6aa31a18fcd6c96e75"
+        },
+        {
+          "name": "model.layers.18.mlp.down_proj.weight",
+          "before": "e85e04059e6d242c11df06945f1155583bd93e288442e9e2fb25f61a5e065674",
+          "after": "029c5e75b367605585cf97eb8b5d3934f8b8220a48dc41a2f2d63f94c9dae83b"
+        },
+        {
+          "name": "model.layers.19.self_attn.q_proj.weight",
+          "before": "4a29e1a4ee5e5a7dfeffe1d9a7fa136154148f7cd6df2ef0acea3c86c4cb07b8",
+          "after": "3db9eea6bda8bb7ca5848f19620e8a6b9daad4213d37c490f64e81cee5123661"
+        },
+        {
+          "name": "model.layers.19.self_attn.k_proj.weight",
+          "before": "f0574ae47f81904944dacee1bfdfa8f79255304a2e74bbab648a29dc8756302f",
+          "after": "d535dbc5da5a9985f19e209511dddc6e10de141a34c2b05bb792cef418bf7de7"
+        },
+        {
+          "name": "model.layers.19.self_attn.v_proj.weight",
+          "before": "87e14095bcea6c1d7d498f3b4d7fa67fc1e6b77f03a9212f03ba97a3678ffc3a",
+          "after": "2177b363d31ccfffa1d70184c4144b291a3ede1fa52d36f42879938854527143"
+        },
+        {
+          "name": "model.layers.19.self_attn.o_proj.weight",
+          "before": "e3c6ec2f7d3c46c0b366ca1fa1d439ee671304a04b37d7ae2ed5b9d590f5d026",
+          "after": "38494e42c6c72264acaee37ea4be4cc18c23e0682f1758b7bc04e85c1e4b28a0"
+        },
+        {
+          "name": "model.layers.19.mlp.up_proj.weight",
+          "before": "764e641a6217b9dfbf76a5de207909f86ae45c4cdf85ccde34b5553b9ebbda95",
+          "after": "161f0c0d2b02b83e8d01f14149152411d535a11e93ce37f3070ca689afa399a9"
+        },
+        {
+          "name": "model.layers.19.mlp.gate_proj.weight",
+          "before": "bd9812b7bbe2c0b56b52b44f133eb3ee80bb48ac95fa6bee49585942dcfc457f",
+          "after": "7e689983f1000bd0aad48c35496b71b766583c5797d6168cb68f05cccc74eb73"
+        },
+        {
+          "name": "model.layers.19.mlp.down_proj.weight",
+          "before": "db17915a3a01623876b0d06f82324e573c245cba95691678358edfd2026d1d64",
+          "after": "4185d4dd0d68fa0d2dad27d47081229a04db0880927b8e78e43c783684c6f4a8"
+        },
+        {
+          "name": "model.layers.20.self_attn.q_proj.weight",
+          "before": "d2f428eeeb64cf6b78d2c890bab54962a38da78a1d5c31416a1430368743e426",
+          "after": "a025d6cfa1224245f3fedc203eecd722d069f54bf701222f2ccf82aa544c1b3a"
+        },
+        {
+          "name": "model.layers.20.self_attn.k_proj.weight",
+          "before": "a5b4195c0487392303d0678e70f9b93041fd77f9fa87e823cc2bae5b050cf359",
+          "after": "3e3a22c47dea97179542673e8a88de55332374c86c2ee1d8e85aff77e5b9ba07"
+        },
+        {
+          "name": "model.layers.20.self_attn.v_proj.weight",
+          "before": "104098bf18bfe866ef07d417fc98f8091b0a401185cf75ecb40441062a55efe9",
+          "after": "ec77bb23095c168d58e718cc632a5c9a7d928f71a71b13608f3beb5cdafbda05"
+        },
+        {
+          "name": "model.layers.20.self_attn.o_proj.weight",
+          "before": "57275042af974b7a3a530ad62ef8b5c6136819adec8eb09997c0ba3151655a7e",
+          "after": "d83378e7cdd1fd552391dcd7e087052a3c927273e11d91291f8e5b7be332f2ec"
+        },
+        {
+          "name": "model.layers.20.mlp.up_proj.weight",
+          "before": "32b300f294b0adea27946106b4e91a21df279685b2c52cc7756a23246e5b8869",
+          "after": "e27e3dac9cb59d6bd6d8fa43702daf0aa9e7c72ba273044ba1241aac8495a16c"
+        },
+        {
+          "name": "model.layers.20.mlp.gate_proj.weight",
+          "before": "8e188d2c3d5293c38cd45cb8496d1dbd38be25195fc804b948761d79a0f382c2",
+          "after": "609072748a44625cb3732fde2371dca5a3086391990e24aa320a5ecd2ed07e73"
+        },
+        {
+          "name": "model.layers.20.mlp.down_proj.weight",
+          "before": "14b5fe2d7cea0ecea699a8f95e49d6150191ff5df0804b9f6075e033e6c11b1d",
+          "after": "618655597bab02d6e6c62dbe34601536dcec2291f5bd967f5ecbd20b5b691099"
+        },
+        {
+          "name": "model.layers.21.self_attn.q_proj.weight",
+          "before": "2ce46a008c06b9b1a210098b4c1697cfe1781d8485c94ddb15e06e8697af686e",
+          "after": "053b775012c36fb0eaf6ab17cf09d470e7d40a28822ced54d225c5f8f02cffb3"
+        },
+        {
+          "name": "model.layers.21.self_attn.k_proj.weight",
+          "before": "e70c1d31c57b760dabbbe39fffa5dd6c79e9e4277d3b2b49258e23596bbd010c",
+          "after": "7c340be3283da9d74c3dd842a05728f906565d240088e2eb588433c41f8cbf0d"
+        },
+        {
+          "name": "model.layers.21.self_attn.v_proj.weight",
+          "before": "7b39d39d78bcae2db41a4a9b85460cd03eb1366c1842868d6df65ed81c6f69e3",
+          "after": "797ed8e1e37e69e307ca69a2199786d828222f57011eb4c2230cec2b03cb426a"
+        },
+        {
+          "name": "model.layers.21.self_attn.o_proj.weight",
+          "before": "cc3b9dc6c2a49216604f211d569a00300bd01226bfe6ccfc42f121ff1282652b",
+          "after": "6d587cbad9af028bbf386f30de998b0474f3d200d2f34956b7699f2caa00d00d"
+        },
+        {
+          "name": "model.layers.21.mlp.up_proj.weight",
+          "before": "a6589e7ea3ad8004b2f4571e7aaa702761a72c8da73d6a55e9dc9833fbf223cd",
+          "after": "38401e40afe0c60ff4c327fc141d8aa8233c23ac4d1b9126402860bf6b8aa5e3"
+        },
+        {
+          "name": "model.layers.21.mlp.gate_proj.weight",
+          "before": "97fcc2392cb86e16e7727b625d8eace3f52be7a23945353600b9612207d82c24",
+          "after": "cf6016657851da4086fc45f0f048b2ecb2c65ac3cf4e2cda35c7f80781da6beb"
+        },
+        {
+          "name": "model.layers.21.mlp.down_proj.weight",
+          "before": "58fcb21d8a86d8cbb11172d997090b6efbc2b7c6f913e0dd6888eaebb3bc407a",
+          "after": "65af2bffdd30f94a99579f9232a72492202f586f9ee6c69a96c48435e20fa4e4"
+        },
+        {
+          "name": "model.layers.22.self_attn.q_proj.weight",
+          "before": "3ac865e944d21c81605b49ad180f73241f257a70a0dd9995e0fd0171f8e390e9",
+          "after": "9cf43c1cf35d8851919f2f30eaf0ad3095cb2290629ed1572f52cb622ae9bf98"
+        },
+        {
+          "name": "model.layers.22.self_attn.k_proj.weight",
+          "before": "a63c42c4bee18a2a963873518bd4c4bc82041ce50b67e05d7246923f7f7ecc16",
+          "after": "edba5fd86f586a2e52501d593a491b87f272f2e0cdd93a100249cadb7445ef90"
+        },
+        {
+          "name": "model.layers.22.self_attn.v_proj.weight",
+          "before": "13d3f4afd44996fc4f2263e14a4a2d4cbd9a67bc83d96e24f50c5b2df6544c8b",
+          "after": "9e395c8840096fdafefaa33c18537d10c32114167a25a014379cc2787ec01551"
+        },
+        {
+          "name": "model.layers.22.self_attn.o_proj.weight",
+          "before": "b5170e1b8bfeada3de7033a2b9cf78a300b3c31e698ff351b60ad80da0b516af",
+          "after": "ffc84b57ea66b5efb40b1d50ea8349e3112f7691d0d66cac5e1fafe33037111c"
+        },
+        {
+          "name": "model.layers.22.mlp.up_proj.weight",
+          "before": "4d597fb2c67e5bcb34bad951272f74c8be507b21ef081597220895da9a1b41be",
+          "after": "8d5ba9001a9109335173b56a7362fd4e28eeefc6c0d06715d027d93d53dda801"
+        },
+        {
+          "name": "model.layers.22.mlp.gate_proj.weight",
+          "before": "e5c75af0ccb10c87c5561d9e866316c883f4e36347836855d4b379934e7afa7a",
+          "after": "2d20cda44fea532737f79fa965f5d4cd8e20ef37df2b8ef67f6e4f2f833243d3"
+        },
+        {
+          "name": "model.layers.22.mlp.down_proj.weight",
+          "before": "8fffa9d777245886976836b2a06a93f74e270d02cc2f4e78b2b08936e4d07118",
+          "after": "1cc82c09fd1ac8f1bf344b9a3dccf0e2b2a41e483eaf0b50d63722eaa8d0a6e0"
+        },
+        {
+          "name": "model.layers.23.self_attn.q_proj.weight",
+          "before": "c04701e02c11bcfb873c4dbe726dbb1c1e03248b02b564443ffd3d6499f70894",
+          "after": "5ed2a6365c6981d7ba1166ac51092d968c3946c272aae294566ec0d6e4b6b15f"
+        },
+        {
+          "name": "model.layers.23.self_attn.k_proj.weight",
+          "before": "10eb26ac4b390fc81c1bd02f7ba29a1ce5a0b97d7b1d3ee6898ae381861c2e25",
+          "after": "7ee2cc09c03abcaf0ba6d0eb15923e3a3a97453ff7466faa2cfdd0ecf9fd7023"
+        },
+        {
+          "name": "model.layers.23.self_attn.v_proj.weight",
+          "before": "d5d549c9a57cefa88345d623e0fff4356d1ba916c0cd82ab525e2364401659e9",
+          "after": "b0dafd28ac6da164a9b16fc32133f429412e959630ce5b9ac8c32174bc7f4c24"
+        },
+        {
+          "name": "model.layers.23.self_attn.o_proj.weight",
+          "before": "effb483fe328d3c748130a725934583290cd44e9e7002703fba570e5bafadc8f",
+          "after": "b66533d6c1f17c984ba7f264b847295b45b469f2a4b8742a678f88276949ff8a"
+        },
+        {
+          "name": "model.layers.23.mlp.up_proj.weight",
+          "before": "a202c608bada1a00a6c2fcb7b32bca488ca55952cae86d49e9be794b903f43dc",
+          "after": "a0031068955c44cfa241fd8ecb9cf9fa0db6f3a944ee996c1eb88a5056ccf17d"
+        },
+        {
+          "name": "model.layers.23.mlp.gate_proj.weight",
+          "before": "51e29139f1737b03318ff28e7808c0f609f5264b62afda6dd69fe5b4b0abc8c2",
+          "after": "c14b348cc8b06ff72d63b3f323ccc53200149220f99c13869f9992ade79ced03"
+        },
+        {
+          "name": "model.layers.23.mlp.down_proj.weight",
+          "before": "230e470228433d904194e42d52f1a3821210da3eab03b0942b93695707e229cd",
+          "after": "757653cfbb1cd2781486d7736c3f66cb8cd87136e30eebb70f8548c169be43d8"
+        },
+        {
+          "name": "model.layers.24.self_attn.q_proj.weight",
+          "before": "980bc0126b5ce57f2c39ebd8f8ef65d1f5f659de38e3c6a0b6e8a9d08b599804",
+          "after": "02f28ac8c0ccf6ae380eec416eadc4a180d6ed3687a2ca74f82c7e486f173239"
+        },
+        {
+          "name": "model.layers.24.self_attn.k_proj.weight",
+          "before": "cf4ed935ebc86bfdfbb0afc9fe2d2dccfe848608e17e58bfca0f21313d9bc725",
+          "after": "503e3b5d58bb3b37643d4dea357c7032d43a1df0b3efcb83063498db088b8dd3"
+        },
+        {
+          "name": "model.layers.24.self_attn.v_proj.weight",
+          "before": "6d03fc0935ed7d88156a5829755ef83e258368bc9aea9336dcf409bc9fbb58e7",
+          "after": "05cadd77d165782bed0d55392f5435eee103455e83ec5d74396158ff933a3691"
+        },
+        {
+          "name": "model.layers.24.self_attn.o_proj.weight",
+          "before": "37fd9d8ed70cc24eb95ff1e079a53ff8466667f501611c45cb32885d04715608",
+          "after": "5f2649273ebb3ebbb6110b977ab5545801489bb86dff2059bb62185a68acd5de"
+        },
+        {
+          "name": "model.layers.24.mlp.up_proj.weight",
+          "before": "20289bf27334663130ade2fc50e1f8897df1f61f59c05281c5d6413480810789",
+          "after": "2e00361946130baab970b997846f9dd4b16f47bc747d119b535dd02b0bd144c5"
+        },
+        {
+          "name": "model.layers.24.mlp.gate_proj.weight",
+          "before": "e0546e9f4bc2cbcfe6f0f8c035b728df2f83d9177005d08104038702a9f2dd6c",
+          "after": "9c8704975b5a6a8a7f1dc63f6bbba9f398a7d6ee3d6fded08c754bd70c5b1095"
+        },
+        {
+          "name": "model.layers.24.mlp.down_proj.weight",
+          "before": "47e5591c08ac201fb9d1548641cfe960b2f059e03ea6e3a5387ceccbfedc0137",
+          "after": "a4da3fdb6b3036e3e05dad8f10b88b6d299f9e48ebf378fe864e5f5096e0d09a"
+        },
+        {
+          "name": "model.layers.25.self_attn.q_proj.weight",
+          "before": "14e8e7011c1f81837bbd4f6b5c5ecee493f54285591ac0a470b4831f60671bd9",
+          "after": "da5731f9673147de663456753887a921cb1ee83d4b8cfa44612c88824546214c"
+        },
+        {
+          "name": "model.layers.25.self_attn.k_proj.weight",
+          "before": "1ffda4d8a54cc4cd35daedb5614edade7842a25cacc3a26a9cf29f832e1d24c7",
+          "after": "18aa462d2ca2bd00e623d06c679d981e84277a0ac24c8a1bfd5873dcfc53c6af"
+        },
+        {
+          "name": "model.layers.25.self_attn.v_proj.weight",
+          "before": "4c93e7c18a61cc1598a059e39d68b79b68ad2c3fa9528931975d47a2adc28ca1",
+          "after": "a2f0202e46372a7a3b3d41c970df6d01ccb5d068fb7c9e4541b7fbd87557fd1c"
+        },
+        {
+          "name": "model.layers.25.self_attn.o_proj.weight",
+          "before": "4f6194c27cd139aac050ab418d6b18e2f4fe490196925d97c8f7a3533e3b068f",
+          "after": "0d946c74c0e757adf288930314e09292901f14494545d49d437616af630b89d3"
+        },
+        {
+          "name": "model.layers.25.mlp.up_proj.weight",
+          "before": "14f38c1a1b3b7e1b4ea84a5fb470b8d8de6ca0f6a89e500950871f36e7b88344",
+          "after": "4d52b9aaeb558b51e356ca5a6ecb633401ae62bd3a562b33ac2df583d05afd81"
+        },
+        {
+          "name": "model.layers.25.mlp.gate_proj.weight",
+          "before": "7ec11519f7775fb652d925b0df37737f16f526e9c6166a1fa1060baa894780b8",
+          "after": "a971fe5819b34250d1567c2dd27888bf42ecec01d19ac60ad3c2f3b678b2d604"
+        },
+        {
+          "name": "model.layers.25.mlp.down_proj.weight",
+          "before": "0285503c4e5469591229d2e2655e7189463d4ff3a7069a23fb5c36104bf283db",
+          "after": "87e9b17736530810e5f77c874fd57bb0eed0bc8c6c3b716484cddbfe589ce6ab"
+        },
+        {
+          "name": "model.layers.26.self_attn.q_proj.weight",
+          "before": "f5f0f5ae568769acaf41431a4d0ce655cbfc3228b6c11f29a4108ec5dbac5daf",
+          "after": "cf9271f51b83ed5dc6250f7b79e5feb5bfd1506081069d7c8104812d7bfed9b8"
+        },
+        {
+          "name": "model.layers.26.self_attn.k_proj.weight",
+          "before": "a40cfaa3d7da4a4fe5f488657a1f98767863c07223f3632e1c65d1f3054183c7",
+          "after": "c49bc3b619593a0f64c6463138f2f9981db46be635e460e0bfc84726ff5ba2c9"
+        },
+        {
+          "name": "model.layers.26.self_attn.v_proj.weight",
+          "before": "ee3d57fe7cffe1c0fba60d806c0deb2aea788d822cf8e14123a2e5d937b0732b",
+          "after": "76157c84a945e1920bda565685efa9eeda7e8303e4fa96f9cffb7ab866d6259f"
+        },
+        {
+          "name": "model.layers.26.self_attn.o_proj.weight",
+          "before": "cbe6547d72d5c7b3bc098017bae18a1640b4e1d442f89a42102c97e8b93717c2",
+          "after": "24dfcd7ff7daa7d600073ea64045aaea47cc3936d43536b9b3ace27ab4752f67"
+        },
+        {
+          "name": "model.layers.26.mlp.up_proj.weight",
+          "before": "92e87174cc73a8c62bdecaec084ecee2fcd7d29edd96c7479c2ea8d9f0bf5c14",
+          "after": "63e5684093e6d59876539f6cf112276e813605c573aa4e5b7f31ba354505d494"
+        },
+        {
+          "name": "model.layers.26.mlp.gate_proj.weight",
+          "before": "c4b711d3c9c5433d0438b60a0053084838e06b00a97c5cc76e5ffd28d360392a",
+          "after": "4f42082b87c6098d2d0c6741863fe158b46182e92bc22ebd787887e0085de0b9"
+        },
+        {
+          "name": "model.layers.26.mlp.down_proj.weight",
+          "before": "be91dab69c1ca4aed27bed4a14ac781db3812a56e5d68dc2073cac6e9ecdeba3",
+          "after": "3467291afc41a8710f0ab74753657d8b1db4b1570039cb853b91121d52a21d2e"
+        },
+        {
+          "name": "model.layers.27.self_attn.q_proj.weight",
+          "before": "b12d67f867c46eb959885227278290e84980729473035d1b8103ea8141ad0db5",
+          "after": "349ba4cd0acf2fecc8d08d53d70bd832b3fd2e898d71a29b957a5b6ec0f4af6c"
+        },
+        {
+          "name": "model.layers.27.self_attn.k_proj.weight",
+          "before": "78449dd783e23ada220ab43aa2e3c27cbb609079aaff606713c537e540db37f1",
+          "after": "358500123acc41db60f88bdf02f953ec3530804adf1cefc01f37b39fcabfe6d8"
+        },
+        {
+          "name": "model.layers.27.self_attn.v_proj.weight",
+          "before": "8a7df1bd2399a9278c5951a505ef695b6ebbd1ae3747e076af12784eea57861b",
+          "after": "058b74e06e1d3c2af06c5b0f8d40284fa4d28078069dff25126f87d0fd62cca6"
+        },
+        {
+          "name": "model.layers.27.self_attn.o_proj.weight",
+          "before": "d8ef67031eaeeb41dd0b77d947412ac3bab214c246f213f042e398e158762b13",
+          "after": "f97b9ea25135a7190d0b0add8a2dbf18a7a7311b885f0f212b50dfb0527b4434"
+        },
+        {
+          "name": "model.layers.27.mlp.up_proj.weight",
+          "before": "7ff33cfcabac92c13bcf2d39c2b910c41b34744aa01afcf8fdbecf59a2fa0796",
+          "after": "2bfa5a22dcf22c869ccf5cf889df3898e7cbd1f083cf4d8b643ed68567728cc0"
+        },
+        {
+          "name": "model.layers.27.mlp.gate_proj.weight",
+          "before": "c4a45afd2ff4178524cc14ddffc4c2a2f86b80cb4e41e013e3e03e92073e7f0f",
+          "after": "3d25a0f78518f02e892973e88790fe3a259d44ee0c1d5c50bc98c2cf89569cfc"
+        },
+        {
+          "name": "model.layers.27.mlp.down_proj.weight",
+          "before": "84e57a3601686e003f82f9b863d961d8e3633f07b198666ff9a61f46e710b5fa",
+          "after": "dbe724e2ab4496d7af7b71a161b415f1ef3d9b944b42cbf48f89210ec52aea9a"
+        }
+      ],
+      "non_target_weights_unchanged": true,
+      "calibration_sequences": 128
+    },
+    "packages": {
+      "torch": "2.8.0+cu126",
+      "transformers": "4.57.1",
+      "numpy": "2.5.3"
+    },
+    "files_sha256": {
+      "special_tokens_map.json": "59cda48bbe8bab9d61ffb410e6e3c07b6d98bff73cee7c88ff8b51f95f21ab1c",
+      "model.safetensors": "21d52a2b81775749236f06166583bb8882ee3e87cadabbfe4b46054f139e080a",
+      "generation_config.json": "f5e432959a722c3d3cde9a9c6606ddff8c618c1fe5a67f685f3b5b43d806ee53",
+      "config.json": "b6da8f880bf07c3f5d74ff422f8762d52e0755195d3f75a4a390cae2fd9a4f17",
+      "tokenizer.json": "e20ddafc659ba90242154b55275402edeca0715e5dbb30f56815a4ce081f4893",
+      "calibration_tokens.jsonl": "0a49f1bebbe91328a8e49f9fa7f919ab4e0780ca75e3ec4dc113f9162f111d32",
+      "chat_template.jinja": "56a1447ad31926fdc21fb07e56e5642bd9c850c4f52d8c8af7bbe5f079a84f5f",
+      "tokenizer_config.json": "55edc67ee25d8e0d4b7a13036ee61cdb880b49db4398533cc6a29710d1790ade"
+    }
+  },
+  "q_checkpoint_hashes_verified": true,
+  "model_id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
+  "model_revision": "ad9f0ae0864d7fbcd1cd905e3c6c5b069cc8b562",
+  "question_id": "gsm8k/train/346",
+  "full_prompt_sha256": "16ee77f3b7769ac3b33cca1accd9801de03e66e0af68324433bb9e589841e289",
+  "probe_token_ids": [
+    151646,
+    151644,
+    40645,
+    4517,
+    374,
+    18824,
+    1059,
+    3054,
+    13,
+    9043,
+    315,
+    1059,
+    14285,
+    525,
+    220,
+    18,
+    20044,
+    6884,
+    323,
+    220,
+    17,
+    20044,
+    16217,
+    13,
+    576,
+    4843,
+    7002,
+    374,
+    220,
+    20,
+    20044,
+    6884
+  ],
+  "continuation_token_ids": [
+    6884,
+    6884,
+    6884,
+    6884
+  ],
+  "runner_sha256": "56c8949307968db64a88a652b8578e580260d7cfe8078e7e73da8f26333dddf5",
+  "source_sha256": {
+    "assets.py": "9baf9ca139ac6e0f2c66045feeb1b489c100e92eebd56f8c8e63982e577597a1",
+    "cache_diagnostics.py": "5b5dd972b6043289b97db1b5480f3087c55fcce0aff7c99f5f9902512bdfc229",
+    "evaluation.py": "6aa4ba7589136ef0e9e2c7991371f4d28ac2d7f798b8e4ce4992383cca874263",
+    "validation.py": "edf351eaa76c494a930049b0272d81e0ad431a6405a0ab48532ff71e6a20dd1f",
+    "generation.py": "186f6c2b7fe29f249a43e70b7d00c9f54010d6cd702c238075f4c24d2276ff4c",
+    "quantization.py": "a545faaec53eca881a1d5af2672225dd9a72b0d3f9c7a76c8317c610bdada3e9",
+    "gptq_core.py": "0651cf904403c152278a83d0508c59b47eac1fd77dbd06ca5db9f7130d9a3130",
+    "hf_backend.py": "98f41d78561f885bb0677e596d1c9c38920a184ffbe851f5a4ae7decd8ad7246",
+    "__init__.py": "c18ec83716b97a1075bf4a423da914563842ecb62174e943b7d9d8110f37fbee",
+    "sampling.py": "2f379ec67ef790a2a2932500a477edac91a4ff361ab3615d473592f5d9be96d0",
+    "data.py": "12977705f10cdbf4b5dca889cc20db6d57bbe0f2d80b8217d5d182f0492317ee"
+  },
+  "last_operation": {
+    "model": "Q",
+    "operation": "fp32_math"
+  }
+}

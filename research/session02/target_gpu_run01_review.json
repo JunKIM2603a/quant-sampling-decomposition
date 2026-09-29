@@ -1,13 +1,13 @@
 {
   "review_date_kst": "2026-09-30",
-  "status": "ACTUAL_MODEL_BF16_CACHE_GATE_FAILED_PRECISION_DEPENDENCE_SUPPORTED",
+  "status": "ACTUAL_MODEL_BF16_CACHE_GATE_FAILED_FULL_DIAGNOSTIC_REVIEWED",
   "evidence": {
     "kind": "user_supplied_terminal_text",
     "filename": "붙여넣은 텍스트(1).txt",
     "sha256": "9eced62a2897ac91a1b78a9f00de0c469752a0938281986291dfbeaf99442204",
     "lines": 331,
     "raw_validation_json_received": true,
-    "q_manifest_received": false,
+    "q_manifest_received": true,
     "validation_json_source": "User pasted cat output from runs/target-gate-gpu1-01/dev-smoke.validation.json; JSON content preserved, original file bytes not available",
     "validation_json_record": "research/session02/target_gpu_run01_validation.json"
   },
@@ -102,8 +102,9 @@
   "checkpoint": {
     "calibration_completed_rows_reported": 128,
     "save_success_message_present": true,
-    "manifest_directly_reviewed": false,
-    "preserve_existing_checkpoint": true
+    "manifest_directly_reviewed": true,
+    "preserve_existing_checkpoint": true,
+    "manifest_review_evidence": "research/session02/evidence/cache-diagnostic-gpu1-01.json (embedded manifest; user-host checkpoint verification reported, no assistant-host weight files)"
   },
   "failure": {
     "stage": "validate_model_pair before development task generation",
@@ -141,7 +142,7 @@
     ]
   },
   "needed_files": [
-    "runs/cache-diagnostic-gpu1-01.json (includes Q manifest and checkpoint hash verification)"
+    "runs/numerical-audit-gpu1-01.json (fixed development policy sensitivity audit)"
   ],
   "existing_bundle": "runs/target-gate-gpu1-01.tar.gz",
   "stage02_complete": false,
@@ -155,6 +156,6 @@
     "pilot",
     "confirmation"
   ],
-  "decision": "Eight GPU diagnostic summaries reviewed. Default BF16 failure reproduced; precision dependence strongly supported. Read the already saved full report before revising validation; original BF16 gate remains failed.",
+  "decision": "Full diagnostic, stepwise errors, runtime settings and embedded Q manifest reviewed. Preserve original BF16 failure; collect the fixed numerical policy audit before changing validation.",
   "followup_review": "research/session02/cache_diagnostic_gpu1_01_review.json"
 }

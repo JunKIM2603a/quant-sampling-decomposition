@@ -1,6 +1,6 @@
 # QuantSplit 02 — 구현과 현재 판정
 
-2026-09-29 KST 구현 기록. **후속 9/30: 실제 1.5B/GPTQ 실행에서 cache 대조 실패. 02 전체 미완료.** 아래 CPU 결과는 최초 검증 이력이며, 최신 실제 GPU 수치·진단 판단은 [05_cache_diagnostic_review.md](05_cache_diagnostic_review.md)를 따른다. 기본 BF16 실패를 재현했고 FP32에서 오차가 크게 줄었으나 기존 BF16 관문은 실패 상태다. H1의 경험적 결과는 아직 없다.
+2026-09-29 KST 구현 기록. **후속 9/30: 실제 1.5B/GPTQ 실행에서 cache 대조 실패. 02 전체 미완료.** 아래 CPU 결과는 최초 검증 이력이며, 최신 실제 GPU 수치·진단 판단은 [06_numerical_audit.md](06_numerical_audit.md)를 따른다. 기본 BF16 실패를 재현했고 FP32에서 오차가 크게 줄었으나 기존 BF16 관문은 실패 상태다. H1의 경험적 결과는 아직 없다.
 
 ## 진행 권한
 
@@ -46,7 +46,7 @@ COLM 선행연구 코드의 GPTQ/WeightQuantizer를 MIT 고지와 함께 사용�
 
 128문항의 BF16 참조 생성으로 prompt+trace 최대 2,048토큰을 만든다(T=.6, p=.95, seed42). 가변 길이를 padding 없이 사용하며 layer kwargs/position embeddings를 개별 sequence별로 보존한다. GPTQ 코어의 damping 자동 증가를 제거해 Cholesky 실패는 명시적으로 중단한다. 기존 upstream 전체 pipeline이나 다른 calibration 집합의 정확 재현이라고 주장하지 않는다.
 
-완성 checkpoint는 양자화·역양자화된 BF16 safetensors와 base revision, calibration token hash, quantization config/source hash, 파일 hash manifest를 가진다. GPTQ integer kernel 가속을 측정하는 구현이 아니다. 최초 CPU 검증 시 실제 checkpoint는 미생성이었다. 9/30 후속 사용자 로그에서 실제 calibration 128/128 및 checkpoint 저장을 확인했다. Q manifest 원본의 직접 검토는 대기다.
+완성 checkpoint는 양자화·역양자화된 BF16 safetensors와 base revision, calibration token hash, quantization config/source hash, 파일 hash manifest를 가진다. GPTQ integer kernel 가속을 측정하는 구현이 아니다. 최초 CPU 검증 시 실제 checkpoint는 미생성이었다. 9/30 후속 사용자 로그에서 실제 calibration 128/128 및 checkpoint 저장을 확인했다. 9/30 원본 진단에 포함된 Q manifest의 고정 설정·128개 calibration·196개 대상 기록을 검토했다. 사용자 장비의 파일 해시 검증 보고도 확인했다. assistant 환경에서 weight bytes를 직접 재해시한 것은 아니다.
 
 ## 확인한 결과와 남은 관문
 

@@ -10,11 +10,11 @@
 | 교수 실제 PASS | 미확인. 가정과 실제 승인 기록을 구분 |
 | 01 산출물 | 문헌·신규성 범위·H1·경쟁 설명·판정·교수 제안서 완료 |
 | 02 구현 | 4-arm, cache, sampler, 난수, parser, 분할, GPTQ 준비·개발 runner 구현 |
-| 검증 | 기존 24개 + cache 진단 3개 = 27개 CPU tests 통과. 작은 Qwen2/GPTQ·합성 context 기록 보존. 실제 GPU 진단 8개 요약 수신; 원본 JSON 검토 대기 |
+| 검증 | 기존 27개 + 정책 수치 audit 3개 = 30개 CPU tests 통과. 실제 GPU 진단 원본의 40개 위치·설정·해시 검토 완료. 신규 8문항 audit의 GPU 실행 대기 |
 | 자산 | 모델/tokenizer·GSM8K revision 고정. calibration/development/pilot 128/128/128 분할 고정 |
-| 실제 1.5B calibration/GPTQ | 사용자 로그에서 calibration 128/128 및 checkpoint/manifest 저장 완료 확인. 원본 Q manifest 직접 검토는 대기 |
+| 실제 1.5B calibration/GPTQ | calibration 128개·196개 대상 weight의 GPTQ manifest 검토 완료. 파일 해시 검증은 사용자 장비 보고; assistant가 weight bytes를 재해시한 것은 아님 |
 | 사용자 RTX 4090 검증 | cuda:1, torch 2.8.0+cu126에서 BF16 matmul/SDPA·FP32 Cholesky 통과. 기본 BF16 실패 재현. 직접 cache 대조 0 차이, 세 BF16 모드 TV 실패, FP32 대조 오차 대폭 감소. identity·p=1·baseline 분포 통과 |
-| 02 전체 | **미완료 — 원본 진단 보고서 검토·수치 검증 방법 정리 및 full-cap/context 검증 필요** |
+| 02 전체 | **미완료 — 고정 development 정책 수치 audit·검증 방법 결정 및 full-cap/context 관문 필요** |
 | 파일럿·H1 결과·확증 | 미실행. 자체 test 모델 출력 없음 |
 | 프로토콜 동결 | 아직 아님. 03에서 파일럿·정밀도·예산 후 확증 동결 |
 | 이메일 | 초안만 작성, 미발송 |
@@ -31,9 +31,9 @@
 
 ## 현재 판단과 다음 행동
 
-사용자가 `bc3e599`의 cache 진단을 cuda:1에서 완료한 터미널 출력을 제공했다. 기본 BF16은 이전 실패를 정확히 재현했고, 직접 Transformers cache 참조와의 차이는 모든 모드에서 0이다. BF16 세 모드는 TV 기준을 넘었으며 같은 weight 값의 FP32 계산에서는 F TV=5.97e-7, Q TV=3.84e-6으로 줄었다. **정밀도 의존적 수치 차이가 주요 설명이라는 강한 근거지만 기존 BF16 관문은 통과하지 못했다.** [GPU 진단 검토](research/session02/05_cache_diagnostic_review.md)를 따른다.
+사용자가 `cache-diagnostic-gpu1-01.json` 원본을 제공했다. 실제 코드·lock·실행 설정과 40개 위치의 값, 28개 층 cache 길이를 검토했다. prefill은 오차 0이고 decode부터 BF16 cached/full-prefix 차이가 생긴다. 직접 cache 참조는 항상 0 차이이며 FP32 승격으로 오차가 크게 줄었다. Q manifest의 고정 GPTQ 설정·calibration 128개·대상 weight 196개 기록도 일치한다. 원본 SHA256과 확인 범위는 [원본 검토·후속 audit](research/session02/06_numerical_audit.md)에 남겼다.
 
-**다음 입력은 이미 저장된 `runs/cache-diagnostic-gpu1-01.json` 원본이다. 추가 실행·재양자화는 필요하지 않다.** step별 오차·실제 설정·hash·Q manifest를 확인한 뒤 cache 구현 검증과 수치 민감도 검사를 분리하는 개편안을 확정한다. 현재 기준·runner·프로토콜은 유지하며, 개편 시 변경 이유와 이미 본 데이터를 새 개발 버전에 기록한다. 교수 실제 PASS 미확인·02 미완료·03 비활성 상태를 유지한다.
+다음은 **고정 development 8문항, F/FF 최대32토큰 경로의 정책 수치 audit**다. `scripts/run_numerical_audit.py`로 같은 prefix에서 BF16 cached/full-prefix·BF16/FP32의 확률·top-p·4-arm 분포 차이를 F-Q 차이와 나란히 확인한다. 30개 CPU tests 통과, 실제 GPU audit은 대기다. 기존 GPTQ를 재사용하며 v0.2.1·오차 기준·본 생성 관문은 유지한다. audit 결과의 검토 없이 자동으로 02 PASS나 검증 개편을 채택하지 않는다. 교수 실제 PASS 미확인·02 미완료·03 비활성이다.
 
 H1은 1.5B GPTQ-W3/g128, T=.6, p=.95, GSM8K에서 QF가 QQ의 초과 토큰을 50% 넘게 복구하고 QQ 대비 정확도 손실이 3%p 미만이라는 기존 제출 가설을 유지한다. CPU 검증 수치는 이 H1의 실험 결과가 아니다. 정확한 판정은 v0.2 설계를 따른다.
 

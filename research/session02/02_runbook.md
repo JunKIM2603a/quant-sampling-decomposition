@@ -1,16 +1,16 @@
 # QuantSplit 02 — 실제 장비 실행 순서
 
-## 최신 중단 지점: cache 진단 완료·원본 보고서 검토 대기
+## 최신 작업: 원본 검토 완료 → 고정 development 정책 수치 audit
 
-`cache-diagnostic-gpu1-01`의 F/Q × 4모드 터미널 요약을 수신했다. 기본 BF16 실패가 재현됐고, 직접 cache 참조 차이는 0이며 FP32 계산에서는 오차가 크게 줄었다. **현재 필요한 것은 이미 저장된 원본 JSON이며 GPU 재실행은 필요하지 않다.**
-
-`runs/cache-diagnostic-gpu1-01.json`을 첨부하거나 아래 출력 전체를 전달한다.
+`cache-diagnostic-gpu1-01.json` 원본을 검토했다. code/lock·40개 위치·28개 층 길이·실행 설정·Q manifest가 기록과 일치한다. 정밀도 의존성이 확인되지만 기존 BF16 관문은 실패다. 다음 검사는 수치 차이가 top-p·4-arm 분포에 미치는 영향을 F-Q 차이와 함께 보는 고정 development audit이다. [절차와 해석](06_numerical_audit.md)을 따른다.
 
 ```bash
-cat runs/cache-diagnostic-gpu1-01.json
+conda activate quantsplit
+git pull --ff-only
+python scripts/run_numerical_audit.py --device cuda:1 --q-checkpoint checkpoints/gptq-w3-g128 --output runs/numerical-audit-gpu1-01.json
 ```
 
-이 파일에는 터미널 집계에 없는 step별 오차·cache 길이·실제 연산 설정·코드/lock hash·Q manifest가 있다. [진단 검토와 검증 개편안](05_cache_diagnostic_review.md)을 따르며, 원본 검토 후 다음 검사를 구체화한다. 허용 오차·BF16 연구 설정·runner는 그대로이고 02는 미완료다. 기존 checkpoint와 실패 폴더를 보존한다. smoke/full-cap은 아직 재개하지 않는다. 이전 진단 실행 명령은 [04_cache_diagnostic.md](04_cache_diagnostic.md)에 보존했다.
+8문항에서 최대32토큰의 F/FF 공통 경로를 생성하고 F/Q BF16·FP32를 비교한다. 기존 checkpoint를 재사용한다. 결과 JSON을 첨부한다. 오류가 나면 JSON과 터미널 오류를 함께 전달하고, 재시도 시 새 출력 번호를 쓴다. 진단 수집 완료는 02 PASS가 아니다. 기존 오차 기준·BF16 연구 설정·본 runner 관문은 유지하며 smoke/full-cap은 아직 재개하지 않는다.
 
 아래는 전체 실행 절차다.
 
