@@ -1,16 +1,16 @@
 # QuantSplit 02 — 실제 장비 실행 순서
 
-## 최신 중단 지점: target-gate-gpu1-01 (9/30 검토)
+## 최신 중단 지점: cache 진단 완료·원본 보고서 검토 대기
 
-사용자가 후속 제공한 validation JSON에서 F/Q cache TV 및 Q max logit 기준 초과를 확인했다. identity·p=1·baseline 분포는 통과했다. **현재는 아래 짧은 진단만 실행한다.** 기존 checkpoint와 실패 출력 폴더를 보존한다. 설치/calibration/양자화를 반복하지 않으며, 허용 오차도 바꾸지 않는다.
+`cache-diagnostic-gpu1-01`의 F/Q × 4모드 터미널 요약을 수신했다. 기본 BF16 실패가 재현됐고, 직접 cache 참조 차이는 0이며 FP32 계산에서는 오차가 크게 줄었다. **현재 필요한 것은 이미 저장된 원본 JSON이며 GPU 재실행은 필요하지 않다.**
+
+`runs/cache-diagnostic-gpu1-01.json`을 첨부하거나 아래 출력 전체를 전달한다.
 
 ```bash
-conda activate quantsplit
-git pull --ff-only
-python scripts/diagnose_cache.py --device cuda:1 --q-checkpoint checkpoints/gptq-w3-g128 --output runs/cache-diagnostic-gpu1-01.json
+cat runs/cache-diagnostic-gpu1-01.json
 ```
 
-완료 후 `runs/cache-diagnostic-gpu1-01.json`을 첨부한다. 오류가 나면 같은 JSON과 터미널 오류를 함께 전달한다. 이미 파일이 있으면 새 번호를 사용한다. Q manifest·hash 검증·모드별 오차와 cache 길이를 저장한다. 정상 종료는 진단 수집 완료일 뿐 기존 관문 통과가 아니다. 상세 비교·해석은 [04_cache_diagnostic.md](04_cache_diagnostic.md)를 따른다. smoke/full-cap은 원인 검토 뒤 재개한다.
+이 파일에는 터미널 집계에 없는 step별 오차·cache 길이·실제 연산 설정·코드/lock hash·Q manifest가 있다. [진단 검토와 검증 개편안](05_cache_diagnostic_review.md)을 따르며, 원본 검토 후 다음 검사를 구체화한다. 허용 오차·BF16 연구 설정·runner는 그대로이고 02는 미완료다. 기존 checkpoint와 실패 폴더를 보존한다. smoke/full-cap은 아직 재개하지 않는다. 이전 진단 실행 명령은 [04_cache_diagnostic.md](04_cache_diagnostic.md)에 보존했다.
 
 아래는 전체 실행 절차다.
 

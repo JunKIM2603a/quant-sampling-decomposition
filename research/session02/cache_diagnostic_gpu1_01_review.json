@@ -1,0 +1,240 @@
+{
+  "review_date_kst": "2026-09-30",
+  "status": "GPU_DIAGNOSTIC_CONSOLE_REVIEWED_BF16_GATE_STILL_FAILED",
+  "evidence": {
+    "kind": "user_pasted_terminal_output",
+    "command": "python scripts/diagnose_cache.py --device cuda:1 --q-checkpoint checkpoints/gptq-w3-g128 --output runs/cache-diagnostic-gpu1-01.json",
+    "git_pull_fast_forward_reported": "a8b325c..bc3e599",
+    "expected_code_commit": "bc3e599c331dd453801506110c30d50acc052894",
+    "diagnostic_saved_message_present": true,
+    "diagnostic_json_directly_received": false,
+    "diagnostic_file_sha256": null,
+    "q_manifest_directly_reviewed": false,
+    "stepwise_errors_directly_reviewed": false,
+    "runtime_settings_directly_reviewed": false,
+    "code_path_inference": "Reaching all eight summaries and the saved message implies the script completed its asset checks and cache-length/finite checks; original report fields have not been directly reviewed."
+  },
+  "console_records": [
+    {
+      "model": "F",
+      "mode": "bf16_auto",
+      "maxima": {
+        "cached_vs_full": {
+          "max_abs_logit": 0.21875,
+          "max_tv": 0.009286526618974375
+        },
+        "repository_vs_direct": {
+          "max_abs_logit": 0.0,
+          "max_tv": 0.0
+        },
+        "fresh_cache_vs_full": {
+          "max_abs_logit": 0.0,
+          "max_tv": 0.0
+        },
+        "full_repeat": {
+          "max_abs_logit": 0.0,
+          "max_tv": 0.0
+        }
+      }
+    },
+    {
+      "model": "F",
+      "mode": "bf16_math",
+      "maxima": {
+        "cached_vs_full": {
+          "max_abs_logit": 0.328125,
+          "max_tv": 0.01137818415542713
+        },
+        "repository_vs_direct": {
+          "max_abs_logit": 0.0,
+          "max_tv": 0.0
+        },
+        "fresh_cache_vs_full": {
+          "max_abs_logit": 0.0,
+          "max_tv": 0.0
+        },
+        "full_repeat": {
+          "max_abs_logit": 0.0,
+          "max_tv": 0.0
+        }
+      }
+    },
+    {
+      "model": "F",
+      "mode": "bf16_math_full_reduction",
+      "maxima": {
+        "cached_vs_full": {
+          "max_abs_logit": 0.25,
+          "max_tv": 0.006144078116465332
+        },
+        "repository_vs_direct": {
+          "max_abs_logit": 0.0,
+          "max_tv": 0.0
+        },
+        "fresh_cache_vs_full": {
+          "max_abs_logit": 0.0,
+          "max_tv": 0.0
+        },
+        "full_repeat": {
+          "max_abs_logit": 0.0,
+          "max_tv": 0.0
+        }
+      }
+    },
+    {
+      "model": "F",
+      "mode": "fp32_math",
+      "maxima": {
+        "cached_vs_full": {
+          "max_abs_logit": 2.7179718017578125e-05,
+          "max_tv": 5.968526084663559e-07
+        },
+        "repository_vs_direct": {
+          "max_abs_logit": 0.0,
+          "max_tv": 0.0
+        },
+        "fresh_cache_vs_full": {
+          "max_abs_logit": 0.0,
+          "max_tv": 0.0
+        },
+        "full_repeat": {
+          "max_abs_logit": 0.0,
+          "max_tv": 0.0
+        }
+      }
+    },
+    {
+      "model": "Q",
+      "mode": "bf16_auto",
+      "maxima": {
+        "cached_vs_full": {
+          "max_abs_logit": 0.3125,
+          "max_tv": 0.02662345340131388
+        },
+        "repository_vs_direct": {
+          "max_abs_logit": 0.0,
+          "max_tv": 0.0
+        },
+        "fresh_cache_vs_full": {
+          "max_abs_logit": 0.0,
+          "max_tv": 0.0
+        },
+        "full_repeat": {
+          "max_abs_logit": 0.0,
+          "max_tv": 0.0
+        }
+      }
+    },
+    {
+      "model": "Q",
+      "mode": "bf16_math",
+      "maxima": {
+        "cached_vs_full": {
+          "max_abs_logit": 0.25,
+          "max_tv": 0.012685908702989917
+        },
+        "repository_vs_direct": {
+          "max_abs_logit": 0.0,
+          "max_tv": 0.0
+        },
+        "fresh_cache_vs_full": {
+          "max_abs_logit": 0.0,
+          "max_tv": 0.0
+        },
+        "full_repeat": {
+          "max_abs_logit": 0.0,
+          "max_tv": 0.0
+        }
+      }
+    },
+    {
+      "model": "Q",
+      "mode": "bf16_math_full_reduction",
+      "maxima": {
+        "cached_vs_full": {
+          "max_abs_logit": 0.34375,
+          "max_tv": 0.03328933277830065
+        },
+        "repository_vs_direct": {
+          "max_abs_logit": 0.0,
+          "max_tv": 0.0
+        },
+        "fresh_cache_vs_full": {
+          "max_abs_logit": 0.0,
+          "max_tv": 0.0
+        },
+        "full_repeat": {
+          "max_abs_logit": 0.0,
+          "max_tv": 0.0
+        }
+      }
+    },
+    {
+      "model": "Q",
+      "mode": "fp32_math",
+      "maxima": {
+        "cached_vs_full": {
+          "max_abs_logit": 3.4809112548828125e-05,
+          "max_tv": 3.83834888104782e-06
+        },
+        "repository_vs_direct": {
+          "max_abs_logit": 0.0,
+          "max_tv": 0.0
+        },
+        "fresh_cache_vs_full": {
+          "max_abs_logit": 0.0,
+          "max_tv": 0.0
+        },
+        "full_repeat": {
+          "max_abs_logit": 0.0,
+          "max_tv": 0.0
+        }
+      }
+    }
+  ],
+  "derived_checks": {
+    "original_auto_maxima_exactly_reproduced": true,
+    "all_repository_vs_direct_maxima_zero": true,
+    "all_fresh_cache_vs_full_maxima_zero": true,
+    "all_full_repeat_maxima_zero": true,
+    "bf16_modes_meeting_existing_cache_limits": {
+      "F": [],
+      "Q": []
+    },
+    "promoted_fp32_meets_existing_cache_limits": {
+      "F": true,
+      "Q": true
+    },
+    "tolerances_unchanged": {
+      "bf16_cache_max_abs_logit": 0.25,
+      "bf16_cache_tv": 0.001
+    }
+  },
+  "interpretation": {
+    "supported_inference": "Precision-dependent differences between incremental decoding and full-prefix recomputation are strongly supported on this short probe.",
+    "wrapper_disagreement_observed": false,
+    "nondeterminism_observed_on_repeated_full_prefix": false,
+    "precise_responsible_operation_identified": false,
+    "shared_transformers_backend_bug_excluded": false,
+    "bf16_vs_fp32_policy_effect_measured": false,
+    "F_vs_Q_quantization_effect_measured": false,
+    "limits": "Maxima only; one short probe; changing to FP32 changes arithmetic, activations and KV precision together. Neither full-length stability nor task quality is established."
+  },
+  "decision": {
+    "state": "HOLD_AT_STAGE02",
+    "next_action": "Read existing runs/cache-diagnostic-gpu1-01.json; no repeat GPU calculation needed to provide it.",
+    "validation_review": "Separate same-schedule cache implementation checks from numerical sensitivity to recomputation shape; any gate revision requires an explicit development version and preserved original failure.",
+    "thresholds_relaxed": false,
+    "research_dtype_changed": false,
+    "checkpoint_requantization_required_by_evidence": false,
+    "original_bf16_validation_passed": false
+  },
+  "stage02_complete": false,
+  "stage03_active": false,
+  "scientific_H1_result": false,
+  "professor_PASS_verified": false,
+  "sources": [
+    "https://docs.pytorch.org/docs/2.8/notes/numerical_accuracy.html",
+    "https://huggingface.co/docs/transformers/v4.57.1/en/cache_explanation"
+  ]
+}

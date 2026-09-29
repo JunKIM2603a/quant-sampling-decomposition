@@ -1,6 +1,6 @@
 {
   "review_date_kst": "2026-09-30",
-  "status": "ACTUAL_MODEL_CACHE_EQUIVALENCE_FAILED_DIAGNOSIS_PENDING",
+  "status": "ACTUAL_MODEL_BF16_CACHE_GATE_FAILED_PRECISION_DEPENDENCE_SUPPORTED",
   "evidence": {
     "kind": "user_supplied_terminal_text",
     "filename": "붙여넣은 텍스트(1).txt",
@@ -155,5 +155,6 @@
     "pilot",
     "confirmation"
   ],
-  "decision": "Preserve checkpoint and existing tolerances. Run short default/math/full-reduction BF16 and promoted-FP32 diagnostic on identical development probe; do not infer H1 or stage completion."
+  "decision": "Eight GPU diagnostic summaries reviewed. Default BF16 failure reproduced; precision dependence strongly supported. Read the already saved full report before revising validation; original BF16 gate remains failed.",
+  "followup_review": "research/session02/cache_diagnostic_gpu1_01_review.json"
 }

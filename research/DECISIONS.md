@@ -105,3 +105,12 @@
 - 같은 잠긴 development probe와 기존 GPTQ checkpoint로 네 가지 단기 계산 모드를 비교하는 진단을 추가했다. 마지막 FP32는 원인 분리용으로 BF16 값을 승격하며 디스크 가중치·연구 설정·오차 기준을 바꾸지 않는다. 모드별 결과로 자동 설정 선택/기준 완화를 하지 않는다.
 - assistant CPU 환경에서 기존 24 + 신규 3 = 27 tests 통과(2.777초). 작은 실제 Qwen2 네 모드, cache 출력 오류 주입 검출, 설정 복원 및 비유한값 거부를 확인했다. 새 진단의 실제 4090/1.5B 실행은 아직 없다.
 - 상태: 02 미완료·03 비활성·교수 실제 PASS 미확인. 다음 입력은 runs/cache-diagnostic-gpu1-01.json. 상세: research/session02/04_cache_diagnostic.md.
+
+## 2026-09-30 — 실제 GPU cache 진단 요약 수신: 정밀도 의존성 근거
+
+- 사용자 터미널 출력에서 bc3e599까지 pull 및 F/Q × 4모드 진단 저장 완료를 확인했다. 원본 cache-diagnostic-gpu1-01.json은 아직 받지 않았으므로 step별 오차·실제 설정·Q manifest/hash를 직접 검토했다고 쓰지 않는다.
+- bf16_auto가 이전 validation의 logit/TV 최대값을 정확히 재현했다. BF16 세 모드 모두 F/Q TV 기준 .001을 넘었다. 같은 BF16 weight 값의 FP32 승격에서는 F max logit=2.71797e-5 / TV=5.96853e-7, Q max logit=3.48091e-5 / TV=3.83835e-6이다.
+- 8개 조합에서 repository vs direct cache, fresh cache vs full-prefix, full-prefix repeat의 logit/TV 차이가 모두 0이다. 정밀도 의존적 cached/full-prefix 차이를 강하게 지지하지만 특정 kernel 원인·공통 backend 무결성·긴 생성 안정성을 증명하지 않는다. F-Q 양자화 효과나 H1을 측정한 결과가 아니다.
+- 현재 판단: BF16 연구 설정을 유지하고, cache 구현 검증과 다른 계산 형태의 수치 민감도를 분리하는 검증 개편안을 작성했다. 아직 적용하지 않았다. 변경을 채택하면 최초 실패 및 이미 본 데이터를 보존하고 새 개발 버전에 명시한다. 기준 완화·FP32 연구 전환·재양자화·기존 실패 PASS 처리는 하지 않았다.
+- 다음 입력: 이미 생성된 JSON 원본. 추가 GPU 실행을 요구하지 않는다. source/runner/protocol 변경 없이 결과·상태 문서만 갱신했다. 이전 27개 CPU tests 이력은 유지하며 이번 문서 변경 때문에 GPU/CPU 검사를 새로 실행한 것으로 기록하지 않는다.
+- 상태: 02 미완료·03 비활성·교수 실제 PASS 미확인. 근거: research/session02/cache_diagnostic_gpu1_01_review.json, 검토안: research/session02/05_cache_diagnostic_review.md.

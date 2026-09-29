@@ -1,6 +1,6 @@
 # QuantSplit 02 — 구현과 현재 판정
 
-2026-09-29 KST 구현 기록. **후속 9/30: 실제 1.5B/GPTQ 실행에서 cache 대조 실패. 02 전체 미완료.** 아래 CPU 결과는 최초 검증 이력이며, 최신 실제 GPU 수치·진단은 [04_cache_diagnostic.md](04_cache_diagnostic.md)를 따른다. H1의 경험적 결과는 아직 없다.
+2026-09-29 KST 구현 기록. **후속 9/30: 실제 1.5B/GPTQ 실행에서 cache 대조 실패. 02 전체 미완료.** 아래 CPU 결과는 최초 검증 이력이며, 최신 실제 GPU 수치·진단 판단은 [05_cache_diagnostic_review.md](05_cache_diagnostic_review.md)를 따른다. 기본 BF16 실패를 재현했고 FP32에서 오차가 크게 줄었으나 기존 BF16 관문은 실패 상태다. H1의 경험적 결과는 아직 없다.
 
 ## 진행 권한
 
