@@ -1,0 +1,84 @@
+{
+  "protocol_version": "0.1-draft",
+  "date_kst": "2026-09-29",
+  "status": "PROPOSAL_ONLY_NOT_APPROVED_NOT_RUN",
+  "work_name": "quant-sampling-decomposition",
+  "source_of_values": "Proposed design choices, not experimental observations",
+  "model": {
+    "id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
+    "revision": null,
+    "reference_dtype": "bfloat16",
+    "treatment": "GPTQ_W3_G128_weight_only_simulated_in_BF16",
+    "quantization_code_revision": null,
+    "activation_dtype": "bfloat16",
+    "kv_cache_dtype": "bfloat16"
+  },
+  "generation": {
+    "temperature": 0.6,
+    "top_p": 0.95,
+    "top_k_enabled": false,
+    "min_p": 0.0,
+    "repetition_penalty": 1.0,
+    "max_new_tokens": 32768,
+    "seeds_proposed": [42, 43],
+    "seeds_frozen": false,
+    "sampling_arithmetic": "float32",
+    "candidate_tie_break": "token_id",
+    "apply_second_top_p_to_hybrid": false,
+    "template_hash": null,
+    "eos_and_think_end_token_ids": null
+  },
+  "arms": {
+    "FF": {"probability_supplier": "F", "support_supplier": "F"},
+    "QQ": {"probability_supplier": "Q", "support_supplier": "Q"},
+    "QF": {"probability_supplier": "Q", "support_supplier": "F"},
+    "FQ": {"probability_supplier": "F", "support_supplier": "Q"}
+  },
+  "data": {
+    "primary": "openai/gsm8k main test",
+    "primary_n": 1319,
+    "replication": "HuggingFaceH4/MATH-500",
+    "calibration_source": "128 disjoint GSM8K train problems with generated reference traces",
+    "development_n": 128,
+    "pilot_n": 128,
+    "test_excluded_from_tuning": true,
+    "split_manifest_sha256": null,
+    "dataset_revision": null,
+    "parser_revision": null
+  },
+  "estimand": {
+    "L": "mean consumed generation tokens including reasoning and final answer under fixed cap",
+    "delta": "L_QQ-L_FF",
+    "R": "(L_QQ-L_QF)/(L_QQ-L_FF)",
+    "accuracy_contrast": "A_QF-A_QQ",
+    "interaction": "L_QQ-L_QF-L_FQ+L_FF",
+    "interpretation": "Controlled-policy recovery ratio, not a unique natural mediation fraction"
+  },
+  "inference": {
+    "cluster_unit": "question",
+    "seed_aggregation": "within-question mean",
+    "bootstrap_resamples": 10000,
+    "primary_support_rule": "one-sided 95% lower R > 0.50 AND one-sided 95% lower accuracy_contrast > -0.03",
+    "bounded_negative_rule": "one-sided 95% upper R < 0.20 with identifiable positive delta",
+    "equivalence_rule_optional": "90% CI for R wholly inside [-0.20,0.20]",
+    "unstable_denominator_rule": "Do not report ratio inference; report absolute contrasts and delta CI",
+    "secondary_families": "Freeze before confirmation; Holm correction for confirmatory secondary claims"
+  },
+  "pilot_gates_proposed": {
+    "reference_accuracy_min": 0.50,
+    "quantized_accuracy_min": 0.25,
+    "mean_length_ratio_min": 1.20,
+    "cap_rate_each_baseline_max": 0.20,
+    "throughput_measured": false,
+    "precision_assessed": false,
+    "must_fit_actual_available_gpu_hours": true
+  },
+  "claims_not_authorized_by_this_design": [
+    "Guaranteed publication",
+    "Universal mechanism across quantization regimes",
+    "Deployable speedup from BF16-oracle intervention",
+    "Real low-bit hardware speedup from simulated quantization",
+    "A nonsignificant result proves equivalence",
+    "Benchmark pretraining contamination has been eliminated"
+  ]
+}

@@ -1,0 +1,1414 @@
+{
+  "access_date_kst": "2026-09-29",
+  "purpose": "Novelty collision search and primary-source review for a thesis topic",
+  "limitations": [
+    "Publicly indexed sources only; unpublished or unindexed work may be missed.",
+    "Some strict queries were expanded into generic results and were not treated as evidence of absence.",
+    "Methods and comparisons of the closest sources matter more than exact phrase matches.",
+    "Search results are discovery leads; read depth is explicitly recorded in 02_evidence.md.",
+    "No paper bodies are copied into this repository."
+  ],
+  "records": [
+    {
+      "record_id": "initial_screen",
+      "request": {
+        "system2_search_query": [
+          {
+            "q": "\"conformal\" \"adaptive stopping\" \"language models\""
+          },
+          {
+            "q": "\"quantization\" \"self-consistency\" reasoning"
+          },
+          {
+            "q": "\"tool\" \"schema\" \"semantic\" \"LLM\" 2026 benchmark"
+          },
+          {
+            "q": "\"retrieval\" \"duplicate\" \"evidence\" language models 2025 2026"
+          }
+        ]
+      },
+      "note": "Broad screening. Conclusions rely on the primary-source evidence matrix, not aggregator snippets."
+    },
+    {
+      "record_id": "search_02",
+      "request": {
+        "system2_search_query": [
+          {
+            "q": "\"constrained decoding\" \"calibration\"",
+            "domains": [
+              "arxiv.org",
+              "aclanthology.org",
+              "openreview.net"
+            ]
+          },
+          {
+            "q": "\"KV cache\" \"abstention\" OR \"unanswerable\"",
+            "domains": [
+              "arxiv.org",
+              "aclanthology.org",
+              "openreview.net"
+            ]
+          },
+          {
+            "q": "\"tabular foundation\" \"missingness\" \"shift\"",
+            "domains": [
+              "arxiv.org",
+              "openreview.net"
+            ]
+          }
+        ],
+        "response_length": "long"
+      },
+      "primary_domain_hits": [
+        {
+          "title": "Shaping the Prior: How Synthetic Task Distributions Determine Tabular Foundation Model Quality",
+          "url": "https://arxiv.org/abs/2605.18971",
+          "session_ref": "turn2academia23"
+        },
+        {
+          "title": "The Calibration Floor: Format Repair Can Masquerade as Self-Correction at Small-to-Mid Scale",
+          "url": "https://arxiv.org/abs/2608.04355",
+          "session_ref": "turn2academia24"
+        },
+        {
+          "title": "2022). Both are large encoder-decoder Transformers (Vaswani et al., 2017) pre-trained on text data with self-supervised objectives. Since SQL is used in many open-source applications (unlike SMCalFlow and TreeDST), code scraped from the web is likely to contain examples of it; thus, for Spider and CoSQL, we also examine Code-T5 (Wang et al., 2021), a T5 architecture pre-trained on large amounts of web-scraped code. As MISO is not commonly used in text-to-SQL tasks, we choose to omit it in our SQL experiments. We examine T5-small (60M parameters), T5-base (220M), T5-large (770M), BART-base (139M), and BART-large (406M), as well as Code-T5-base (220M). Note that while BenchCLAMP allows for constrained decoding according to a context-free grammar, restricting the model to producing only valid parses, we choose to decode in an unconstrained fashion. Because the constrained decoding process intervenes on the output logit space, zeroing out invalid continuations and renormalizing, it could affect the model’s calibration characteristics.",
+          "url": "https://aclanthology.org/2023.tacl-1.69.pdf",
+          "session_ref": "turn2search25"
+        },
+        {
+          "title": "Sanket Badhe - ACL Anthology",
+          "url": "https://aclanthology.org/people/sanket-badhe/",
+          "session_ref": "turn2search0"
+        },
+        {
+          "title": "Priyanka Tiwari - ACL Anthology",
+          "url": "https://aclanthology.org/people/priyanka-tiwari/unverified/",
+          "session_ref": "turn2search1"
+        },
+        {
+          "title": "Multi-Agent Debate: A Unified Agentic Framework for Tabular Anomaly Detection",
+          "url": "https://arxiv.org/abs/2602.14251",
+          "session_ref": "turn2academia26"
+        },
+        {
+          "title": "Proceedings of the Fifth Workshop on Generation, Evaluation and Metrics (GEM) - ACL Anthology",
+          "url": "https://aclanthology.org/volumes/2026.gem-main/",
+          "session_ref": "turn2search2"
+        },
+        {
+          "title": "Parser States Already Know: Structure-Conditioned KV Persistence for Structured Generation",
+          "url": "https://arxiv.org/abs/2608.28276",
+          "session_ref": "turn2academia27"
+        },
+        {
+          "title": "Findings of the Association for Computational Linguistics: ACL 2026 - ACL Anthology",
+          "url": "https://aclanthology.org/volumes/2026.findings-acl/",
+          "session_ref": "turn2search3"
+        },
+        {
+          "title": "Under review as a conference paper at ICLR 2026000",
+          "url": "https://openreview.net/pdf/72644f8ddadb9b35e3850e84d2496998866e710b.pdf",
+          "session_ref": "turn2search28"
+        },
+        {
+          "title": "Deep Shah - ACL Anthology",
+          "url": "https://aclanthology.org/people/deep-shah/unverified/",
+          "session_ref": "turn2search4"
+        },
+        {
+          "title": "Unsupervised Contrast-Consistent Ranking with Language Models - ACL Anthology",
+          "url": "https://aclanthology.org/2024.eacl-long.54/",
+          "session_ref": "turn2search5"
+        },
+        {
+          "title": "Calibrated Interpretation: Confidence Estimation in Semantic Parsing",
+          "url": "https://aclanthology.org/anthology-files/anthology-files/pdf/tacl/2023.tacl-1.69.pdf",
+          "session_ref": "turn2search29"
+        },
+        {
+          "title": "What You Pretrain On Matters: Synthetic Task Distributions Determine Tabular Foundation Model Quality",
+          "url": "https://openreview.net/pdf?id=QfXHxB9VSS",
+          "session_ref": "turn2search30"
+        },
+        {
+          "title": "19th Conference of the European Chapter of the Association for Computational Linguistics - ACL Anthology",
+          "url": "https://aclanthology.org/events/eacl-2026/",
+          "session_ref": "turn2search6"
+        },
+        {
+          "title": "Pengxiang Cheng - ACL Anthology",
+          "url": "https://aclanthology.org/people/pengxiang-cheng/",
+          "session_ref": "turn2search7"
+        },
+        {
+          "title": "Under review as a conference paper at ICLR 2026",
+          "url": "https://openreview.net/pdf?id=VWyPsYaSg2",
+          "session_ref": "turn2search31"
+        },
+        {
+          "title": "Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers) - ACL Anthology",
+          "url": "https://aclanthology.org/volumes/2026.acl-long/",
+          "session_ref": "turn2search8"
+        },
+        {
+          "title": "Findings of the Association for Computational Linguistics (2026) - ACL Anthology",
+          "url": "https://aclanthology.org/events/findings-2026/",
+          "session_ref": "turn2search9"
+        },
+        {
+          "title": "Rajarshi Bhowmik - ACL Anthology",
+          "url": "https://aclanthology.org/people/rajarshi-bhowmik/",
+          "session_ref": "turn2search10"
+        },
+        {
+          "title": "Proceedings of the 19th Conference of the European Chapter of the Association for Computational Linguistics (Volume 1: Long Papers) - ACL Anthology",
+          "url": "https://aclanthology.org/volumes/2026.eacl-long/",
+          "session_ref": "turn2search11"
+        },
+        {
+          "title": "Bing Qin (秦兵) - ACL Anthology",
+          "url": "https://aclanthology.org/people/bing-qin/",
+          "session_ref": "turn2search12"
+        },
+        {
+          "title": "Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers) - ACL Anthology",
+          "url": "https://aclanthology.org/volumes/2024.acl-long/",
+          "session_ref": "turn2search13"
+        },
+        {
+          "title": "Findings of the Association for Computational Linguistics: ACL 2024 - ACL Anthology",
+          "url": "https://aclanthology.org/volumes/2024.findings-acl/",
+          "session_ref": "turn2search14"
+        },
+        {
+          "title": "Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (Volume 2: Short Papers) - ACL Anthology",
+          "url": "https://aclanthology.org/volumes/2024.acl-short/",
+          "session_ref": "turn2search15"
+        },
+        {
+          "title": "Findings of the Association for Computational Linguistics (2025) - ACL Anthology",
+          "url": "https://aclanthology.org/events/findings-2025/",
+          "session_ref": "turn2search16"
+        },
+        {
+          "title": "Proceedings of the 14th International Joint Conference on Natural Language Processing and the 4th Conference of the Asia-Pacific Chapter of the Association for Computational Linguistics - ACL Anthology",
+          "url": "https://aclanthology.org/volumes/2025.findings-ijcnlp/",
+          "session_ref": "turn2search17"
+        },
+        {
+          "title": "Rajarshi Das - ACL Anthology",
+          "url": "https://aclanthology.org/people/rajarshi-das/unverified/",
+          "session_ref": "turn2search18"
+        },
+        {
+          "title": "Nations of the Americas Chapter of the Association for Computational Linguistics (2025) - ACL Anthology",
+          "url": "https://aclanthology.org/events/naacl-2025/",
+          "session_ref": "turn2search19"
+        },
+        {
+          "title": "Linlong Xu - ACL Anthology",
+          "url": "https://aclanthology.org/people/linlong-xu/",
+          "session_ref": "turn2search20"
+        },
+        {
+          "title": "Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics (Volume 6: Industry Track) - ACL Anthology",
+          "url": "https://aclanthology.org/volumes/2026.acl-industry/",
+          "session_ref": "turn2search21"
+        }
+      ],
+      "search_limit_note": null
+    },
+    {
+      "record_id": "search_03",
+      "request": {
+        "system1_search_query": [
+          {
+            "q": "quantization overthinking random noise perturbation 2026",
+            "domains": [
+              "arxiv.org",
+              "openreview.net"
+            ],
+            "recency": 365
+          },
+          {
+            "q": "\"test-time\" \"registers\" vision transformers 2026",
+            "domains": [
+              "arxiv.org",
+              "openreview.net"
+            ],
+            "recency": 365
+          },
+          {
+            "q": "\"KV cache\" \"abstention\" compression",
+            "domains": [
+              "arxiv.org",
+              "aclanthology.org"
+            ],
+            "recency": 365
+          }
+        ],
+        "response_length": "long"
+      },
+      "primary_domain_hits": [
+        {
+          "title": "A Survey of Abstention in Large Language Models",
+          "url": "https://arxiv.org/html/2407.18418v2",
+          "session_ref": "turn3search8"
+        },
+        {
+          "title": "The Art of Abstention: Selective Prediction and Error ...",
+          "url": "https://aclanthology.org/2021.acl-long.84/",
+          "session_ref": "turn3search14"
+        },
+        {
+          "title": "Agentic Abstention: Do Agents Know When to Stop Instead ...",
+          "url": "https://arxiv.org/abs/2606.28733",
+          "session_ref": "turn3search20"
+        },
+        {
+          "title": "Compression-Aware Abstention: Teaching LLMs to Refuse When KV-Compression Masks Remove Answer Evidence",
+          "url": "https://arxiv.org/abs/2608.29934",
+          "session_ref": "turn3academia30"
+        },
+        {
+          "title": "Test-Time Registers as Global Priors for Tokenized Image Generation",
+          "url": "https://arxiv.org/abs/2607.16824",
+          "session_ref": "turn3academia31"
+        },
+        {
+          "title": "Vision Transformers Don't Need Trained Registers",
+          "url": "https://arxiv.org/abs/2506.08010",
+          "session_ref": "turn3academia32"
+        },
+        {
+          "title": "Vision Transformers with Self-Distilled Registers",
+          "url": "https://arxiv.org/abs/2505.21501",
+          "session_ref": "turn3academia33"
+        },
+        {
+          "title": "A Survey of Abstention in Large Language Models",
+          "url": "https://arxiv.org/abs/2407.18418",
+          "session_ref": "turn3search26"
+        }
+      ],
+      "search_limit_note": "Many results were broadened to unrelated pages. Do not use lack of exact matches as novelty evidence."
+    },
+    {
+      "record_id": "search_04",
+      "request": {
+        "system2_search_query": [
+          {
+            "q": "\"overthinking\" \"frequency\" \"penalty\"",
+            "domains": [
+              "arxiv.org",
+              "aclanthology.org",
+              "openreview.net"
+            ]
+          },
+          {
+            "q": "\"reasoning\" \"probability mass\" \"suppression\" \"tokens\"",
+            "domains": [
+              "arxiv.org",
+              "aclanthology.org",
+              "openreview.net"
+            ]
+          },
+          {
+            "q": "\"overthinking\" \"matched\" \"random tokens\"",
+            "domains": [
+              "arxiv.org",
+              "aclanthology.org",
+              "openreview.net"
+            ]
+          }
+        ],
+        "response_length": "long"
+      },
+      "primary_domain_hits": [
+        {
+          "title": "Published as a conference paper at ICLR 2026",
+          "url": "https://openreview.net/pdf/d5168acd0548bda8055a4ec8d4ac6427b891190d.pdf",
+          "session_ref": "turn6search19"
+        },
+        {
+          "title": "Under review as a conference paper at ICLR 2026",
+          "url": "https://openreview.net/pdf/6cc11d6a44176b770e8049dcfceb88ee435c8309.pdf",
+          "session_ref": "turn6search20"
+        },
+        {
+          "title": "Supervised Fine-Tuning for Reasoning Large Language Models: A Survey",
+          "url": "https://openreview.net/pdf/c4b2d1e7cf249bdb9df809c980abb6d469d361b4.pdf",
+          "session_ref": "turn6search21"
+        },
+        {
+          "title": "Low-probability Tokens Sustain Exploration in Reinforcement Learning",
+          "url": "https://openreview.net/pdf?id=WmjFMCFIcC",
+          "session_ref": "turn6search22"
+        },
+        {
+          "title": "Steering Externalities: Benign Activation Steering Unintentionally Increases Jailbreak Risk for Large Language Models",
+          "url": "https://openreview.net/pdf/ec0303aa3bb5fad8cc206f08d83147c76ae237a9.pdf",
+          "session_ref": "turn6search23"
+        },
+        {
+          "title": "Think Less, Know More: State-Aware Reasoning Compression with",
+          "url": "https://aclanthology.org/2026.findings-acl.1128.pdf",
+          "session_ref": "turn6search24"
+        },
+        {
+          "title": "Findings of the Association for Computational Linguistics: ACL 2026 - ACL Anthology",
+          "url": "https://aclanthology.org/volumes/2026.findings-acl/",
+          "session_ref": "turn6search0"
+        },
+        {
+          "title": "Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers) - ACL Anthology",
+          "url": "https://aclanthology.org/volumes/2026.acl-long/",
+          "session_ref": "turn6search1"
+        },
+        {
+          "title": "Neha Anna John - ACL Anthology",
+          "url": "https://aclanthology.org/people/neha-anna-john/unverified/",
+          "session_ref": "turn6search2"
+        },
+        {
+          "title": "Findings of the Association for Computational Linguistics (2026) - ACL Anthology",
+          "url": "https://aclanthology.org/events/findings-2026/",
+          "session_ref": "turn6search3"
+        },
+        {
+          "title": "Proceedings of the Fifth Workshop on Generation, Evaluation and Metrics (GEM) - ACL Anthology",
+          "url": "https://aclanthology.org/volumes/2026.gem-main/",
+          "session_ref": "turn6search4"
+        },
+        {
+          "title": "Other Workshops and Events (2025) - ACL Anthology",
+          "url": "https://aclanthology.org/events/ws-2025/",
+          "session_ref": "turn6search5"
+        },
+        {
+          "title": "Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers) - ACL Anthology",
+          "url": "https://aclanthology.org/volumes/2023.acl-long/",
+          "session_ref": "turn6search6"
+        },
+        {
+          "title": "Findings of the Association for Computational Linguistics: EMNLP 2025 - ACL Anthology",
+          "url": "https://aclanthology.org/volumes/2025.findings-emnlp/",
+          "session_ref": "turn6search7"
+        },
+        {
+          "title": "61st Annual Meeting of the Association for Computational Linguistics - ACL Anthology",
+          "url": "https://aclanthology.org/events/acl-2023/",
+          "session_ref": "turn6search8"
+        },
+        {
+          "title": "Workshop on Natural Language Generation, Evaluation, and Metrics (2026) - ACL Anthology",
+          "url": "https://aclanthology.org/events/gem-2026/",
+          "session_ref": "turn6search9"
+        },
+        {
+          "title": "Other Workshops and Events (2026) - ACL Anthology",
+          "url": "https://aclanthology.org/events/ws-2026/",
+          "session_ref": "turn6search10"
+        },
+        {
+          "title": "Proceedings of the 19th Conference of the European Chapter of the Association for Computational Linguistics (Volume 1: Long Papers) - ACL Anthology",
+          "url": "https://aclanthology.org/volumes/2026.eacl-long/",
+          "session_ref": "turn6search11"
+        }
+      ],
+      "search_limit_note": null
+    },
+    {
+      "record_id": "search_05",
+      "request": {
+        "system1_search_query": [
+          {
+            "q": "\"overthinking markers\" \"probability\" \"control\"",
+            "recency": 365
+          },
+          {
+            "q": "\"overthinking\" \"frequency-matched\"",
+            "recency": 365
+          },
+          {
+            "q": "\"reasoning\" \"mass-matched\" tokens",
+            "recency": 365
+          }
+        ],
+        "response_length": "long"
+      },
+      "primary_domain_hits": [
+        {
+          "title": "[1505.05518] Galaxy And Mass Assembly (GAMA)",
+          "url": "https://arxiv.org/abs/1505.05518",
+          "session_ref": "turn7search20"
+        }
+      ],
+      "search_limit_note": "Many results were broadened to unrelated pages. Do not use lack of exact matches as novelty evidence."
+    },
+    {
+      "record_id": "search_06",
+      "request": {
+        "system2_search_query": [
+          {
+            "q": "overthinking token suppression control frequency probability matched LLM"
+          },
+          {
+            "q": "reasoning markers causal intervention random token penalty 2026"
+          },
+          {
+            "q": "quantization reasoning Gaussian perturbations matched KL 2026"
+          },
+          {
+            "q": "large language model quantization temporal correlated noise reasoning 2026"
+          }
+        ],
+        "response_length": "long"
+      },
+      "primary_domain_hits": [
+        {
+          "title": "Optimal Stability of KL Divergence under Gaussian Perturbations",
+          "url": "https://arxiv.org/abs/2604.11026",
+          "session_ref": "turn8academia48"
+        },
+        {
+          "title": "Let LLMs Break Free from Overthinking via Self-Braking Tuning",
+          "url": "https://arxiv.org/abs/2505.14604",
+          "session_ref": "turn8academia49"
+        },
+        {
+          "title": "Batch Prompting Suppresses Overthinking Reasoning Under Constraint: How Batch Prompting Suppresses Overthinking in Reasoning Models",
+          "url": "https://arxiv.org/abs/2511.04108",
+          "session_ref": "turn8academia50"
+        },
+        {
+          "title": "Stop Spinning Wheels: Mitigating LLM Overthinking via Mining Patterns for Early Reasoning Exit",
+          "url": "https://arxiv.org/abs/2508.17627",
+          "session_ref": "turn8academia51"
+        },
+        {
+          "title": "GitHub - JackHopkins/overthinking_paper: Repo for the paper and links to models · GitHub",
+          "url": "https://github.com/JackHopkins/overthinking_paper",
+          "session_ref": "turn8search0"
+        },
+        {
+          "title": "When Reasoning Meets Compression: Understanding the Effects of LLMs Compression on Large Reasoning Models",
+          "url": "https://proceedings.iclr.cc/paper_files/paper/2026/hash/665654759cdf2114c0cbe2b8e501e00e-Abstract-Conference.html",
+          "session_ref": "turn8search1"
+        },
+        {
+          "title": "Towards Quantization-Aware Training for Ultra-Low-Bit Reasoning LLMs",
+          "url": "https://proceedings.iclr.cc/paper_files/paper/2026/hash/209423f076b6479ab3a4f45886e30306-Abstract-Conference.html",
+          "session_ref": "turn8search7"
+        },
+        {
+          "title": "llm_selfref_pre/technical_blog_posts/Can_Deception_Features_Steer_Gemma_2_9B.md at main · tdj28/llm_selfref_pre · GitHub",
+          "url": "https://github.com/tdj28/llm_selfref_pre/blob/main/technical_blog_posts/Can_Deception_Features_Steer_Gemma_2_9B.md",
+          "session_ref": "turn8search9"
+        },
+        {
+          "title": "GitHub - dylanjayabahu/halt-vector: The Halt Vector: internalizing a causal steering intervention for efficient reasoning. Published at COLM 2026. · GitHub",
+          "url": "https://github.com/dylanjayabahu/halt-vector",
+          "session_ref": "turn8search10"
+        },
+        {
+          "title": "epyc-root/research/deep-dives/overthinking-info-bottleneck.md at main · pestopoppa/epyc-root · GitHub",
+          "url": "https://github.com/pestopoppa/epyc-root/blob/main/research/deep-dives/overthinking-info-bottleneck.md",
+          "session_ref": "turn8search13"
+        },
+        {
+          "title": "GitHub - oceanflowlab/TaRO: [ICML 2026] Temporal-Aware Reasoning Optimization for Video Temporal Grounding · GitHub",
+          "url": "https://github.com/oceanflowlab/TaRO",
+          "session_ref": "turn8search14"
+        },
+        {
+          "title": "Do LLMs Really Need 10+ Thoughts for “Find the Time 1000 Days Later”? Towards Structural Understanding of LLM Overthinking - ACL Anthology",
+          "url": "https://aclanthology.org/2026.acl-long.773/",
+          "session_ref": "turn8search16"
+        },
+        {
+          "title": "GitHub - dongzhe1/llm-think-stop · GitHub",
+          "url": "https://github.com/dongzhe1/llm-think-stop",
+          "session_ref": "turn8search21"
+        },
+        {
+          "title": "GitHub - NVlabs/QeRL: [ICLR 2026]QeRL enables RL for 32B LLMs on a single H100 GPU. · GitHub",
+          "url": "https://github.com/NVlabs/QeRL",
+          "session_ref": "turn8search22"
+        },
+        {
+          "title": "GitHub - henryhyw/priors-persist-through-suppression: Priors Persist Through Suppression: A Stroop Paradigm for Lexical Override (EMNLP submission) · GitHub",
+          "url": "https://github.com/henryhyw/priors-persist-through-suppression",
+          "session_ref": "turn8search24"
+        },
+        {
+          "title": "QeRL: Beyond Efficiency - Quantization-enhanced Reinforcement Learning for LLMs",
+          "url": "https://proceedings.iclr.cc/paper_files/paper/2026/hash/a15a2ece7f0663d1ba7db91103ac61c9-Abstract-Conference.html",
+          "session_ref": "turn8search25"
+        },
+        {
+          "title": "Published as a conference paper at ICLR 2026",
+          "url": "https://openreview.net/pdf?id=2za3iNkwXn",
+          "session_ref": "turn8search52"
+        },
+        {
+          "title": "Mitigating Overthinking in Language Models Using Dynamic Stopping",
+          "url": "https://openreview.net/pdf/82886e626cc336e9b127c1e0dfeb2a4dd6199185.pdf",
+          "session_ref": "turn8search53"
+        },
+        {
+          "title": "PM-KVQ: Progressive Mixed-precision KV Cache Quantization for Long-CoT LLMs",
+          "url": "https://proceedings.iclr.cc/paper_files/paper/2026/hash/afb8caec018d3c8f6ef8b81fa52386fe-Abstract-Conference.html",
+          "session_ref": "turn8search27"
+        },
+        {
+          "title": "GitHub - tongdaxu/VQ-VAE-from-Gaussian-VAE: Official implementation of (ICML 2026) Training-Free Vector Quantization via Gaussian VAEs · GitHub",
+          "url": "https://github.com/tongdaxu/VQ-VAE-from-Gaussian-VAE",
+          "session_ref": "turn8search28"
+        }
+      ],
+      "search_limit_note": null
+    },
+    {
+      "record_id": "search_07",
+      "request": {
+        "system2_search_query": [
+          {
+            "q": "quantization reasoning \"nucleus\" \"boundary\""
+          },
+          {
+            "q": "quantization overthinking \"top-p\" sampling mechanism"
+          },
+          {
+            "q": "\"quantization\" \"temporal correlation\" \"reasoning\""
+          },
+          {
+            "q": "\"overthinking\" \"termination\" \"logit penalty\""
+          }
+        ],
+        "response_length": "long"
+      },
+      "primary_domain_hits": [
+        {
+          "title": "[RFC]: Compact candidate-set renormalization for native top-k/top-p sampling · Issue #46738 · vllm-project/vllm · GitHub",
+          "url": "https://github.com/vllm-project/vllm/issues/46738",
+          "session_ref": "turn9search14"
+        },
+        {
+          "title": "Published as a conference paper at ICLR 2026",
+          "url": "https://openreview.net/pdf?id=644FH1vVIl",
+          "session_ref": "turn9search51"
+        },
+        {
+          "title": "Published as a conference paper at ICLR 2026",
+          "url": "https://openreview.net/pdf/8e92a24f8c8515c9e42b99f9cb8745ad4058f600.pdf",
+          "session_ref": "turn9search52"
+        },
+        {
+          "title": "Conformal Nucleus Sampling",
+          "url": "https://arxiv.org/abs/2305.02633",
+          "session_ref": "turn9academia54"
+        },
+        {
+          "title": "Min-$k$ Sampling: Decoupling Truncation from Temperature Scaling via Relative Logit Dynamics",
+          "url": "https://arxiv.org/abs/2604.11012",
+          "session_ref": "turn9academia55"
+        },
+        {
+          "title": "Boundary-assisted Region Proposal Networks for Nucleus Segmentation",
+          "url": "https://arxiv.org/abs/2006.02695",
+          "session_ref": "turn9academia59"
+        },
+        {
+          "title": "Mirostat: A Neural Text Decoding Algorithm that Directly Controls Perplexity",
+          "url": "https://arxiv.org/abs/2007.14966",
+          "session_ref": "turn9academia61"
+        },
+        {
+          "title": "Daily Papers - Hugging Face",
+          "url": "https://huggingface.co/papers?q=over-thinking+failure+modes",
+          "session_ref": "turn9search25"
+        },
+        {
+          "title": "Findings of the Association for Computational Linguistics (2026) - ACL Anthology",
+          "url": "https://aclanthology.org/events/findings-2026/",
+          "session_ref": "turn9search29"
+        }
+      ],
+      "search_limit_note": null
+    },
+    {
+      "record_id": "search_08",
+      "request": {
+        "system2_search_query": [
+          {
+            "q": "\"quantization\" \"sampling\" \"support\" \"reasoning\" nucleus"
+          },
+          {
+            "q": "\"quantized\" \"nucleus sampling\" \"divergence\""
+          },
+          {
+            "q": "\"quantization\" \"top-p\" \"mask\""
+          },
+          {
+            "q": "\"quantization\" \"sampling\" \"discontinuity\""
+          }
+        ],
+        "response_length": "long"
+      },
+      "primary_domain_hits": [
+        {
+          "title": "On the Logic Elements Associated with Round-Off Errors and Gaussian Blur in Image Registration: A Simple Case of Commingling",
+          "url": "https://arxiv.org/abs/2502.11992",
+          "session_ref": "turn10academia48"
+        },
+        {
+          "title": "RaBitQCache: Rotated Binary Quantization for KVCache in Long Context LLM Inference",
+          "url": "https://arxiv.org/abs/2606.31519",
+          "session_ref": "turn10academia50"
+        },
+        {
+          "title": "add inference code and doc · ACE-Step/Ace-Step-v1.5 at 11860f1",
+          "url": "https://huggingface.co/spaces/ACE-Step/Ace-Step-v1.5/commit/11860f1a81f3abcb15c3e872e759d89fbe67c389",
+          "session_ref": "turn10search12"
+        },
+        {
+          "title": "GitHub - workordie/ComfyUI-Qwen3.5: ComfyUI custom node for Qwen3.5-9B unified multimodal model · GitHub",
+          "url": "https://github.com/workordie/ComfyUI-Qwen3.5",
+          "session_ref": "turn10search24"
+        },
+        {
+          "title": "CP conservation in the strong interactions",
+          "url": "https://arxiv.org/abs/2404.16026",
+          "session_ref": "turn10academia57"
+        },
+        {
+          "title": "GitHub - krishnap25/mauve: Package to compute Mauve, a similarity score between neural text and human text. Install with `pip install mauve-text`. · GitHub",
+          "url": "https://github.com/krishnap25/mauve",
+          "session_ref": "turn10search32"
+        }
+      ],
+      "search_limit_note": null
+    },
+    {
+      "record_id": "search_09",
+      "request": {
+        "system2_search_query": [
+          {
+            "q": "quantization aware sampling reasoning LLM 2026 arxiv"
+          },
+          {
+            "q": "low bit LLM quantization decoding top p temperature evaluation"
+          },
+          {
+            "q": "\"Quantization Inflates Reasoning\""
+          },
+          {
+            "q": "\"ReSET\" \"NVFP4\""
+          }
+        ],
+        "response_length": "long"
+      },
+      "primary_domain_hits": [
+        {
+          "title": "Quantization Inflates Reasoning: Token Inflation as a Hidden Cost of Low-Bit Reasoning Models",
+          "url": "https://arxiv.org/abs/2606.25519",
+          "session_ref": "turn11academia48"
+        },
+        {
+          "title": "GitHub - aiha-lab/ReSET: NVFP4 inference framework for low-batch and long-decode reasoning · GitHub",
+          "url": "https://github.com/aiha-lab/ReSET",
+          "session_ref": "turn11search0"
+        },
+        {
+          "title": "ReSET/README.md at main · aiha-lab/ReSET · GitHub",
+          "url": "https://github.com/aiha-lab/ReSET/blob/main/README.md",
+          "session_ref": "turn11search5"
+        },
+        {
+          "title": "What Makes Low-Bit Quantization-Aware Training Work for Reasoning LLMs? A Systematic Study",
+          "url": "https://arxiv.org/abs/2601.14888",
+          "session_ref": "turn11academia49"
+        },
+        {
+          "title": "GitHub - eapache/quant-experiments: Experiments in llm quantization and sampling · GitHub",
+          "url": "https://github.com/eapache/quant-experiments",
+          "session_ref": "turn11search16"
+        },
+        {
+          "title": "README.md · Qwen/Qwen3-235B-A22B-GPTQ-Int4 at main",
+          "url": "https://huggingface.co/Qwen/Qwen3-235B-A22B-GPTQ-Int4/blob/main/README.md",
+          "session_ref": "turn11search26"
+        },
+        {
+          "title": "TetraJet-v2-NVFP4Training/README.md at master · thu-ml/TetraJet-v2-NVFP4Training · GitHub",
+          "url": "https://github.com/thu-ml/TetraJet-v2-NVFP4Training/blob/master/README.md",
+          "session_ref": "turn11search27"
+        },
+        {
+          "title": "Quantization Meets Reasoning: Exploring LLM Low-Bit Quantization Degradation for Mathematical Reasoning",
+          "url": "https://arxiv.org/abs/2501.03035",
+          "session_ref": "turn11academia53"
+        },
+        {
+          "title": "Paper page - ReSET: Accurate Latency-Critical NVFP4 Reasoning via Step-Aware Temperature Scaling",
+          "url": "https://huggingface.co/papers/2606.13233",
+          "session_ref": "turn11search31"
+        },
+        {
+          "title": "BitDecoding: Unlocking Tensor Cores for Long-Context LLMs Decoding with Low-Bit KV Cache",
+          "url": "https://arxiv.org/abs/2503.18773",
+          "session_ref": "turn11academia55"
+        },
+        {
+          "title": "Misc. bug: NVFP4 Type CPU Backend high error on ARM · Issue #21462 · ggml-org/llama.cpp · GitHub",
+          "url": "https://github.com/ggml-org/llama.cpp/issues/21462",
+          "session_ref": "turn11search36"
+        }
+      ],
+      "search_limit_note": null
+    },
+    {
+      "record_id": "search_10",
+      "request": {
+        "system2_search_query": [
+          {
+            "q": "\"quantization\" \"support mismatch\" language models"
+          },
+          {
+            "q": "\"quantized\" \"counterfactual\" \"sampling\""
+          },
+          {
+            "q": "\"quantization\" \"nucleus\" \"mask swap\""
+          },
+          {
+            "q": "\"quantization\" \"truncation\" \"token inflation\""
+          }
+        ],
+        "response_length": "long"
+      },
+      "primary_domain_hits": [
+        {
+          "title": "Under review as submission to TMLR",
+          "url": "https://openreview.net/pdf/dd5f65d5e4becdc1b0481617247e554784209966.pdf",
+          "session_ref": "turn15search48"
+        },
+        {
+          "title": "Yike Guo - ACL Anthology",
+          "url": "https://aclanthology.org/people/yike-guo/",
+          "session_ref": "turn15search0"
+        },
+        {
+          "title": "Hao Gu - ACL Anthology",
+          "url": "https://aclanthology.org/people/hao-gu/",
+          "session_ref": "turn15search1"
+        },
+        {
+          "title": "GitHub - HannaHKaichenZhu/llm-channel-audit: Verify whether the LLM API channel you purchased is honest. · GitHub",
+          "url": "https://github.com/HannaHKaichenZhu/llm-channel-audit",
+          "session_ref": "turn15search2"
+        },
+        {
+          "title": "Qiyuan Zhu - ACL Anthology",
+          "url": "https://aclanthology.org/people/qiyuan-zhu/",
+          "session_ref": "turn15search3"
+        },
+        {
+          "title": "Binxing Xu - ACL Anthology",
+          "url": "https://aclanthology.org/people/binxing-xu/",
+          "session_ref": "turn15search4"
+        },
+        {
+          "title": "Lujun Li - ACL Anthology",
+          "url": "https://aclanthology.org/people/lujun-li/",
+          "session_ref": "turn15search5"
+        },
+        {
+          "title": "Under review as a conference paper at ICLR 2026",
+          "url": "https://openreview.net/pdf/3e3341f25df64851421475915fe4990280ce0109.pdf",
+          "session_ref": "turn15search49"
+        },
+        {
+          "title": "scientific-eval-environments/works/the-replay-gap.md at main · yuema137/scientific-eval-environments · GitHub",
+          "url": "https://github.com/yuema137/scientific-eval-environments/blob/main/works/the-replay-gap.md",
+          "session_ref": "turn15search8"
+        },
+        {
+          "title": "GitHub - h9-tec/LLM-Inference-Handbook · GitHub",
+          "url": "https://github.com/h9-tec/LLM-Inference-Handbook",
+          "session_ref": "turn15search10"
+        },
+        {
+          "title": "while omitting them for zero-shot setups. We provide samples of our few shot examples in Table 9. To ensure consistency, few-shot examples are kept the same across the different LLMs.",
+          "url": "https://aclanthology.org/2025.emnlp-main.575.pdf",
+          "session_ref": "turn15search51"
+        },
+        {
+          "title": "openrouter_reliable_research_search/reports/detection-fingerprints.md at master · AMindToThink/openrouter_reliable_research_search · GitHub",
+          "url": "https://github.com/AMindToThink/openrouter_reliable_research_search/blob/master/reports/detection-fingerprints.md",
+          "session_ref": "turn15search17"
+        },
+        {
+          "title": "TimeVQVAE/README.md at main · ML4ITS/TimeVQVAE · GitHub",
+          "url": "https://github.com/ML4ITS/TimeVQVAE/blob/main/README.md",
+          "session_ref": "turn15search18"
+        },
+        {
+          "title": "[Bug] MiMo-V2.5-GGUF UD-IQ3_S: llama.cpp loads after MiMo2 patches but outputs numeric garbage, likely GGUF/architecture mismatch · Issue #5525 · unslothai/unsloth · GitHub",
+          "url": "https://github.com/unslothai/unsloth/issues/5525",
+          "session_ref": "turn15search29"
+        },
+        {
+          "title": "Daily Papers - Hugging Face",
+          "url": "https://huggingface.co/papers?q=training--inference+mismatch",
+          "session_ref": "turn15search30"
+        }
+      ],
+      "search_limit_note": null
+    },
+    {
+      "record_id": "search_11",
+      "request": {
+        "system2_search_query": [
+          {
+            "q": "time series foundation models anomaly detection residual normalization one liner 2026 arxiv"
+          },
+          {
+            "q": "\"TabPFN\" \"missingness shift\""
+          },
+          {
+            "q": "\"tabular foundation\" \"duplicate features\""
+          },
+          {
+            "q": "\"Platonic\" \"hubness\" representation 2026"
+          }
+        ],
+        "response_length": "long"
+      },
+      "primary_domain_hits": [
+        {
+          "title": "Do Time-Series Foundation Models Pay Off for Industrial Monitoring? A Cost-Aware Empirical Study",
+          "url": "https://arxiv.org/abs/2608.22968",
+          "session_ref": "turn16academia48"
+        },
+        {
+          "title": "Adaptive Conformal Anomaly Detection with Time Series Foundation Models for Signal Monitoring",
+          "url": "https://arxiv.org/abs/2604.20122",
+          "session_ref": "turn16academia49"
+        },
+        {
+          "title": "When Foundation Models are One-Liners: Limitations and Future Directions for Time Series Anomaly Detection",
+          "url": "https://proceedings.iclr.cc/paper_files/paper/2026/hash/cf70320e93c08b39b1b29a348097a376-Abstract-Conference.html",
+          "session_ref": "turn16search0"
+        },
+        {
+          "title": "A Comparative Study of Adaptation Strategies for Time Series Foundation Models in Anomaly Detection",
+          "url": "https://arxiv.org/abs/2601.00446",
+          "session_ref": "turn16academia50"
+        },
+        {
+          "title": "Exploring Zero-Shot Foundation Models for Multivariate Time Series Anomaly Detection",
+          "url": "https://arxiv.org/abs/2607.12454",
+          "session_ref": "turn16academia51"
+        },
+        {
+          "title": "Complexity- and Statistics-Guided Anomaly Detection in Time Series Foundation Models",
+          "url": "https://proceedings.iclr.cc/paper_files/paper/2026/hash/d06768735ce7d11ade5baef7099b4e05-Abstract-Conference.html",
+          "session_ref": "turn16search1"
+        },
+        {
+          "title": "Under review as a conference paper at ICLR 2026",
+          "url": "https://openreview.net/pdf/5b3496f2b5248233ea1e261c93f3d839ef66f074.pdf",
+          "session_ref": "turn16search52"
+        },
+        {
+          "title": "Under review as a conference paper at ICLR 2026",
+          "url": "https://openreview.net/pdf/025091827b84bed82b6ca0393a04823fdb2e9448.pdf",
+          "session_ref": "turn16search53"
+        },
+        {
+          "title": "Published as a conference paper at ICLR 2026",
+          "url": "https://openreview.net/pdf?id=rBt9aW3Mx7",
+          "session_ref": "turn16search54"
+        },
+        {
+          "title": "GitHub - HiteshhYadav/Tabular_Robustness: A systematic benchmark evaluating the robustness of tree-based, transformer-based, and foundation models for tabular data under missingness, noise, and distribution shift using real-world Kaggle-style datasets. · GitHub",
+          "url": "https://github.com/HiteshhYadav/Tabular_Robustness",
+          "session_ref": "turn16search5"
+        },
+        {
+          "title": "GitHub - SalvatoreRa/tabular-deep-learning-survey: Companion repository for the Tabular Deep learning Survey · GitHub",
+          "url": "https://github.com/SalvatoreRa/tabular-deep-learning-survey",
+          "session_ref": "turn16search25"
+        },
+        {
+          "title": "TabFM-Benchmark/REFERENCES.md at main · Siri1702/TabFM-Benchmark · GitHub",
+          "url": "https://github.com/Siri1702/TabFM-Benchmark/blob/main/REFERENCES.md",
+          "session_ref": "turn16search26"
+        },
+        {
+          "title": "Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers) - ACL Anthology",
+          "url": "https://aclanthology.org/volumes/2025.acl-long/",
+          "session_ref": "turn16search30"
+        }
+      ],
+      "search_limit_note": null
+    },
+    {
+      "record_id": "search_12",
+      "request": {
+        "system1_search_query": [
+          {
+            "q": "\"quantization\" \"nucleus sampling\" LLM",
+            "domains": [
+              "arxiv.org",
+              "openreview.net",
+              "aclanthology.org"
+            ],
+            "recency": 365
+          },
+          {
+            "q": "\"quantized reasoning\" \"support\" \"sampling\"",
+            "domains": [
+              "arxiv.org",
+              "openreview.net"
+            ],
+            "recency": 365
+          }
+        ],
+        "response_length": "long"
+      },
+      "primary_domain_hits": [
+        {
+          "title": "OpenReview: Venues",
+          "url": "https://openreview.net/",
+          "session_ref": "turn17search1"
+        },
+        {
+          "title": "News from arXiv – News and updates from arxiv.org",
+          "url": "https://blog.arxiv.org/",
+          "session_ref": "turn17search3"
+        },
+        {
+          "title": "Donate to the nonprofit OpenReview Foundation",
+          "url": "https://openreview.net/donate",
+          "session_ref": "turn17search5"
+        },
+        {
+          "title": "All Venues",
+          "url": "https://openreview.net/venues",
+          "session_ref": "turn17search7"
+        },
+        {
+          "title": "arXiv.org e-Print archive",
+          "url": "https://arxiv.org/",
+          "session_ref": "turn17search8"
+        },
+        {
+          "title": "About",
+          "url": "https://openreview.net/about",
+          "session_ref": "turn17search10"
+        },
+        {
+          "title": "Contact",
+          "url": "https://openreview.net/contact",
+          "session_ref": "turn17search12"
+        },
+        {
+          "title": "OpenReview Sponsors",
+          "url": "https://openreview.net/sponsors",
+          "session_ref": "turn17search14"
+        },
+        {
+          "title": "Login",
+          "url": "https://openreview.net/login",
+          "session_ref": "turn17search16"
+        },
+        {
+          "title": "OpenReview Terms of Use",
+          "url": "https://openreview.net/legal/terms",
+          "session_ref": "turn17search17"
+        }
+      ],
+      "search_limit_note": "Many results were broadened to unrelated pages. Do not use lack of exact matches as novelty evidence."
+    },
+    {
+      "record_id": "primary_01",
+      "request": {
+        "open": [
+          {
+            "ref_id": "https://arxiv.org/html/2606.00206v1"
+          },
+          {
+            "ref_id": "https://arxiv.org/html/2606.25519v1"
+          },
+          {
+            "ref_id": "https://arxiv.org/html/2606.13233v1"
+          },
+          {
+            "ref_id": "https://arxiv.org/html/2604.18572v1"
+          }
+        ],
+        "response_length": "long"
+      },
+      "primary_domain_hits": [
+        {
+          "title": "Quantized Reasoning Models Think They Need to Think Longer, but They Do Not",
+          "url": "https://arxiv.org/html/2606.00206v1",
+          "session_ref": "turn4view0"
+        },
+        {
+          "title": "Back into Plato’s Cave: Examining Cross-modal Representational Convergence at Scale",
+          "url": "https://arxiv.org/html/2604.18572v1",
+          "session_ref": "turn4view3"
+        }
+      ],
+      "search_limit_note": null
+    },
+    {
+      "record_id": "primary_02",
+      "request": {
+        "find": [
+          {
+            "ref_id": "turn4view0",
+            "pattern": "not specific"
+          },
+          {
+            "ref_id": "turn4view0",
+            "pattern": "Random tokens"
+          },
+          {
+            "ref_id": "turn4view3",
+            "pattern": "hub"
+          },
+          {
+            "ref_id": "turn4view3",
+            "pattern": "same modality"
+          }
+        ],
+        "open": [
+          {
+            "ref_id": "https://arxiv.org/abs/2606.25519"
+          },
+          {
+            "ref_id": "https://arxiv.org/abs/2606.13233"
+          },
+          {
+            "ref_id": "https://arxiv.org/abs/2604.14433"
+          }
+        ],
+        "response_length": "long"
+      },
+      "primary_domain_hits": [
+        {
+          "title": "[2606.13233] ReSET: Accurate Latency-Critical NVFP4 Reasoning via Step-Aware Temperature Scaling",
+          "url": "https://arxiv.org/abs/2606.13233",
+          "session_ref": "turn5view1"
+        },
+        {
+          "title": "[2604.14433] Zero-Ablation Overstates Register Content Dependence in DINO Vision Transformers",
+          "url": "https://arxiv.org/abs/2604.14433",
+          "session_ref": "turn5view2"
+        },
+        {
+          "title": "Quantized Reasoning Models Think They Need to Think Longer, but They Do Not",
+          "url": "https://arxiv.org/html/2606.00206v1",
+          "session_ref": "turn5view3"
+        },
+        {
+          "title": "Quantized Reasoning Models Think They Need to Think Longer, but They Do Not",
+          "url": "https://arxiv.org/html/2606.00206v1",
+          "session_ref": "turn5view4"
+        },
+        {
+          "title": "Back into Plato’s Cave: Examining Cross-modal Representational Convergence at Scale",
+          "url": "https://arxiv.org/html/2604.18572v1",
+          "session_ref": "turn5view5"
+        },
+        {
+          "title": "Back into Plato’s Cave: Examining Cross-modal Representational Convergence at Scale",
+          "url": "https://arxiv.org/html/2604.18572v1",
+          "session_ref": "turn5view6"
+        }
+      ],
+      "search_limit_note": null
+    },
+    {
+      "record_id": "primary_03",
+      "request": {
+        "open": [
+          {
+            "ref_id": "https://github.com/eapache/quant-experiments"
+          },
+          {
+            "ref_id": "https://arxiv.org/html/2606.25519"
+          },
+          {
+            "ref_id": "https://arxiv.org/html/2606.13233"
+          },
+          {
+            "ref_id": "https://arxiv.org/abs/2604.11012"
+          }
+        ],
+        "response_length": "long"
+      },
+      "primary_domain_hits": [
+        {
+          "title": "GitHub - eapache/quant-experiments: Experiments in llm quantization and sampling · GitHub",
+          "url": "https://github.com/eapache/quant-experiments",
+          "session_ref": "turn12view0"
+        },
+        {
+          "title": "[2604.11012] Min-$k$ Sampling: Decoupling Truncation from Temperature Scaling via Relative Logit Dynamics",
+          "url": "https://arxiv.org/abs/2604.11012",
+          "session_ref": "turn12view3"
+        }
+      ],
+      "search_limit_note": null
+    },
+    {
+      "record_id": "primary_04",
+      "request": {
+        "open": [
+          {
+            "ref_id": "https://arxiv.org/pdf/2606.13233"
+          },
+          {
+            "ref_id": "https://arxiv.org/pdf/2606.25519"
+          },
+          {
+            "ref_id": "https://arxiv.org/html/2504.04823v2"
+          },
+          {
+            "ref_id": "https://github.com/ruikangliu/Quantized-Reasoning-Models"
+          }
+        ],
+        "response_length": "long"
+      },
+      "primary_domain_hits": [
+        {
+          "title": "ReSET: Accurate Latency-Critical NVFP4 Reasoning via Step-Aware Temperature Scaling",
+          "url": "https://arxiv.org/pdf/2606.13233",
+          "session_ref": "turn13view0"
+        },
+        {
+          "title": "Quantization Inflates Reasoning: Token Inflation as a Hidden Cost of Low-Bit Reasoning Models",
+          "url": "https://arxiv.org/pdf/2606.25519",
+          "session_ref": "turn13view1"
+        },
+        {
+          "title": "Quantization Hurts Reasoning? An Empirical Study on Quantized Reasoning Models",
+          "url": "https://arxiv.org/html/2504.04823v2",
+          "session_ref": "turn13view2"
+        },
+        {
+          "title": "GitHub - ruikangliu/Quantized-Reasoning-Models: [COLM 2025] Official PyTorch implementation of \"Quantization Hurts Reasoning? An Empirical Study on Quantized Reasoning Models\" · GitHub",
+          "url": "https://github.com/ruikangliu/Quantized-Reasoning-Models",
+          "session_ref": "turn13view3"
+        }
+      ],
+      "search_limit_note": null
+    },
+    {
+      "record_id": "primary_05",
+      "request": {
+        "find": [
+          {
+            "ref_id": "turn13view1",
+            "pattern": "temperature"
+          },
+          {
+            "ref_id": "turn13view1",
+            "pattern": "sampling"
+          },
+          {
+            "ref_id": "turn13view2",
+            "pattern": "sampling"
+          },
+          {
+            "ref_id": "turn13view0",
+            "pattern": "top-p"
+          },
+          {
+            "ref_id": "turn13view3",
+            "pattern": "GPTQ"
+          }
+        ],
+        "open": [
+          {
+            "ref_id": "https://arxiv.org/abs/2606.00206"
+          },
+          {
+            "ref_id": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B"
+          },
+          {
+            "ref_id": "https://huggingface.co/datasets/HuggingFaceH4/MATH-500"
+          }
+        ],
+        "response_length": "long"
+      },
+      "primary_domain_hits": [
+        {
+          "title": "[2606.00206] Quantized Reasoning Models Think They Need to Think Longer, but They Do Not",
+          "url": "https://arxiv.org/abs/2606.00206",
+          "session_ref": "turn14view0"
+        },
+        {
+          "title": "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B · Hugging Face",
+          "url": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
+          "session_ref": "turn14view1"
+        },
+        {
+          "title": "HuggingFaceH4/MATH-500 · Datasets at Hugging Face",
+          "url": "https://huggingface.co/datasets/HuggingFaceH4/MATH-500",
+          "session_ref": "turn14view2"
+        },
+        {
+          "title": "Quantization Inflates Reasoning: Token Inflation as a Hidden Cost of Low-Bit Reasoning Models",
+          "url": "https://arxiv.org/pdf/2606.25519",
+          "session_ref": "turn14view3"
+        },
+        {
+          "title": "Quantization Inflates Reasoning: Token Inflation as a Hidden Cost of Low-Bit Reasoning Models",
+          "url": "https://arxiv.org/pdf/2606.25519",
+          "session_ref": "turn14view4"
+        },
+        {
+          "title": "Quantization Hurts Reasoning? An Empirical Study on Quantized Reasoning Models",
+          "url": "https://arxiv.org/html/2504.04823v2",
+          "session_ref": "turn14view5"
+        },
+        {
+          "title": "ReSET: Accurate Latency-Critical NVFP4 Reasoning via Step-Aware Temperature Scaling",
+          "url": "https://arxiv.org/pdf/2606.13233",
+          "session_ref": "turn14view6"
+        },
+        {
+          "title": "GitHub - ruikangliu/Quantized-Reasoning-Models: [COLM 2025] Official PyTorch implementation of \"Quantization Hurts Reasoning? An Empirical Study on Quantized Reasoning Models\" · GitHub",
+          "url": "https://github.com/ruikangliu/Quantized-Reasoning-Models",
+          "session_ref": "turn14view7"
+        }
+      ],
+      "search_limit_note": null
+    },
+    {
+      "record_id": "primary_06",
+      "request": {
+        "open": [
+          {
+            "ref_id": "https://arxiv.org/abs/2608.29934"
+          },
+          {
+            "ref_id": "https://arxiv.org/abs/2608.13956"
+          },
+          {
+            "ref_id": "https://proceedings.iclr.cc/paper_files/paper/2026/hash/d06768735ce7d11ade5baef7099b4e05-Abstract-Conference.html"
+          },
+          {
+            "ref_id": "https://arxiv.org/html/2604.14433v1"
+          }
+        ],
+        "response_length": "long"
+      },
+      "primary_domain_hits": [
+        {
+          "title": "[2608.13956] How retriever redundancy and diversity impact RAG effectiveness",
+          "url": "https://arxiv.org/abs/2608.13956",
+          "session_ref": "turn18view1"
+        },
+        {
+          "title": "Complexity- and Statistics-Guided Anomaly Detection in Time Series Foundation Models",
+          "url": "https://proceedings.iclr.cc/paper_files/paper/2026/hash/d06768735ce7d11ade5baef7099b4e05-Abstract-Conference.html",
+          "session_ref": "turn18view2"
+        },
+        {
+          "title": "Zero-Ablation Overstates Register Content Dependence in DINO Vision Transformers",
+          "url": "https://arxiv.org/html/2604.14433v1",
+          "session_ref": "turn18view3"
+        }
+      ],
+      "search_limit_note": null
+    },
+    {
+      "record_id": "primary_07",
+      "request": {
+        "find": [
+          {
+            "ref_id": "turn4view0",
+            "pattern": "nucleus"
+          },
+          {
+            "ref_id": "turn13view1",
+            "pattern": "mask"
+          },
+          {
+            "ref_id": "turn13view0",
+            "pattern": "counterfactual"
+          },
+          {
+            "ref_id": "turn13view2",
+            "pattern": "top-"
+          }
+        ],
+        "open": [
+          {
+            "ref_id": "https://arxiv.org/pdf/2608.29934"
+          },
+          {
+            "ref_id": "https://arxiv.org/abs/2604.01413"
+          },
+          {
+            "ref_id": "https://arxiv.org/abs/2005.11401"
+          },
+          {
+            "ref_id": "https://huggingface.co/datasets/openai/gsm8k"
+          }
+        ],
+        "response_length": "long"
+      },
+      "primary_domain_hits": [
+        {
+          "title": "Compression-Aware Abstention: Teaching LLMs to Refuse When KV-Compression Masks Remove Answer Evidence",
+          "url": "https://arxiv.org/pdf/2608.29934",
+          "session_ref": "turn19view0"
+        },
+        {
+          "title": "[2604.01413] Adaptive Stopping for Multi-Turn LLM Reasoning",
+          "url": "https://arxiv.org/abs/2604.01413",
+          "session_ref": "turn19view1"
+        },
+        {
+          "title": "[2005.11401] Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+          "url": "https://arxiv.org/abs/2005.11401",
+          "session_ref": "turn19view2"
+        },
+        {
+          "title": "openai/gsm8k · Datasets at Hugging Face",
+          "url": "https://huggingface.co/datasets/openai/gsm8k",
+          "session_ref": "turn19view3"
+        },
+        {
+          "title": "Quantized Reasoning Models Think They Need to Think Longer, but They Do Not",
+          "url": "https://arxiv.org/html/2606.00206v1",
+          "session_ref": "turn19view4"
+        },
+        {
+          "title": "Quantization Inflates Reasoning: Token Inflation as a Hidden Cost of Low-Bit Reasoning Models",
+          "url": "https://arxiv.org/pdf/2606.25519",
+          "session_ref": "turn19view5"
+        },
+        {
+          "title": "ReSET: Accurate Latency-Critical NVFP4 Reasoning via Step-Aware Temperature Scaling",
+          "url": "https://arxiv.org/pdf/2606.13233",
+          "session_ref": "turn19view6"
+        },
+        {
+          "title": "Quantization Hurts Reasoning? An Empirical Study on Quantized Reasoning Models",
+          "url": "https://arxiv.org/html/2504.04823v2",
+          "session_ref": "turn19view7"
+        }
+      ],
+      "search_limit_note": null
+    }
+  ]
+}
